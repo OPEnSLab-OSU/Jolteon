@@ -1,0 +1,64 @@
+HOST TEST> rails off
+mux hello
+ms5803 hello
+rtc alarm
+sd read
+rgb test
+CALL hypnos.disable()
+[INFO] Hypnos rail controls: Rail control call returned; GPIO levels match requested state (not a measured voltage).
+D5=1 D6=0 A3=0
+D5 LOW=3VRAIL ON; D6 HIGH=5VRAIL + HIGHVRAIL ON; A3 HIGH=12V ON.
+Always-on nodes: logic=+3V3, boost=5VOUT, modem=VCC_3.8V (TP20).
+Protocol commands automatically enable Hypnos 3V/5V when needed. rails off remains available.
+Auto power: enabling Hypnos 3V/5V for this command.
+Mux 0x71 control mask=0x00
+[PASS] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+MS5803-02BA channel 4 address=0x76
+MS5803 PROM CRC4 OK; calling Loom_MS5803 initialize/measure.
+[DEBUG] [Loom_MS5803.cpp:initialize:89] Successfully initialized MS5803 at address: 
+0x76
+MS5803 D1=6741488 D2=8889072
+Loom temperature C=23.590 pressure mbar=984.050
+[PASS] MS5803 pressure/temperature: PROM CRC4, fresh raw ADC reads and Loom MS5803-02BA readings checked. Compare with a reference for calibration; previous mux mask restored when possible.
+RTC UTC: 2026-11-04T21:44:47Z | Unix seconds: 1793828687
+Oscillator-stop flag: 0
+[PASS] DS3231 clock: Calendar/tick and oscillator-stop flag checked. Use rtc set <UTC epoch> explicitly if time is invalid; accuracy/backup retention need longer bench tests.
+Alarm arm | readback=1 | control=0x05 | D12=HIGH
+Alarm result | requested s=3 | MCU IRQ=1 | D12 LOW=1 | RTC read=1 | A1F=1 | status=0x01 | elapsed s=3 | clear=1 | D12 released=1
+Alarm arm | readback=1 | control=0x05 | D12=HIGH
+Alarm result | requested s=5 | MCU IRQ=1 | D12 LOW=1 | RTC read=1 | A1F=1 | status=0x01 | elapsed s=5 | clear=1 | D12 released=1
+Alarm diagnostic | 3s=1 | 5s=1 | restore=1
+[PASS] DS3231 alarm/clear: Two fresh alarms, latched A1F, physical LOW and HIGH after clearing, timed replacement, and configuration restoration. Alarm flags are consumed.
+[PASS] SD mount/read: Hardware Feather SPI, D11 select; FAT16/FAT32 mounted (no formatting).
+Card sectors=31116288
+--- SD root directory (name | bytes; directories end in /) ---
+System Volume Information/
+mqtt_creds.json | 167
+HypnosConfig.json | 143
+JLT00000.JSON | 431
+JLT00001.JSON | 487
+Entries listed: 5
+--- SD readback: JLT00001.JSON ---
+{"type":"data","id":{"name":"Jolteon","instance":1},"contents":[{"module":"Packet","data":{"Number":1}},{"module":"LTE","data":{"RSSI":31,"RSSI_cached":false}},{"module":"MS5803","data":{"Temperature_°C":23.47999954,"Pressure_mbar":983.6900024}},{"module":"Bringup","data":{"TestId":"3E5EEFD850305250462E3120FF0A141F-0002A7CD-0A5F7C3B-1"}}],"timestamp":{"time_utc":"2026-11-04T21:43:18Z","time_local":"2026-11-04T13:43:18","time_local_timezone":"PST","time_local_offset_minutes":-480}}
+
+--- End SD readback ---
+[PASS] SD mount/read: Directory and selected/latest retained JSON test file read. SD remains optional for other protocols.
+[DEBUG] [Loom_Neopixel.cpp:initialize:44] Successfully initialized Neopixel
+RGB noise test: connect A0/A1 to known stable inputs or the intended divider/reference circuit. Floating inputs do not establish circuit noise.
+5 seconds each: OFF baseline BEFORE / changing RGB frames / OFF baseline AFTER (about 15 seconds total).
+ADC free-runs during each frame; latest completed conversion is read at frame end. A0/A1 sampled alternately; baseline data pin stays quiet.
+Sampling: BASELINE BEFORE / OFF
+Sampling: PULSING / data active
+Sampling: BASELINE AFTER / OFF
+RGB pin=16 OFF | stored R,G,B=255,255,255
+BASELINE BEFORE / OFF | A0 | samples=22946 | average mV=5.510 | min mV=0.000 | max mV=16.117 | peak-to-peak mV=16.117 | standard deviation mV=1.301 | min/max counts=0/20
+BASELINE BEFORE / OFF | A1 | samples=22946 | average mV=1241.736 | min mV=1031.502 | max mV=1462.637 | peak-to-peak mV=431.136 | standard deviation mV=57.116 | min/max counts=1280/1815
+PULSING / data active | A0 | samples=7045 | average mV=7.483 | min mV=0.000 | max mV=16.923 | peak-to-peak mV=16.923 | standard deviation mV=1.465 | min/max counts=0/21
+PULSING / data active | A1 | samples=7045 | average mV=1305.982 | min mV=997.656 | max mV=1564.982 | peak-to-peak mV=567.326 | standard deviation mV=92.519 | min/max counts=1238/1942
+BASELINE AFTER / OFF | A0 | samples=22952 | average mV=5.337 | min mV=0.000 | max mV=16.117 | peak-to-peak mV=16.117 | standard deviation mV=1.323 | min/max counts=0/20
+BASELINE AFTER / OFF | A1 | samples=22952 | average mV=1240.534 | min mV=1016.996 | max mV=1447.326 | peak-to-peak mV=430.330 | standard deviation mV=57.533 | min/max counts=1262/1796
+A0 pulsing minus BEFORE average mV: 1.973
+A0 AFTER minus BEFORE average mV: -0.173
+A1 pulsing minus BEFORE average mV: 64.245
+A1 AFTER minus BEFORE average mV: -1.202
+[INFO] A2 NeoPixel / A0-A1 noise: Comparative ADC statistics recorded. Judge against the intended input circuit/noise budget; visually confirm pixel colors. Previous RGB state restored.

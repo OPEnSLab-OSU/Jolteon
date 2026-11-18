@@ -1,0 +1,13 @@
+HOST TEST> sleep 10s 3
+Sleep interval: 10 seconds | source: session override
+[DEBUG] [Loom_Hypnos.cpp:registerInterrupt:449] Registering interrupt...
+[DEBUG] [Loom_Hypnos.cpp:registerInterrupt:479] Interrupt successfully attached!
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1113] Current Time (Local): 2026-11-04T13:30:09
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1116] Next interrupt alarm set for: 2026-11-04T13:30:19
+[DEBUG] [Loom_Hypnos.cpp:reattachRTCInterrupt:550] Interrupt successfully reattached!
+Hypnos sleep cycle 1 | requested seconds=10
+CALL hypnos.sleep(); ISR calls hypnos.wakeup(). USB may reconnect.
+[DEBUG] [Loom_Hypnos.cpp:sleepImpl:1239] Entering Standby Sleep...
+[DEBUG] [Loom_Hypnos.cpp:post_sleep:1421] Device has awoken from sleep!
+Hypnos returned | callback=0 | IRQ callback=0 | RTC read=1 | INT pin=HIGH | elapsed RTC seconds=2
+[FAIL] Hypnos standby/wake: Basic Loom Hypnos sleep/wakeup callback and RTC timing checked; SDK owns alarms, standby and power. Standby current needs separate measurement. Prior rails/UART restored.

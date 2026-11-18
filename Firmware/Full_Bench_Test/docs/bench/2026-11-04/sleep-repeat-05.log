@@ -1,0 +1,79 @@
+HOST TEST> sleep 10s 3
+Sleep interval: 10 seconds | source: session override
+[DEBUG] [Loom_Hypnos.cpp:registerInterrupt:449] Registering interrupt...
+[DEBUG] [Loom_Hypnos.cpp:registerInterrupt:479] Interrupt successfully attached!
+Sleep: shutting down LTE through Loom CPWROFF before arming the RTC (3.8V LDO remains on).
+[DEBUG] [Loom_LTE.cpp:power_down:709] Powering down LTE modem.
+[DEBUG] [Loom_LTE.cpp:power_down:718] Requesting LTE modem power-off; the modem will close its data session.
+[DEBUG] [Loom_LTE.cpp:power_down:744] Powering down complete after 3413 ms; LTE is marked off and standby may proceed.
+LTE shutdown complete; modem status/network LEDs should be off during sleep.
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1113] Current Time (Local): 2026-11-04T13:41:14
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1116] Next interrupt alarm set for: 2026-11-04T13:41:24
+[DEBUG] [Loom_Hypnos.cpp:reattachRTCInterrupt:550] Interrupt successfully reattached!
+Hypnos sleep cycle 1 | requested seconds=10
+CALL hypnos.sleep(); ISR calls hypnos.wakeup(). USB may reconnect.
+[WARNING] [Loom_Manager.cpp:power_down:223] LTE Not initialized!
+[DEBUG] [Loom_Hypnos.cpp:sleepImpl:1239] Entering Standby Sleep...
+[DEBUG] [Loom_Hypnos.cpp:post_sleep:1416] Device has awoken from sleep!
+[DEBUG] [Loom_LTE.cpp:power_up:656] Powering up LTE modem.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:481] Using OPEnS/Jolteon R5 startup sequence.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:482] INFO: this uses the OPEnS/Jolteon R5 startup sequence before AT probing.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:487] LTE modem boot attempt 1 / 3
+LTE PWR_ON OPENS pulse HIGH for 1200 ms
+LTE waiting for modem OS for 10000 ms
+LTE UART baud probe: 115200
+LTE UART baud selected: 115200
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:502] Modem answered AT.
+[DEBUG] [Loom_LTE.cpp:power_up:690] Powering up complete!
+Hypnos returned | callback=1 | IRQ callback=1 | RTC read=1 | INT pin=HIGH | elapsed RTC seconds=22
+Sleep: shutting down LTE through Loom CPWROFF before arming the RTC (3.8V LDO remains on).
+[DEBUG] [Loom_LTE.cpp:power_down:709] Powering down LTE modem.
+[DEBUG] [Loom_LTE.cpp:power_down:718] Requesting LTE modem power-off; the modem will close its data session.
+[WARNING] [Loom_LTE.cpp:power_down:735] LTE power-off returned no final reply after 4201 ms, but the modem no longer answers AT; treating it as powered off.
+[DEBUG] [Loom_LTE.cpp:power_down:744] Powering down complete after 5201 ms; LTE is marked off and standby may proceed.
+LTE shutdown complete; modem status/network LEDs should be off during sleep.
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1113] Current Time (Local): 2026-11-04T13:41:42
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1116] Next interrupt alarm set for: 2026-11-04T13:41:52
+[DEBUG] [Loom_Hypnos.cpp:reattachRTCInterrupt:550] Interrupt successfully reattached!
+Hypnos sleep cycle 2 | requested seconds=10
+CALL hypnos.sleep(); ISR calls hypnos.wakeup(). USB may reconnect.
+[WARNING] [Loom_Manager.cpp:power_down:223] LTE Not initialized!
+[DEBUG] [Loom_Hypnos.cpp:sleepImpl:1239] Entering Standby Sleep...
+[DEBUG] [Loom_Hypnos.cpp:post_sleep:1416] Device has awoken from sleep!
+[DEBUG] [Loom_LTE.cpp:power_up:656] Powering up LTE modem.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:481] Using OPEnS/Jolteon R5 startup sequence.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:482] INFO: this uses the OPEnS/Jolteon R5 startup sequence before AT probing.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:487] LTE modem boot attempt 1 / 3
+LTE PWR_ON OPENS pulse HIGH for 1200 ms
+LTE waiting for modem OS for 10000 ms
+LTE UART baud probe: 115200
+LTE UART baud selected: 115200
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:502] Modem answered AT.
+[DEBUG] [Loom_LTE.cpp:power_up:690] Powering up complete!
+Hypnos returned | callback=1 | IRQ callback=1 | RTC read=1 | INT pin=HIGH | elapsed RTC seconds=22
+Sleep: shutting down LTE through Loom CPWROFF before arming the RTC (3.8V LDO remains on).
+[DEBUG] [Loom_LTE.cpp:power_down:709] Powering down LTE modem.
+[DEBUG] [Loom_LTE.cpp:power_down:718] Requesting LTE modem power-off; the modem will close its data session.
+[WARNING] [Loom_LTE.cpp:power_down:735] LTE power-off returned no final reply after 4201 ms, but the modem no longer answers AT; treating it as powered off.
+[DEBUG] [Loom_LTE.cpp:power_down:744] Powering down complete after 5201 ms; LTE is marked off and standby may proceed.
+LTE shutdown complete; modem status/network LEDs should be off during sleep.
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1113] Current Time (Local): 2026-11-04T13:42:10
+[DEBUG] [Loom_Hypnos.cpp:armRTCAlarm:1116] Next interrupt alarm set for: 2026-11-04T13:42:20
+[DEBUG] [Loom_Hypnos.cpp:reattachRTCInterrupt:550] Interrupt successfully reattached!
+Hypnos sleep cycle 3 | requested seconds=10
+CALL hypnos.sleep(); ISR calls hypnos.wakeup(). USB may reconnect.
+[WARNING] [Loom_Manager.cpp:power_down:223] LTE Not initialized!
+[DEBUG] [Loom_Hypnos.cpp:sleepImpl:1239] Entering Standby Sleep...
+[DEBUG] [Loom_Hypnos.cpp:post_sleep:1416] Device has awoken from sleep!
+[DEBUG] [Loom_LTE.cpp:power_up:656] Powering up LTE modem.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:481] Using OPEnS/Jolteon R5 startup sequence.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:482] INFO: this uses the OPEnS/Jolteon R5 startup sequence before AT probing.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:487] LTE modem boot attempt 1 / 3
+LTE PWR_ON OPENS pulse HIGH for 1200 ms
+LTE waiting for modem OS for 10000 ms
+LTE UART baud probe: 115200
+LTE UART baud selected: 115200
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:502] Modem answered AT.
+[DEBUG] [Loom_LTE.cpp:power_up:690] Powering up complete!
+Hypnos returned | callback=1 | IRQ callback=1 | RTC read=1 | INT pin=HIGH | elapsed RTC seconds=22
+[PASS] Hypnos standby/wake: Basic Loom Hypnos sleep/wakeup callback and RTC timing checked; SDK owns alarms, standby and power. Standby current needs separate measurement. Prior rails/UART restored.

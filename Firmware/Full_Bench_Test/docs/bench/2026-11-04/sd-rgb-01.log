@@ -1,0 +1,41 @@
+HOST TEST> sd list
+sd save
+rgb test
+[PASS] SD mount/read: Hardware Feather SPI, D11 select; FAT16/FAT32 mounted (no formatting).
+Card sectors=31116288
+--- SD root directory (name | bytes; directories end in /) ---
+System Volume Information/
+mqtt_creds.json | 167
+HypnosConfig.json | 143
+Entries listed: 3
+[PASS] SD mount/read: Hardware Feather SPI, D11 select; FAT16/FAT32 mounted (no formatting).
+Card sectors=31116288
+MS5803-02BA channel 4 address=0x76
+MS5803 PROM CRC4 OK; calling Loom_MS5803 initialize/measure.
+[DEBUG] [Loom_MS5803.cpp:initialize:89] Successfully initialized MS5803 at address: 
+0x76
+MS5803 D1=6742256 D2=8874352
+Loom temperature C=23.120 pressure mbar=983.230
+[DEBUG] [Loom_Manager.cpp:package:113] ** Packaging **
+[DEBUG] [Loom_Manager.cpp:package:143] ** Packaging Complete **
+[PASS] MS5803 pressure/temperature: PROM CRC4, fresh raw ADC reads and Loom MS5803-02BA readings checked. Compare with a reference for calibration; previous mux mask restored when possible.
+[FAIL] SD JSON save/readback: Need a mounted SD and a valid MS5803/RTC packet.
+[DEBUG] [Loom_Neopixel.cpp:initialize:44] Successfully initialized Neopixel
+RGB noise test: connect A0/A1 to known stable inputs or the intended divider/reference circuit. Floating inputs do not establish circuit noise.
+5 seconds each: OFF baseline BEFORE / changing RGB frames / OFF baseline AFTER (about 15 seconds total).
+ADC free-runs during each frame; latest completed conversion is read at frame end. A0/A1 sampled alternately; baseline data pin stays quiet.
+Sampling: BASELINE BEFORE / OFF
+Sampling: PULSING / data active
+Sampling: BASELINE AFTER / OFF
+RGB pin=16 OFF | stored R,G,B=255,255,255
+BASELINE BEFORE / OFF | A0 | samples=22970 | average mV=4.804 | min mV=0.000 | max mV=12.088 | peak-to-peak mV=12.088 | standard deviation mV=1.239 | min/max counts=0/15
+BASELINE BEFORE / OFF | A1 | samples=22970 | average mV=1241.575 | min mV=1016.190 | max mV=1448.938 | peak-to-peak mV=432.747 | standard deviation mV=57.394 | min/max counts=1261/1798
+PULSING / data active | A0 | samples=7043 | average mV=6.839 | min mV=0.000 | max mV=13.700 | peak-to-peak mV=13.700 | standard deviation mV=1.290 | min/max counts=0/17
+PULSING / data active | A1 | samples=7043 | average mV=1273.542 | min mV=1011.355 | max mV=1547.253 | peak-to-peak mV=535.897 | standard deviation mV=102.123 | min/max counts=1255/1920
+BASELINE AFTER / OFF | A0 | samples=22971 | average mV=4.799 | min mV=0.000 | max mV=18.535 | peak-to-peak mV=18.535 | standard deviation mV=1.230 | min/max counts=0/23
+BASELINE AFTER / OFF | A1 | samples=22971 | average mV=1241.447 | min mV=1012.161 | max mV=1444.103 | peak-to-peak mV=431.941 | standard deviation mV=57.028 | min/max counts=1256/1792
+A0 pulsing minus BEFORE average mV: 2.035
+A0 AFTER minus BEFORE average mV: -0.005
+A1 pulsing minus BEFORE average mV: 31.967
+A1 AFTER minus BEFORE average mV: -0.128
+[INFO] A2 NeoPixel / A0-A1 noise: Comparative ADC statistics recorded. Judge against the intended input circuit/noise budget; visually confirm pixel colors. Previous RGB state restored.

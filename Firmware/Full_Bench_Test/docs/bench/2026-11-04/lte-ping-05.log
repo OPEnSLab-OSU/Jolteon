@@ -1,0 +1,89 @@
+HOST TEST> lte ping
+LTE first use: checking AT before a power pulse.
+LTE already replied OK; keeping it awake without a PWR_ON pulse.
+HOST> AT
+MODEM> 
+OK
+
+[PASS] LTE hello: Modem replied OK to AT; awake and UART responsive.
+HOST> AT+UGPIOC?
+MODEM> 
++UGPIOC:
+
+16,2
+
+19,255
+
+23,10
+
+24,255
+
+25,255
+
+33,255
+
+42,255
+
+46,255
+
+OK
+
+HOST> AT+UGPIOC?
+MODEM> 
++UGPIOC:
+
+16,2
+
+19,255
+
+23,10
+
+24,255
+
+25,255
+
+33,255
+
+42,255
+
+46,255
+
+OK
+
+[PASS] Modem GPIO LEDs: Readback: GPIO1/pad16=network status (mode 2); GPIO2/pad23=module status (mode 10). Matching stored settings are preserved.
+HOST> AT+CPIN?
+MODEM> 
++CPIN: READY
+
+OK
+
+HOST> AT+CFUN?
+MODEM> 
++CFUN: 1,7
+
+OK
+
+LTE: verifying registration and APN data session with Loom; no second PWR_ON pulse.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:467] Retrying an uncertain LTE boot without another PWR_ON pulse.
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:487] LTE modem boot attempt 1 / 3
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:498] Retrying modem initialization without another PWR_ON pulse.
+LTE UART baud probe: 115200
+LTE UART baud selected: 115200
+[DEBUG] [Loom_LTE.cpp:bootModemWithRetries:502] Modem answered AT.
+[DEBUG] [Loom_LTE.cpp:connect:971] LTE connect attempt 1 / 5
+[DEBUG] [Loom_LTE.cpp:tryConnectDataSession:879] Injecting APN profile...
+[DEBUG] [Loom_LTE.cpp:tryConnectDataSession:883] Waiting for network...
+[DEBUG] [Loom_LTE.cpp:tryConnectDataSession:899] Connected to network!
+[DEBUG] [Loom_LTE.cpp:tryConnectDataSession:900] Attempting to connect to LTE Network: hologram
+[DEBUG] [Loom_LTE_SaraR5.cpp:gprsConnect:20] SARA-R5 internal IPv4 profile active on CID 1.
+[DEBUG] [Loom_LTE.cpp:tryConnectDataSession:906] Successfully Connected!
+[PASS] LTE registration: Loom cellular registration/data-session result. MQTT is a separate command.
+Ping through LTE to internet host: 1.1.1.1
+HOST> AT+UPING="1.1.1.1",1,32,5000,64
+MODEM> 
+OK
+
+
++UUPING: 1,32,"one.one.one.one","1.1.1.1",53,141
+Ping RTT milliseconds: 141
+[PASS] LTE internet ping: Received an actual ICMP echo reply through the LTE data session. No MQTT used.

@@ -1,0 +1,90 @@
+{
+  "recorded_at": "2026-11-04T13:52:40.506242-08:00",
+  "board": "Loomified Feather M0 / ATSAMD21G18A",
+  "port": "COM24",
+  "firmware_sha256": "7cb2531dee8bde0a5f241bd45375f88057af3f155e09ed6a187da6f22a6f6b75",
+  "firmware_bytes": 208860,
+  "serial_compile_banner": "Nov 4 2026 13:40:06 Pacific",
+  "upload_verified": true,
+  "hardware_tested": true,
+  "mqtt_test_id": "3E5EEFD850305250462E3120FF0A141F-0002A7CD-0A5F7C3B-1",
+  "mqtt_topic": "Wisp_Pole_Test_2026/Jolteon1",
+  "mqtt_measured_utc": "2026-11-04T21:43:18Z",
+  "mongo_insert_verified": false,
+  "outstanding": [
+    "Full mux scan loses bus after channel 5; USB power cycle recovers it. Channels 6/7 not reached.",
+    "RTC OSF/lost-power flag returned after USB power cycle; backup retention unproven.",
+    "SDI-12 fixture and SPI loopback deferred by user.",
+    "Rail voltage/current and analog fixture/noise budget not measured."
+  ],
+  "logs": [
+    {
+      "path": "docs/bench/2026-11-04/baseline-nosd-05.log",
+      "sha256": "bd0e9a5af9fd893924aca9dc0eeb98a83ec2e79e7f67b52c68e1e067ad616067"
+    },
+    {
+      "path": "docs/bench/2026-11-04/final-protocols-05.log",
+      "sha256": "b3eb53ac975d4c5aaa15f05a8c35f437d063e2fbc62bdddf6e00319fc124714b"
+    },
+    {
+      "path": "docs/bench/2026-11-04/final-recovery-05.log",
+      "sha256": "d0d2c38f7ae843050e9d1e25bb7876ad99062a69d4dcd540fa855dfea8673902"
+    },
+    {
+      "path": "docs/bench/2026-11-04/final-rtc-time-05.log",
+      "sha256": "e3e7597b4119744120d53a80516f025075cbc13181dc57450115f5a7ff1483ee"
+    },
+    {
+      "path": "docs/bench/2026-11-04/lte-ping-05.log",
+      "sha256": "589ace48638c236769276a7538a4346b4315bc55482847a2a325da700d24b32e"
+    },
+    {
+      "path": "docs/bench/2026-11-04/mqtt-05.log",
+      "sha256": "c132c9fd26ddba5129a40884979fb0d21bf9f1ac60e8e2637abf621fa94bdf41"
+    },
+    {
+      "path": "docs/bench/2026-11-04/mux-address-check-05.log",
+      "sha256": "b29d3305cdadf9ec45b754d174610a3918684367a2f07950d3d946b842cdba2e"
+    },
+    {
+      "path": "docs/bench/2026-11-04/mux-after-reset-05.log",
+      "sha256": "c8accbe817fca53af4a4bf762b1188eabcbe2ceb3d49917adbbd47505065e7b9"
+    },
+    {
+      "path": "docs/bench/2026-11-04/mux-recovery-05.log",
+      "sha256": "45d017bf8b958b4199760fd7587be4a83422207b3f6f67aa03e2bc6af136985a"
+    },
+    {
+      "path": "docs/bench/2026-11-04/rtc-alarm-01.log",
+      "sha256": "7ca929a0670811040300327745af5b4f577d57076aca4bf28f5a028cf8b1b45a"
+    },
+    {
+      "path": "docs/bench/2026-11-04/rtc-alarm-02.log",
+      "sha256": "e393981301745aecf609d00edb64dc925673a5b3817cab97ca6bb85158ed670e"
+    },
+    {
+      "path": "docs/bench/2026-11-04/sd-lte-03.log",
+      "sha256": "c20305961c0011fee7ca0372225c4020fca1deeb8f1097b20421ce77d11a6238"
+    },
+    {
+      "path": "docs/bench/2026-11-04/sd-rgb-01.log",
+      "sha256": "ac6a43ec16dc84c9bd3cd80f25fa9bfe8bda7a37c149a48b1cbbcf2d18e5a829"
+    },
+    {
+      "path": "docs/bench/2026-11-04/sleep-02.log",
+      "sha256": "ed3baa4f3922af6c76863235b508312030f0872a103e95ac646566c5899f4812"
+    },
+    {
+      "path": "docs/bench/2026-11-04/sleep-04.log",
+      "sha256": "8e2d38e9116e226b0850767633c9a3c7e59941bc405d9c27a6bd2179a26aac59"
+    },
+    {
+      "path": "docs/bench/2026-11-04/sleep-05.log",
+      "sha256": "390d86e184f9dc0f6802528c431d7a8c231a6e5719927c912a164042fb1ac062"
+    },
+    {
+      "path": "docs/bench/2026-11-04/sleep-repeat-05.log",
+      "sha256": "11ff9b11285a333e2040f49e955341bc80a244f1a13bfa81249cf32c00f779e8"
+    }
+  ]
+}

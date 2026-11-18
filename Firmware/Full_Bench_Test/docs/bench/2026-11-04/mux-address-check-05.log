@@ -1,0 +1,33 @@
+HOST TEST> mux addr 112
+mux hello
+mux addr 113
+mux hello
+mux addr 114
+mux hello
+mux addr 115
+mux hello
+mux addr 116
+mux hello
+mux addr 117
+mux hello
+mux addr 118
+mux hello
+mux addr 119
+mux hello
+mux addr 113
+Mux 0x70 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Mux 0x71 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Mux 0x72 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Mux 0x73 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Mux 0x74 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Mux 0x75 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Mux 0x76 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Mux 0x77 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.

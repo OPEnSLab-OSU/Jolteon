@@ -1,0 +1,12 @@
+HOST TEST> rtc set 1793829087
+rtc show
+rtc test
+mux hello
+RTC UTC: 2026-11-04T21:51:27Z | Unix seconds: 1793829087
+[INFO] DS3231 clock: Explicit time write and OSF clear; run rtc test to verify ticking.
+RTC UTC: 2026-11-04T21:51:27Z | Unix seconds: 1793829087
+RTC UTC: 2026-11-04T21:51:27Z | Unix seconds: 1793829087
+Oscillator-stop flag: 0
+[PASS] DS3231 clock: Calendar/tick and oscillator-stop flag checked. Use rtc set <UTC epoch> explicitly if time is invalid; accuracy/backup retention need longer bench tests.
+Mux 0x71 control mask=0x00
+[PASS] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.

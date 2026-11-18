@@ -1,0 +1,27 @@
+HOST TEST> i2c recover
+mux hello
+rails off
+rails on
+i2c recover
+mux hello
+rtc show
+I2C bus released.
+Mux 0x71 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+CALL hypnos.disable()
+[INFO] Hypnos rail controls: Rail control call returned; GPIO levels match requested state (not a measured voltage).
+D5=1 D6=0 A3=0
+D5 LOW=3VRAIL ON; D6 HIGH=5VRAIL + HIGHVRAIL ON; A3 HIGH=12V ON.
+Always-on nodes: logic=+3V3, boost=5VOUT, modem=VCC_3.8V (TP20).
+Protocol commands automatically enable Hypnos 3V/5V when needed. rails off remains available.
+CALL hypnos.enable(true, true), useSD=false
+Hypnos RTC initialized: 1
+[INFO] Hypnos rail controls: Rail control call returned; GPIO levels match requested state (not a measured voltage).
+D5=0 D6=1 A3=0
+D5 LOW=3VRAIL ON; D6 HIGH=5VRAIL + HIGHVRAIL ON; A3 HIGH=12V ON.
+Always-on nodes: logic=+3V3, boost=5VOUT, modem=VCC_3.8V (TP20).
+Protocol commands automatically enable Hypnos 3V/5V when needed. rails off remains available.
+I2C bus released.
+Mux 0x71 control mask=0x<no reply>
+[FAIL] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+[FAIL] DS3231 clock: Mux did not ACK deselect. Confirm address straps (default 0x71), +3V3, RESET pull-up and bus pull-ups.

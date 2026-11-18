@@ -1,0 +1,94 @@
+HOST TEST> mux hello
+mux expect 4 118
+ms5803 hello
+rtc show
+sd list
+
+============================================================
+JOLTEON BENCH  |  Feather M0  |  Serial 115200
+Compiled (Pacific): Nov  4 2026 13:40:06
+Device: Jolteon  instance: 1
+Protocol commands enable Hypnos 3V/5V; SDI data also enables 12V.
+
+QUICK START
+  baseline [nosd]       Run device checks; SD is optional
+  summary              Show last results
+
+POWER / I2C / SENSOR
+  rails on|off|3|5|status   hypnos enable|disable|status
+  rails 12 on|off       Sensor 12V control
+  mux hello|test       i2c scan|recover
+  mux addr <112..119>   mux expect <channel> <address>
+  ms5803 hello|read [0x76|0x77]
+
+CLOCK / SLEEP
+  rtc show|test|alarm   rtc set compile
+  rtc set 1793836800    Unix UTC seconds
+  rtc set 2026-11-05T00:00:00Z   ISO UTC timestamp
+  sleep                Use SD config/session interval
+  sleep 10s            sleep 1 min       sleep 10s 3
+  sleep set 10s        Session override
+  sleep load [file.json]    sleep save 1min
+  sleep status         Duration 3 seconds..24 hours
+
+SD / SPI
+  sd save (or test)    Save real Loom MS5803 JSON; print readback
+  sd list              List SD root files, sizes and folders
+  sd read [JLT00000.JSON]   List/read latest or selected sample
+  spi loop             Requires MOSI-MISO test jumper
+
+LTE / MQTT
+  lte hello            AT reply, auto wake if needed, LED setup
+  lte on               Explicit power pulse (alias: pulse)
+  lte leds|test|scan    LED modes / status / operator scan
+  lte connect          Register/open APN data session
+  lte ping [1.1.1.1]   LTE data + real internet echo reply
+  lte register [auto|att]    lte credentials|pins
+  mqtt test            Read mqtt_creds.json, save/send/readback
+  device name Jolteon  device instance 1
+  lte bridge           Raw AT console; Ctrl+] exits
+  AT...                One modem command; lte quiet releases UART
+  Attach LTE antenna before RF/network tests.
+
+RGB / ANALOG / SDI-12
+  rgb on               rgb off
+  rgb color r|g|b|y|c|m|w    rgb color 255,255,0
+  rgb test             A0/A1: 5s before, 5s pulsing, 5s after
+  analog A0|A1|A2 [known volts]   analog ref 3.300
+  sdi power on|off     sdi measure 0     sdi 0I!
+============================================================
+
+D5=1 D6=0 A3=0
+D5 LOW=3VRAIL ON; D6 HIGH=5VRAIL + HIGHVRAIL ON; A3 HIGH=12V ON.
+Always-on nodes: logic=+3V3, boost=5VOUT, modem=VCC_3.8V (TP20).
+Protocol commands automatically enable Hypnos 3V/5V when needed. rails off remains available.
+Auto power: enabling Hypnos 3V/5V for this command.
+[DEBUG] [Loom_Manager.cpp:initialize:313] ** Initializing Modules **
+[DEBUG] [Loom_Manager.cpp:initialize:317] Boot reset cause: power-on (raw flags 0x01).
+[DEBUG] [Loom_Manager.cpp:initialize:322] ** Setup Complete ** 
+Mux 0x71 control mask=0x00
+[PASS] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+[PASS] I2C mux: Expected device ACK on selected branch and NACK when isolated. Upstream/duplicate addresses cannot establish isolation with this check.
+MS5803-02BA channel 4 address=0x76
+MS5803 PROM CRC4 OK; calling Loom_MS5803 initialize/measure.
+[DEBUG] [Loom_MS5803.cpp:initialize:89] Successfully initialized MS5803 at address: 
+0x76
+MS5803 D1=6743152 D2=8890736
+Loom temperature C=23.640 pressure mbar=984.610
+[PASS] MS5803 pressure/temperature: PROM CRC4, fresh raw ADC reads and Loom MS5803-02BA readings checked. Compare with a reference for calibration; previous mux mask restored when possible.
+RTC: initialize from sketch compile time when lost/older; preserve a newer clock.
+[DEBUG] [Loom_Hypnos.cpp:initializeRTC:600] Initializing DS3231....
+[WARNING] [Loom_Hypnos.cpp:initializeRTC:619] RTC lost power.
+[DEBUG] [Loom_Hypnos.cpp:initializeRTC:630] RTC fallback: compile timestamp normalized to UTC 2026-11-04T21:40:06Z using offset -480 minutes.
+[DEBUG] [Loom_Hypnos.cpp:initializeRTC:670] DS3231 Real-Time Clock Initialized Successfully!
+[DEBUG] [Loom_Hypnos.cpp:initializeRTC:679] DS3231 current time: 2026-11-04T21:40:06Z
+RTC UTC: 2026-11-04T21:40:06Z | Unix seconds: 1793828406
+[PASS] SD mount/read: Hardware Feather SPI, D11 select; FAT16/FAT32 mounted (no formatting).
+Card sectors=31116288
+--- SD root directory (name | bytes; directories end in /) ---
+System Volume Information/
+mqtt_creds.json | 167
+HypnosConfig.json | 143
+JLT00000.JSON | 431
+JLT00001.JSON | 487
+Entries listed: 5

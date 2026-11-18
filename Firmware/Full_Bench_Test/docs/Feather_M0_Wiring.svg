@@ -1,0 +1,232 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1510" viewBox="0 0 1600 1510">
+<rect width="1600" height="1510" fill="#f4f7fb"/>
+<style>text{font-family:Arial,sans-serif} .title{font-size:32px;font-weight:bold;fill:#172b46} .small{font-size:15px;fill:#526176} .label{font-size:17px;font-weight:bold} .detail{font-size:13px;fill:#3e4f65} .pin{font-size:19px;font-weight:bold;fill:#172b46}</style>
+<text x="45" y="58" class="title">Jolteon Rewire | Feather M0 wiring</text>
+<text x="45" y="91" class="small">Schematic export: October 30, 2026, 09:32 | Top view, USB at top | Arduino labels and SAMD21G18 ports</text>
+<text x="45" y="121" class="small">Header-pad numbers below match the PDF symbol. They are NOT Arduino GPIO numbers.</text>
+<rect x="45" y="150" width="14" height="14" rx="3" fill="#13704e"/>
+<text x="68" y="163" class="small">POWER</text>
+<rect x="253" y="150" width="14" height="14" rx="3" fill="#087f8c"/>
+<text x="276" y="163" class="small">ANALOG</text>
+<rect x="461" y="150" width="14" height="14" rx="3" fill="#a45510"/>
+<text x="484" y="163" class="small">CONTROL</text>
+<rect x="669" y="150" width="14" height="14" rx="3" fill="#6c40a2"/>
+<text x="692" y="163" class="small">SPI</text>
+<rect x="877" y="150" width="14" height="14" rx="3" fill="#2564ac"/>
+<text x="900" y="163" class="small">I2C</text>
+<rect x="1085" y="150" width="14" height="14" rx="3" fill="#b3383c"/>
+<text x="1108" y="163" class="small">UART</text>
+<rect x="1293" y="150" width="14" height="14" rx="3" fill="#657386"/>
+<text x="1316" y="163" class="small">UNUSED</text>
+<rect x="555" y="220" width="490" height="950" rx="28" fill="#fff" stroke="#c5d1df" stroke-width="3"/>
+<rect x="745" y="220" width="110" height="60" rx="10" fill="#dce5ee" stroke="#8798ae"/>
+<text x="769" y="256" class="pin">USB</text>
+<text x="671" y="310" class="title">FEATHER M0</text>
+<rect x="45" y="327" width="460" height="46" rx="7" fill="#fff" stroke="#a45510" stroke-opacity="0.3"/>
+<path d="M 505 350 H 555" stroke="#a45510" stroke-width="3"/>
+<circle cx="575" cy="350" r="7" fill="#a45510"/>
+<text x="57" y="346" class="label" fill="#a45510">GND pushbutton</text>
+<text x="57" y="364" class="detail">Momentary reset; do not use as a GPIO</text>
+<text x="595" y="348" class="pin">RESET</text>
+<text x="595" y="367" class="detail">RESET | pad 1</text>
+<rect x="45" y="377" width="460" height="46" rx="7" fill="#fff" stroke="#657386" stroke-opacity="0.3"/>
+<path d="M 505 400 H 555" stroke="#657386" stroke-width="3"/>
+<circle cx="575" cy="400" r="7" fill="#657386"/>
+<text x="57" y="396" class="label" fill="#657386">No connection drawn</text>
+<text x="57" y="414" class="detail">Carrier +3V3 comes from its own U3 regulator</text>
+<text x="595" y="398" class="pin">3V</text>
+<text x="595" y="417" class="detail">power | pad 2</text>
+<rect x="45" y="427" width="460" height="46" rx="7" fill="#fff" stroke="#657386" stroke-opacity="0.3"/>
+<path d="M 505 450 H 555" stroke="#657386" stroke-width="3"/>
+<circle cx="575" cy="450" r="7" fill="#657386"/>
+<text x="57" y="446" class="label" fill="#657386">AREF net only</text>
+<text x="57" y="464" class="detail">No external reference source shown</text>
+<text x="595" y="448" class="pin">AREF</text>
+<text x="595" y="467" class="detail">PA03 | pad 3</text>
+<rect x="45" y="477" width="460" height="46" rx="7" fill="#fff" stroke="#13704e" stroke-opacity="0.3"/>
+<path d="M 505 500 H 555" stroke="#13704e" stroke-width="3"/>
+<circle cx="575" cy="500" r="7" fill="#13704e"/>
+<text x="57" y="496" class="label" fill="#13704e">Common GND / JP4</text>
+<text x="57" y="514" class="detail">All test instruments and supplies share ground</text>
+<text x="595" y="498" class="pin">GND</text>
+<text x="595" y="517" class="detail">power | pad 4</text>
+<rect x="45" y="527" width="460" height="46" rx="7" fill="#fff" stroke="#087f8c" stroke-opacity="0.3"/>
+<path d="M 505 550 H 555" stroke="#087f8c" stroke-width="3"/>
+<circle cx="575" cy="550" r="7" fill="#087f8c"/>
+<text x="57" y="546" class="label" fill="#087f8c">A0 net</text>
+<text x="57" y="564" class="detail">Analog input; no sensor endpoint shown</text>
+<text x="595" y="548" class="pin">A0 / D14</text>
+<text x="595" y="567" class="detail">PA02 | pad 5</text>
+<rect x="45" y="577" width="460" height="46" rx="7" fill="#fff" stroke="#087f8c" stroke-opacity="0.3"/>
+<path d="M 505 600 H 555" stroke="#087f8c" stroke-width="3"/>
+<circle cx="575" cy="600" r="7" fill="#087f8c"/>
+<text x="57" y="596" class="label" fill="#087f8c">A1 net</text>
+<text x="57" y="614" class="detail">Analog input; no sensor endpoint shown</text>
+<text x="595" y="598" class="pin">A1 / D15</text>
+<text x="595" y="617" class="detail">PB08 | pad 6</text>
+<rect x="45" y="627" width="460" height="46" rx="7" fill="#fff" stroke="#087f8c" stroke-opacity="0.3"/>
+<path d="M 505 650 H 555" stroke="#087f8c" stroke-width="3"/>
+<circle cx="575" cy="650" r="7" fill="#087f8c"/>
+<text x="57" y="646" class="label" fill="#087f8c">A2 net</text>
+<text x="57" y="664" class="detail">Analog input; no sensor endpoint shown</text>
+<text x="595" y="648" class="pin">A2 / D16</text>
+<text x="595" y="667" class="detail">PB09 | pad 7</text>
+<rect x="45" y="677" width="460" height="46" rx="7" fill="#fff" stroke="#a45510" stroke-opacity="0.3"/>
+<path d="M 505 700 H 555" stroke="#a45510" stroke-width="3"/>
+<circle cx="575" cy="700" r="7" fill="#a45510"/>
+<text x="57" y="696" class="label" fill="#a45510">12V_EN -&gt; U5 EN</text>
+<text x="57" y="714" class="detail">HIGH enables sensor 12V boost; LOW disables</text>
+<text x="595" y="698" class="pin">A3 / D17</text>
+<text x="595" y="717" class="detail">PA04 | pad 8</text>
+<rect x="45" y="727" width="460" height="46" rx="7" fill="#fff" stroke="#a45510" stroke-opacity="0.3"/>
+<path d="M 505 750 H 555" stroke="#a45510" stroke-width="3"/>
+<circle cx="575" cy="750" r="7" fill="#a45510"/>
+<text x="57" y="746" class="label" fill="#a45510">LTE_RST -&gt; Q2 gate</text>
+<text x="57" y="764" class="detail">HIGH pulls modem RESET_N LOW; idle LOW</text>
+<text x="595" y="748" class="pin">A4 / D18</text>
+<text x="595" y="767" class="detail">PA05 | pad 9</text>
+<rect x="45" y="777" width="460" height="46" rx="7" fill="#fff" stroke="#a45510" stroke-opacity="0.3"/>
+<path d="M 505 800 H 555" stroke="#a45510" stroke-width="3"/>
+<circle cx="575" cy="800" r="7" fill="#a45510"/>
+<text x="57" y="796" class="label" fill="#a45510">4GONOFF -&gt; Q1 gate</text>
+<text x="57" y="814" class="detail">HIGH pulls modem PWR_ON LOW; idle LOW</text>
+<text x="595" y="798" class="pin">A5 / D19</text>
+<text x="595" y="817" class="detail">PB02 | pad 10</text>
+<rect x="45" y="827" width="460" height="46" rx="7" fill="#fff" stroke="#6c40a2" stroke-opacity="0.3"/>
+<path d="M 505 850 H 555" stroke="#6c40a2" stroke-width="3"/>
+<circle cx="575" cy="850" r="7" fill="#6c40a2"/>
+<text x="57" y="846" class="label" fill="#6c40a2">CLK -&gt; SD CLK / SPI1 pin 3</text>
+<text x="57" y="864" class="detail">Feather SERCOM4 hardware clock</text>
+<text x="595" y="848" class="pin">SCK / D24</text>
+<text x="595" y="867" class="detail">PB11 | pad 11</text>
+<rect x="45" y="877" width="460" height="46" rx="7" fill="#fff" stroke="#6c40a2" stroke-opacity="0.3"/>
+<path d="M 505 900 H 555" stroke="#6c40a2" stroke-width="3"/>
+<circle cx="575" cy="900" r="7" fill="#6c40a2"/>
+<text x="57" y="896" class="label" fill="#6c40a2">DI -&gt; SD CMD / SPI1 pin 5</text>
+<text x="57" y="914" class="detail">Host output, peripheral input</text>
+<text x="595" y="898" class="pin">MOSI / D23</text>
+<text x="595" y="917" class="detail">PB10 | pad 12</text>
+<rect x="45" y="927" width="460" height="46" rx="7" fill="#fff" stroke="#6c40a2" stroke-opacity="0.3"/>
+<path d="M 505 950 H 555" stroke="#6c40a2" stroke-width="3"/>
+<circle cx="575" cy="950" r="7" fill="#6c40a2"/>
+<text x="57" y="946" class="label" fill="#6c40a2">DO -&gt; SD DAT0 / SPI1 pin 6</text>
+<text x="57" y="964" class="detail">Host input, peripheral output</text>
+<text x="595" y="948" class="pin">MISO / D22</text>
+<text x="595" y="967" class="detail">PA12 | pad 13</text>
+<rect x="45" y="977" width="460" height="46" rx="7" fill="#fff" stroke="#b3383c" stroke-opacity="0.3"/>
+<path d="M 505 1000 H 555" stroke="#b3383c" stroke-width="3"/>
+<circle cx="575" cy="1000" r="7" fill="#b3383c"/>
+<text x="57" y="996" class="label" fill="#b3383c">0RX &lt;- U4 B2/A2 &lt;- SARA RXD</text>
+<text x="57" y="1014" class="detail">SARA pin 13 is OUTPUT (DCE naming)</text>
+<text x="595" y="998" class="pin">RX / D0</text>
+<text x="595" y="1017" class="detail">PA11 | pad 14</text>
+<rect x="45" y="1027" width="460" height="46" rx="7" fill="#fff" stroke="#b3383c" stroke-opacity="0.3"/>
+<path d="M 505 1050 H 555" stroke="#b3383c" stroke-width="3"/>
+<circle cx="575" cy="1050" r="7" fill="#b3383c"/>
+<text x="57" y="1046" class="label" fill="#b3383c">1TX -&gt; U4 B1/A1 -&gt; SARA TXD</text>
+<text x="57" y="1064" class="detail">SARA pin 12 is INPUT (DCE naming)</text>
+<text x="595" y="1048" class="pin">TX / D1</text>
+<text x="595" y="1067" class="detail">PA10 | pad 15</text>
+<rect x="45" y="1077" width="460" height="46" rx="7" fill="#fff" stroke="#657386" stroke-opacity="0.3"/>
+<path d="M 505 1100 H 555" stroke="#657386" stroke-width="3"/>
+<circle cx="575" cy="1100" r="7" fill="#657386"/>
+<text x="57" y="1096" class="label" fill="#657386">DFU net on NC symbol pad</text>
+<text x="57" y="1114" class="detail">Standard Feather has no GPIO on this pad</text>
+<text x="595" y="1098" class="pin">NC</text>
+<text x="595" y="1117" class="detail">none | pad 16</text>
+<rect x="1095" y="527" width="460" height="46" rx="7" fill="#fff" stroke="#13704e" stroke-opacity="0.3"/>
+<path d="M 1045 550 H 1095" stroke="#13704e" stroke-width="3"/>
+<circle cx="1019" cy="550" r="7" fill="#13704e"/>
+<text x="1107" y="546" class="label" fill="#13704e">VBAT_FEATHER</text>
+<text x="1107" y="564" class="detail">From BQ_OUT through D2; also feeds U3</text>
+<text x="829" y="548" class="pin">BAT</text>
+<text x="829" y="567" class="detail">power | pad 28</text>
+<rect x="1095" y="577" width="460" height="46" rx="7" fill="#fff" stroke="#657386" stroke-opacity="0.3"/>
+<path d="M 1045 600 H 1095" stroke="#657386" stroke-width="3"/>
+<circle cx="1019" cy="600" r="7" fill="#657386"/>
+<text x="1107" y="596" class="label" fill="#657386">EN3V -&gt; TP18</text>
+<text x="1107" y="614" class="detail">Feather regulator shutdown input; never GPIO</text>
+<text x="829" y="598" class="pin">EN</text>
+<text x="829" y="617" class="detail">power | pad 27</text>
+<rect x="1095" y="627" width="460" height="46" rx="7" fill="#fff" stroke="#13704e" stroke-opacity="0.3"/>
+<path d="M 1045 650 H 1095" stroke="#13704e" stroke-width="3"/>
+<circle cx="1019" cy="650" r="7" fill="#13704e"/>
+<text x="1107" y="646" class="label" fill="#13704e">5VUSB -&gt; D3 -&gt; BQ_IN</text>
+<text x="1107" y="664" class="detail">USB supply node; separate from boosted 5VOUT</text>
+<text x="829" y="648" class="pin">USB</text>
+<text x="829" y="667" class="detail">power | pad 26</text>
+<rect x="1095" y="677" width="460" height="46" rx="7" fill="#fff" stroke="#657386" stroke-opacity="0.3"/>
+<path d="M 1045 700 H 1095" stroke="#657386" stroke-width="3"/>
+<circle cx="1019" cy="700" r="7" fill="#657386"/>
+<text x="1107" y="696" class="label" fill="#657386">Net "13" only</text>
+<text x="1107" y="714" class="detail">No carrier load shown; no automatic heartbeat</text>
+<text x="829" y="698" class="pin">D13</text>
+<text x="829" y="717" class="detail">PA17 | pad 25</text>
+<rect x="1095" y="727" width="460" height="46" rx="7" fill="#fff" stroke="#a45510" stroke-opacity="0.3"/>
+<path d="M 1045 750 H 1095" stroke="#a45510" stroke-width="3"/>
+<circle cx="1019" cy="750" r="7" fill="#a45510"/>
+<text x="1107" y="746" class="label" fill="#a45510">RTC_INT -&gt; DS3231 INT/SQW</text>
+<text x="1107" y="764" class="detail">Active LOW; firmware enables input pull-up</text>
+<text x="829" y="748" class="pin">D12</text>
+<text x="829" y="767" class="detail">PA19 | pad 24</text>
+<rect x="1095" y="777" width="460" height="46" rx="7" fill="#fff" stroke="#6c40a2" stroke-opacity="0.3"/>
+<path d="M 1045 800 H 1095" stroke="#6c40a2" stroke-width="3"/>
+<circle cx="1019" cy="800" r="7" fill="#6c40a2"/>
+<text x="1107" y="796" class="label" fill="#6c40a2">CS_SD -&gt; microSD pin 2</text>
+<text x="1107" y="814" class="detail">LOW selects; R17 pull-up to switched 3VRAIL</text>
+<text x="829" y="798" class="pin">D11</text>
+<text x="829" y="817" class="detail">PA16 | pad 23</text>
+<rect x="1095" y="827" width="460" height="46" rx="7" fill="#fff" stroke="#a45510" stroke-opacity="0.3"/>
+<path d="M 1045 850 H 1095" stroke="#a45510" stroke-width="3"/>
+<circle cx="1019" cy="850" r="7" fill="#a45510"/>
+<text x="1107" y="846" class="label" fill="#a45510">SDI_EN -&gt; U7 DIR</text>
+<text x="1107" y="864" class="detail">HIGH: A-to-B TX; LOW: B-to-A RX</text>
+<text x="829" y="848" class="pin">D10</text>
+<text x="829" y="867" class="detail">PA18 | pad 22</text>
+<rect x="1095" y="877" width="460" height="46" rx="7" fill="#fff" stroke="#a45510" stroke-opacity="0.3"/>
+<path d="M 1045 900 H 1095" stroke="#a45510" stroke-width="3"/>
+<circle cx="1019" cy="900" r="7" fill="#a45510"/>
+<text x="1107" y="896" class="label" fill="#a45510">LOW_SDI12 -&gt; U7 A</text>
+<text x="1107" y="914" class="detail">SDI-12 data; not available for analog sampling</text>
+<text x="829" y="898" class="pin">D9</text>
+<text x="829" y="917" class="detail">PA07 | pad 21</text>
+<rect x="1095" y="927" width="460" height="46" rx="7" fill="#fff" stroke="#13704e" stroke-opacity="0.3"/>
+<path d="M 1045 950 H 1095" stroke="#13704e" stroke-width="3"/>
+<circle cx="1019" cy="950" r="7" fill="#13704e"/>
+<text x="1107" y="946" class="label" fill="#13704e">Q4 + Q5 -&gt; rail switches</text>
+<text x="1107" y="964" class="detail">HIGH enables BOTH 5VRAIL and HIGHVRAIL</text>
+<text x="829" y="948" class="pin">D6</text>
+<text x="829" y="967" class="detail">PA20 | pad 20</text>
+<rect x="1095" y="977" width="460" height="46" rx="7" fill="#fff" stroke="#13704e" stroke-opacity="0.3"/>
+<path d="M 1045 1000 H 1095" stroke="#13704e" stroke-width="3"/>
+<circle cx="1019" cy="1000" r="7" fill="#13704e"/>
+<text x="1107" y="996" class="label" fill="#13704e">PMOS2 gate -&gt; 3VRAIL</text>
+<text x="1107" y="1014" class="detail">LOW enables 3VRAIL; HIGH disables</text>
+<text x="829" y="998" class="pin">D5</text>
+<text x="829" y="1017" class="detail">PA15 | pad 19</text>
+<rect x="1095" y="1027" width="460" height="46" rx="7" fill="#fff" stroke="#2564ac" stroke-opacity="0.3"/>
+<path d="M 1045 1050 H 1095" stroke="#2564ac" stroke-width="3"/>
+<circle cx="1019" cy="1050" r="7" fill="#2564ac"/>
+<text x="1107" y="1046" class="label" fill="#2564ac">SCL -&gt; RTC + TCA9548A</text>
+<text x="1107" y="1064" class="detail">R10 pull-up to switched 3VRAIL</text>
+<text x="829" y="1048" class="pin">SCL / D21</text>
+<text x="829" y="1067" class="detail">PA23 | pad 18</text>
+<rect x="1095" y="1077" width="460" height="46" rx="7" fill="#fff" stroke="#2564ac" stroke-opacity="0.3"/>
+<path d="M 1045 1100 H 1095" stroke="#2564ac" stroke-width="3"/>
+<circle cx="1019" cy="1100" r="7" fill="#2564ac"/>
+<text x="1107" y="1096" class="label" fill="#2564ac">SDA -&gt; RTC + TCA9548A</text>
+<text x="1107" y="1114" class="detail">R9 pull-up to switched 3VRAIL</text>
+<text x="829" y="1098" class="pin">SDA / D20</text>
+<text x="829" y="1117" class="detail">PA22 | pad 17</text>
+<text x="590" y="1187" class="detail">UART labels follow u-blox DCE input/output definitions.</text>
+<rect x="45" y="1220" width="1510" height="240" rx="14" fill="#fff" stroke="#c5d1df"/>
+<text x="66" y="1252" class="label" fill="#13704e">POWER RAIL REFERENCE</text>
+<text x="66" y="1281" class="small">+3V3, 5VOUT and modem VCC_3.8V stay powered when D5/D6 turn the switched rails off.</text>
+<text x="66" y="1308" class="small">Optional probe points: +3V3, 5VOUT, 3VRAIL, 5VRAIL, TP20 modem supply and J_SDI12 pin 1 (12V).</text>
+<text x="66" y="1335" class="small">3V|5V probing header: pin 1 = 3VRAIL, pin 2 = 5VRAIL. J_SDI12: 1 = 12V, 2 = DATA, 3 = GND.</text>
+<text x="66" y="1362" class="small">UART function: Feather TX -&gt; translator -&gt; SARA TXD (input); SARA RXD (output) -&gt; translator -&gt; Feather RX.</text>
+<text x="66" y="1389" class="small">Mux: A0 tied HIGH, A1/A2 pulled LOW =&gt; 0x71; channels 0-3 gas, 4 pressure, 5-7 terminal I2C.</text>
+<text x="66" y="1416" class="small">SPI1 connector: 1 = 5VOUT, 2 = +3V3, 3 = CLK, 4 = GND, 5 = DI/MOSI, 6 = DO/MISO.</text>
+<text x="66" y="1443" class="small">A0-A2 accept only 0..3.3V. D9 is SDI data. Do not connect 5V/12V or tie the independent 3V supplies together.</text>
+<text x="45" y="1490" class="small">Source: docs/Jolteon_Rewire.pdf + installed Loomified Feather M0 variant. Schematic-derived; physical continuity untested.</text>
+</svg>

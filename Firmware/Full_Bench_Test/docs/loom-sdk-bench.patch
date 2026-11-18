@@ -1,0 +1,611 @@
+--- a/src/Hardware/Actuators/Loom_Neopixel/Loom_Neopixel.cpp
++++ b/src/Hardware/Actuators/Loom_Neopixel/Loom_Neopixel.cpp
+@@ -26,10 +26,10 @@
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ void Loom_Neopixel::initialize() {
+     FUNCTION_START;
+-    // Set pin mode on enabled pins (pins A0-A5 = 14-19)
++    // Configure only enabled ports, using their selected data pins.
+     for (int i = 0; i < 3; i++) {
+         if (enabledPins[i]) {
+-            pinMode(14 + i, OUTPUT);
++            pinMode(pixels[i].getPin(), OUTPUT);
+         }
+     }
+ 
+@@ -65,8 +65,7 @@
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ void Loom_Neopixel::set_color(const uint8_t port, const uint8_t chain_num, const uint8_t red,
+-                              const uint8_t green, const uint8_t blue) {
+-    FUNCTION_START;
++                              const uint8_t green, const uint8_t blue, const bool showNow) {
+     if (port >= 3) {
+         ERRORF("Invalid Neopixel port %u; expected 0 through 2.", port);
+         return;
+@@ -80,13 +79,29 @@
+         pixels[port].setPixelColor(chain_num, pixels[port].Color(red, green, blue));
+ 
+         // Update colors displayed by Neopixel
+-        pixels[port].show();
++        if (showNow) pixels[port].show();
+     } else {
+         WARNINGF("Neopixel not enabled on port %u", port);
+     }
+-    FUNCTION_END;
+ }
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
++
++bool Loom_Neopixel::configure_port(uint8_t port, int16_t pin, uint16_t count,
++                                   uint8_t brightness) {
++    if (port >= 3 || pin < 0 || count == 0 || count > 256) return false;
++    pixels[port].setPin(pin);
++    pixels[port].updateLength(count);
++    pixels[port].setBrightness(brightness);
++    return pixels[port].numPixels() == count;
++}
++
++void Loom_Neopixel::show(uint8_t port) {
++    if (port < 3 && enabledPins[port]) pixels[port].show();
++}
++
++bool Loom_Neopixel::can_show(uint8_t port) {
++    return port < 3 && enabledPins[port] && pixels[port].canShow();
++}
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ void Loom_Neopixel::enable_pin(const uint8_t port, const bool state) {
+@@ -97,7 +112,7 @@
+     }
+     enabledPins[port] = state;
+     if (state) {
+-        pinMode(14 + port, OUTPUT);
++        pinMode(pixels[port].getPin(), OUTPUT);
+         pixels[port].begin();
+         pixels[port].show();
+     }
+--- a/src/Hardware/Actuators/Loom_Neopixel/Loom_Neopixel.h
++++ b/src/Hardware/Actuators/Loom_Neopixel/Loom_Neopixel.h
+@@ -54,9 +54,20 @@
+      * @param red The red value (0-255)
+      * @param green The green value (0-255)
+      * @param blue The blue value (0-255)
++     * @param showNow Send immediately (default), or stage until show(port).
+      */
+     void set_color(const uint8_t port, const uint8_t chain_num, const uint8_t red,
+-                   const uint8_t green, const uint8_t blue);
++                   const uint8_t green, const uint8_t blue, const bool showNow = true);
++
++    // Configure before initialize(). Disabled ports stay untouched. At most 256
++    // pixels are addressable by the existing uint8_t chain_num API.
++    bool configure_port(uint8_t port, int16_t pin, uint16_t count = 1,
++                        uint8_t brightness = 255);
++
++    // Staged set_color(..., false) plus show() lets callers align a frame with
++    // another peripheral. These two timing methods do not emit serial logs.
++    void show(uint8_t port);
++    bool can_show(uint8_t port);
+ 
+     /**
+      * Enable or disable a given Neopixel pin
+@@ -72,4 +83,4 @@
+     Adafruit_NeoPixel pixels[3]; // Allows users to control up to 3 different LED strips at once
+ 
+     bool enabledPins[3]; // Which of the three control pins is enabled
+-};
+\ No newline at end of file
++};
+--- a/src/Hardware/Loom_Hypnos/Loom_Hypnos.cpp
++++ b/src/Hardware/Loom_Hypnos/Loom_Hypnos.cpp
+@@ -59,6 +59,26 @@
+     }
+ #else
+     (void)interruptPin;
++#endif
++}
++
++void attachHypnosInterrupt(int pin,InterruptCallbackFunction callback,
++                           HypnosInterruptType type,int trigger) {
++#if defined(ARDUINO_ARCH_SAMD)
++    const uint32_t priorMask=__get_PRIMASK();
++    __disable_irq();
++#endif
++    if (type==SLEEP) LowPower.attachInterruptWakeup(pin,callback,trigger);
++    else attachInterrupt(digitalPinToInterrupt(pin),callback,trigger);
++#if defined(ARDUINO_ARCH_SAMD)
++    // Reconnecting a LOW-sensitive EIC input can leave a stale level during
++    // pin-mux/clock synchronization. Do not dispatch it to the sketch callback.
++    // Preserve a genuinely asserted RTC alarm instead of clearing its wake.
++    if (pin==12 && trigger==LOW) {
++        delayMicroseconds(200);
++        if (digitalRead(pin)==HIGH) clearPendingExternalInterrupt(pin);
++    }
++    __set_PRIMASK(priorMask);
+ #endif
+ }
+ 
+@@ -455,10 +475,10 @@
+         // device from sleep
+         if (interruptType == SLEEP) {
+             sleepInterruptPin = interruptPin;
+-            LowPower.attachInterruptWakeup(interruptPin, isrFunc, triggerState);
++            attachHypnosInterrupt(interruptPin,isrFunc,interruptType,triggerState);
+             LOG(F("Interrupt successfully attached!"));
+         } else {
+-            attachInterrupt(digitalPinToInterrupt(interruptPin), isrFunc, triggerState);
++            attachHypnosInterrupt(interruptPin,isrFunc,interruptType,triggerState);
+             LOG(F("Interrupt successfully attached!"));
+         }
+         // Assignment intentionally replaces an older registration for this pin.
+@@ -526,14 +546,7 @@
+     }
+ 
+     clearPendingExternalInterrupt(interruptPin);
+-    if (interruptType != SLEEP) {
+-
+-        attachInterrupt(digitalPinToInterrupt(interruptPin), registered->callback,
+-                        registered->triggerState);
+-    } else {
+-        LowPower.attachInterruptWakeup(interruptPin, registered->callback,
+-                                       registered->triggerState);
+-    }
++    attachHypnosInterrupt(interruptPin,registered->callback,interruptType,registered->triggerState);
+     LOG(F("Interrupt successfully reattached!"));
+     FUNCTION_END;
+     return true;
+@@ -550,6 +563,7 @@
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ void Loom_Hypnos::setCompileTime(const char *buildDate, const char *buildTime) {
++    explicitBuildZone = false;
+     strncpy(sketchCompileDate, buildDate ? buildDate : "", sizeof(sketchCompileDate) - 1);
+     strncpy(sketchCompileTime, buildTime ? buildTime : "", sizeof(sketchCompileTime) - 1);
+     sketchCompileDate[sizeof(sketchCompileDate) - 1] = '\0';
+@@ -558,6 +572,24 @@
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
++void Loom_Hypnos::setCompileTime(const char *buildDate, const char *buildTime, TIME_ZONE buildZone) {
++    setCompileTime(buildDate, buildTime);
++    sketchBuildZone = buildZone;
++    explicitBuildZone = true;
++}
++
++bool Loom_Hypnos::setTimezone(const char *name) {
++    TIME_ZONE selected;
++    if (!timezoneFromName(name, selected)) return false;
++    timezone = selected;
++    return true;
++}
++
++bool Loom_Hypnos::setRTCFromCompileTime() {
++    if (!sketchCompileDate[0] || !sketchCompileTime[0] || !RTC_DS.begin()) return false;
++    return writeRtcUtc(compileUtcTime(explicitBuildZone ? sketchBuildZone : timezone, sketchCompileDate, sketchCompileTime));
++}
++
+ void Loom_Hypnos::initializeRTC() {
+     FUNCTION_START(this);
+     if (fileTimestampHypnos == this) {
+@@ -576,6 +608,7 @@
+     // This may end up causing a problem in practice - what if RTC loses power in field? Shouldn't
+     // happen with coin cell batt backup
+     const bool hasSketchCompileTime = sketchCompileDate[0] != '\0' && sketchCompileTime[0] != '\0';
++    const TIME_ZONE buildZone = explicitBuildZone ? sketchBuildZone : timezone;
+     const bool rtcLostPower = RTC_DS.lostPower();
+     if (!RTC_DS.lastOperationSucceeded()) {
+         ERRORF("Could not read DS3231 status register (I2C error %u).",
+@@ -587,10 +620,10 @@
+ 
+         if (hasSketchCompileTime) {
+             const DateTime compileLocal = compileLocalTime(sketchCompileDate, sketchCompileTime);
+-            const bool compileDaylight = isDaylightSavingsForLocalWallTime(compileLocal, timezone);
++            const bool compileDaylight = isDaylightSavingsForLocalWallTime(compileLocal, buildZone);
+             const int16_t compileOffsetMinutes =
+-                timezoneOffsetMinutes(timezone) + (compileDaylight ? 60 : 0);
+-            const DateTime compileUTC = compileUtcTime(timezone, sketchCompileDate, sketchCompileTime);
++                timezoneOffsetMinutes(buildZone) + (compileDaylight ? 60 : 0);
++            const DateTime compileUTC = compileUtcTime(buildZone, sketchCompileDate, sketchCompileTime);
+             char compileText[21];
+             dateTime_toString(compileUTC, compileText);
+             LOGF("RTC fallback: compile timestamp normalized to UTC %s using offset %i minutes.",
+@@ -610,7 +643,7 @@
+                       "perform a network time update."));
+         }
+     } else if (hasSketchCompileTime) {
+-        const DateTime compileUTC = compileUtcTime(timezone, sketchCompileDate, sketchCompileTime);
++        const DateTime compileUTC = compileUtcTime(buildZone, sketchCompileDate, sketchCompileTime);
+         const DateTime rtcTime = RTC_DS.now();
+         if (!RTC_DS.lastOperationSucceeded()) {
+             ERRORF("Could not read DS3231 time (I2C error %u).",
+@@ -965,6 +998,26 @@
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
++bool Loom_Hypnos::scheduleWakeAt(const DateTime &utc) {
++    FUNCTION_START(this);
++    sampleIntervalSeconds = 0;
++    nextSampleUtc = 0;
++    alarmScheduled = false;
++
++    DateTime now;
++    if (utc.year() > 2099 || !utc.isValid() || !tryGetCurrentTime(now)) {
++        return false;
++    }
++    const uint32_t target = utc.unixtime();
++    const uint32_t current = now.unixtime();
++    if (target <= current || target - current > loomTime::MAX_RTC_WAKE_DELAY_SECONDS) {
++        return false;
++    }
++    const bool scheduled = armRTCAlarm(utc);
++    FUNCTION_END;
++    return scheduled;
++}
++
+ bool Loom_Hypnos::setSampleInterval(const TimeSpan interval) {
+     return setSampleInterval(interval, false);
+ }
+@@ -1259,7 +1312,12 @@
+             // restore its exact configuration before wake I/O. A configured wake guard below
+             // deliberately takes precedence over that restored timeout.
+             LoomWatchdogPause watchdogPause;
+-            LowPower.sleep();
++            do {
++                if (!rtcWakeSource || digitalRead(sleepInterruptPin)!=LOW) LowPower.sleep();
++            // USB/SysTick or another enabled interrupt can return WFI early.
++            // The DS3231 output stays LOW until post_sleep acknowledges it;
++            // do not restore rails or consume a future alarm on an unrelated wake.
++            } while (rtcWakeSource && digitalRead(sleepInterruptPin)!=LOW);
+         }
+         enableWakeWatchdog();
+     }
+--- a/src/Hardware/Loom_Hypnos/Loom_Hypnos.h
++++ b/src/Hardware/Loom_Hypnos/Loom_Hypnos.h
+@@ -210,6 +210,9 @@
+      */
+     bool scheduleWake(const TimeSpan duration);
+ 
++    /** Schedule a checked one-shot alarm at an absolute UTC deadline. */
++    bool scheduleWakeAt(const DateTime &utc);
++
+     /**
+      * Keep sample starts on a fixed UTC interval, including time spent measuring/uploading.
+      * Call at the TOP of loop(), before measuring, then call sleep() after logging. The first
+@@ -291,6 +294,12 @@
+ 
+     /** Supply sketch-level __DATE__/__TIME__ before enable(). */
+     void setCompileTime(const char *buildDate, const char *buildTime);
++    void setCompileTime(const char *buildDate, const char *buildTime, TIME_ZONE buildZone);
++
++    /** Explicitly reset UTC to the supplied sketch compile time; caller supplies Wire. */
++    bool setRTCFromCompileTime();
++    /** Select the same named timezones accepted by getConfigFromSD(), without SD ownership. */
++    bool setTimezone(const char *name);
+ 
+     /**
+      * Load the configuration for the hypnos from the SD card (Timezeone and sleep interval)
+@@ -418,6 +427,8 @@
+     bool custom_time = false; // Set the RTC to a user specified time
+     char sketchCompileDate[12] = {};
+     char sketchCompileTime[9] = {};
++    TIME_ZONE sketchBuildZone = TIME_ZONE::GMT;
++    bool explicitBuildZone = false;
+ 
+     /* Voltage check bitmaps 0-7 LSB-first */
+     static constexpr uint8_t VF_CHECKED = (1u << 0);    // 00000001 | 0x01
+--- a/src/Internet/Connectivity/Loom_LTE/Loom_LTE.cpp
++++ b/src/Internet/Connectivity/Loom_LTE/Loom_LTE.cpp
+@@ -601,6 +601,28 @@
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
++bool Loom_LTE::initializeFromAwake() {
++    LoomWatchdogPause watchdogPause;
++    // Silence here cannot establish OFF: this path intentionally never pulses power/reset.
++    powerMayBeOn = true;
++    moduleInitialized = false;
++    uartBaud = isSaraR5() ? LOOM_LTE_R5_UART_BAUD : 9600UL;
++    SerialAT.begin(uartBaud);
++    if (!bootModemWithRetries(false)) return false;
++    moduleInitialized = true;
++    firstInitialization = false;
++    return connect();
++}
++
++bool Loom_LTE::shutdownForSleep() {
++    // Console/AT passthrough use can turn hardware on before initialize().
++    // Treat that state as uncertain and use the same checked shutdown as Loom.
++    SerialAT.begin(uartBaud);
++    powerMayBeOn=true;
++    power_down();
++    return canRemovePower();
++}
++
+ void Loom_LTE::power_up() {
+     // Power-up only proves that the modem can answer AT and be initialized.
+     // Cellular registration and APN/PDP activation happen in connect().
+@@ -827,6 +849,7 @@
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ void Loom_LTE::logNetworkDiagnostics() {
++    logRawAT("AT+CEER", 3000L); // Capture the cause before other diagnostic queries.
+     logRawAT("AT+CPIN?", 3000L);
+     logRawAT("AT+CSQ", 3000L);
+     logRawAT("AT+CEREG?", 3000L);
+@@ -835,7 +858,13 @@
+     logRawAT("AT+CGATT?", 3000L);
+     logRawAT("AT+CGACT?", 3000L);
+     logRawAT("AT+CGPADDR=1", 3000L);
+-    logRawAT("AT+CEER", 3000L);
++    if (isSaraR5()) {
++        logRawAT("AT+UPSD=0,1", 3000L);
++        logRawAT("AT+UPSD=0,0", 3000L);
++        logRawAT("AT+UPSD=0,100", 3000L);
++        logRawAT("AT+UPSND=0,8", 3000L);
++        logRawAT("AT+UPSND=0,0", 3000L);
++    }
+     logSimDiagnostic();
+     logRegistrationDiagnostic();
+     logSignalDiagnostic();
+@@ -869,8 +898,10 @@
+ 
+     LOG(F("Connected to network!"));
+     LOGF("Attempting to connect to LTE Network: %s", apnName);
+-    modem->gprsDisconnect();
+-    delay(500);
++    if (!isSaraR5()) {
++        modem->gprsDisconnect();
++        delay(500);
++    } // R5 keeps cellular registration; its adapter configures the internal profile.
+     if (modem->gprsConnect(apnName, apnUsername, apnPassword)) {
+         LOG(F("Successfully Connected!"));
+         delay(6000);
+--- a/src/Internet/Connectivity/Loom_LTE/Loom_LTE.h
++++ b/src/Internet/Connectivity/Loom_LTE/Loom_LTE.h
+@@ -203,6 +203,13 @@
+      */
+     void initialize() override;
+ 
++    /** Adopt an already AT-responsive modem without pulsing PWR_ON or RESET_N.
++     * The caller owns board power sequencing. Also opens/reuses the cellular data session. */
++    bool initializeFromAwake();
++    /** Shut down an externally awakened modem without booting or connecting it.
++     * Uses the normal checked CPWROFF path; call before scheduling a short sleep. */
++    bool shutdownForSleep();
++
+     /**
+      * Apply board power sequencing and bring the modem to an AT-ready state.
+      * Carrier registration and APN/PDP activation are handled by connect().
+--- a/src/Internet/Connectivity/Loom_LTE/Loom_LTE_SaraR5.cpp
++++ b/src/Internet/Connectivity/Loom_LTE/Loom_LTE_SaraR5.cpp
+@@ -5,7 +5,21 @@
+ LOOM_EXTERNAL_INCLUDE_END
+ 
+ #include "Loom_LTE_TinyGsmAdapter.h"
++#include "Loom_LTE_SaraR5Data.h"
++#include "Logger.h"
+ 
+-using SaraR5Adapter = Loom_LTE_TinyGsmAdapter<TinyGsmSaraR5, TinyGsmSaraR5::GsmClientSaraR5>;
++class SaraR5Adapter : public Loom_LTE_TinyGsmAdapter<TinyGsmSaraR5, TinyGsmSaraR5::GsmClientSaraR5> {
++  public:
++    explicit SaraR5Adapter(Stream &stream) : Loom_LTE_TinyGsmAdapter(stream) {}
++    bool gprsConnect(const char *apn,const char *user,const char *pass) override {
++        const char *failed=loomSaraR5OpenData(modem,apn,user,pass);
++        if (failed) { ERRORF("SARA-R5 data setup failed at: %s",failed); return false; }
++        // Activation OK alone is insufficient: require the actual internal IP.
++        const IPAddress address=modem.localIP();
++        if (address==IPAddress(0,0,0,0)) { ERROR(F("SARA-R5 internal profile has no IPv4 address.")); return false; }
++        LOG(F("SARA-R5 internal IPv4 profile active on CID 1."));
++        return true;
++    }
++};
+ 
+ Loom_LTE_Modem *createSaraR5LteModem(Stream &stream) { return new SaraR5Adapter(stream); }
+--- /dev/null
++++ b/src/Internet/Connectivity/Loom_LTE/Loom_LTE_SaraR5Data.h
+@@ -0,0 +1,51 @@
++#pragma once
++#include <stddef.h>
++
++// R5 uses the CID 1 that Loom's setPdpContext() explicitly configures. Do not
++// rediscover it by comparing CGDCONT APNs: networks may append .mnc...mcc...gprs.
++// UBX-19047455 sections 14.6/14.7: set profile APN BEFORE mapping it to the CID.
++// The bundled TinyGSM R5 routine omits that step and parses CGDCONT unsafely.
++inline bool loomSaraR5QuotedValue(const char *text,size_t limit,bool required=false) {
++    if (!text) return !required;
++    size_t length=0;
++    for (;text[length];++length) {
++        const unsigned char ch=text[length];
++        if (length>=limit || ch<32 || ch>126 || ch=='"' || ch=='\\') return false;
++    }
++    return !required || length>0;
++}
++
++// Returns the failed stage (never credentials), or nullptr on success.
++// Templated only to exercise this actual AT sequence with a transcript in host tests.
++template<class Modem>
++const char *loomSaraR5OpenData(Modem &modem,const char *apn,const char *user,const char *pass) {
++    if (!loomSaraR5QuotedValue(apn,99,true) || !loomSaraR5QuotedValue(user,50) ||
++        !loomSaraR5QuotedValue(pass,50)) return "invalid APN/authentication fields";
++    modem.sendAT(F("+CMEE=2"));
++    if (modem.waitResponse(3000L)!=1) return "enable verbose errors";
++
++    // Deactivate the internal profile; ERROR is expected when already inactive.
++    // A timeout is different: never send a new command over an unfinished action.
++    modem.sendAT(F("+UPSDA=0,4"));
++    if (modem.waitResponse(180000L)==0) return "deactivate internal profile (timeout)";
++    if ((user && *user) || (pass && *pass)) {
++        // R5 does not support UPSD user/password parameters. UAUTHREQ requires
++        // a defined, inactive CID; configure it before attaching/activating.
++        modem.sendAT(F("+CGACT=0,1"));
++        if (modem.waitResponse(180000L)!=1) return "deactivate CID 1 for authentication";
++        modem.sendAT(F("+UAUTHREQ=1,3,\""),user?user:"",F("\",\""),pass?pass:"",F("\""));
++        if (modem.waitResponse(10000L)!=1) return "configure CID 1 authentication";
++    }
++    modem.sendAT(F("+CGATT=1"));
++    if (modem.waitResponse(180000L)!=1) return "packet-service attach";
++    modem.sendAT(F("+UPSD=0,1,\""),apn,F("\""));
++    if (modem.waitResponse(10000L)!=1) return "set internal profile APN";
++    // Loom configures CGDCONT CID 1 as IP (IPv4). Match that protocol before activation.
++    modem.sendAT(F("+UPSD=0,0,0"));
++    if (modem.waitResponse(10000L)!=1) return "set internal profile IPv4";
++    modem.sendAT(F("+UPSD=0,100,1"));
++    if (modem.waitResponse(10000L)!=1) return "map internal profile to CID 1";
++    modem.sendAT(F("+UPSDA=0,3"));
++    if (modem.waitResponse(180000L)!=1) return "activate internal profile";
++    return nullptr;
++}
+--- a/src/Internet/Connectivity/Loom_LTE/Loom_LTE_TinyGsmAdapter.h
++++ b/src/Internet/Connectivity/Loom_LTE/Loom_LTE_TinyGsmAdapter.h
+@@ -40,7 +40,7 @@
+     }
+     Client *getClient() override { return &client; }
+ 
+-  private:
++  protected:
+     ModemType modem;
+     ClientType client;
+ };
+--- a/src/Internet/Logging/Loom_MongoDB/Loom_MongoDB.h
++++ b/src/Internet/Logging/Loom_MongoDB/Loom_MongoDB.h
+@@ -21,6 +21,10 @@
+     void package() override {};
+ 
+   public:
++    /** Borrow the exact normal publish topic, or nullptr for an invalid identity/config.
++     * The string remains owned by this module and is rebuilt after an identity change. */
++    const char *getPublishTopic() { return buildTopic() ? topic : nullptr; }
++
+     /**
+      * Construct a new MQTT interface
+      * @param man Reference to the manager
+--- a/src/Internet/Logging/MQTTComponent/MQTTComponent.h
++++ b/src/Internet/Logging/MQTTComponent/MQTTComponent.h
+@@ -110,6 +110,12 @@
+     int port;          // Port the broker is listening on
+ 
+   public:
++    /** Borrow the configured MQTT client for explicit diagnostics such as subscribing
++     * before publishing a test packet. Clear diagnostic callbacks when finished;
++     * do not access this stream concurrently with publish/retained-message operations. */
++    MqttClient &getMQTTClient() { return mqttClient; }
++    bool connectForDiagnostics() { return connectToBroker(); }
++
+     /**
+      * Constructor for base MQTTComponent
+      *
+--- a/src/Loom_Manager.cpp
++++ b/src/Loom_Manager.cpp
+@@ -165,7 +165,10 @@
+     }
+ 
+     JsonObject moduleEntry = contents.createNestedObject();
+-    moduleEntry["module"] = safeModuleName;
++    // ArduinoJson borrows const char* but copies mutable char*. Packet labels
++    // must survive temporary/mux sensor objects and later module renaming.
++    // The cast selects copying; ArduinoJson never modifies the source text.
++    moduleEntry["module"] = const_cast<char *>(safeModuleName);
+     return moduleEntry.createNestedObject("data");
+ }
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+--- a/tests/Core_Boundaries/test_manager_lifecycle.cpp
++++ b/tests/Core_Boundaries/test_manager_lifecycle.cpp
+@@ -78,6 +78,15 @@
+ }
+ 
+ int main() {
++    {
++        Manager packet("label-lifetime",1);
++        char temporaryName[]="MS5803-02BA";
++        packet.get_data_object(temporaryName)["Pressure_mbar"]=1000;
++        std::memset(temporaryName,'X',sizeof(temporaryName)-1);
++        assert(std::strcmp(packet.getDocument()["contents"][0]["module"].as<const char *>(),"MS5803-02BA")==0);
++        assert(packet.get_data_object("MS5803-02BA")["Pressure_mbar"].as<int>()==1000);
++        assert(packet.getDocument()["contents"].size()==1);
++    }
+     TestModule modem("LTE", true), sensor("sensor");
+     Manager manager("lifecycle", 1);
+     HealthEvents health;
+--- a/tests/Core_Boundaries/test_mongo_batch.cpp
++++ b/tests/Core_Boundaries/test_mongo_batch.cpp
+@@ -54,6 +54,7 @@
+     Manager manager;
+     Loom_BatchSD batch;
+     Loom_MongoDB mongo(manager, network, "broker.example", 1883, "readings", "", "", "project");
++    assert(std::string(mongo.getPublishTopic()) == "project/readings/node7");
+     reset();
+     assert(mongo.publish(batch));
+     assert(mqttPlan.startedTopics == std::vector<std::string>({"project/readings/node7", "project/readings/node7"}));
+--- a/src/Hardware/Loom_Hypnos/Loom_Hypnos.h
++++ b/src/Hardware/Loom_Hypnos/Loom_Hypnos.h
+@@ -115,9 +115,10 @@
+      * @param use_custom_time Use a specific time set by the user that is different than the compile
+      * time
+      * @param useSD Whether or not SD card functionality should be enabled
++     * @param useStatusLed Whether Hypnos may drive LED_BUILTIN
+      */
+     Loom_Hypnos(Manager &man, HYPNOS_VERSION version, TIME_ZONE zone, bool use_custom_time = true,
+-                bool useSD = true);
++                bool useSD = true, bool useStatusLed = true);
+ 
+     /**
+      *  Cleanup any dynamically allocated pointers
+@@ -415,6 +416,7 @@
+     void enableWakeWatchdog();
+     int sd_chip_select; // Pin that the SD card will use to communicate with the Hypnos
+     bool enableSD;      // Specifies whether or not the SD card should be enabled on the Hypnos
++    const bool useStatusLed;
+ 
+     int batch_size;
+ 
+--- a/src/Hardware/Loom_Hypnos/Loom_Hypnos.cpp
++++ b/src/Hardware/Loom_Hypnos/Loom_Hypnos.cpp
+@@ -238,18 +238,23 @@
+ 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////
+ Loom_Hypnos::Loom_Hypnos(Manager &man, HYPNOS_VERSION version, TIME_ZONE zone, bool use_custom_time,
+-                         bool useSD)
+-    : Module("Hypnos"), manInst(&man), sd_chip_select(version), enableSD(useSD), batch_size(0),
++                         bool useSD, bool useStatusLed)
++    : Module("Hypnos"), manInst(&man), sd_chip_select(version), enableSD(useSD),
++      useStatusLed(useStatusLed), batch_size(0),
+       custom_time(use_custom_time), timezone(zone) {
+ 
+     // Establish both rails OFF before exposing the control pins as outputs.
+     digitalWrite(5, HIGH);
+     digitalWrite(6, LOW);
+-    digitalWrite(LED_BUILTIN, LOW);
++    if (useStatusLed) {
++        digitalWrite(LED_BUILTIN, LOW);
++    }
+ 
+     pinMode(5, OUTPUT);
+     pinMode(6, OUTPUT);
+-    pinMode(LED_BUILTIN, OUTPUT);
++    if (useStatusLed) {
++        pinMode(LED_BUILTIN, OUTPUT);
++    }
+ 
+     // Create the SD Manager if we want to use SD
+     if (useSD) {
+@@ -329,7 +334,9 @@
+ 
+     // Enable the configured 3.3v and 5v rails on the Hypnos
+     setPowerRails(enable33, enable5);
+-    digitalWrite(LED_BUILTIN, HIGH);
++    if (useStatusLed) {
++        digitalWrite(LED_BUILTIN, HIGH);
++    }
+ 
+     // Establish time before SD creates its debug directory and boot-reset journal.
+     // On wake, refresh from the RTC: millis() does not include time spent in standby.
+@@ -381,7 +388,9 @@
+     }
+     // Disable the configured 3.3v and 5v rails on the Hypnos
+     setPowerRails(!disable33, !disable5);
+-    digitalWrite(LED_BUILTIN, LOW);
++    if (useStatusLed) {
++        digitalWrite(LED_BUILTIN, LOW);
++    }
+ 
+     if (enableSD) {
+         // Disable SPI pins/SD chip select to save power

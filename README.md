@@ -1,10 +1,9 @@
-# Jolteon
+# OPEnS Jolteon
 
-Respository of design files for [Jolteon](https://github.com/OPEnSLab-OSU/OPEnS-Lab-Home/wiki/Jolteon).
+### Multipurpose Adafruit Feather M0 sensor and LTE hat. 
 
-## File Descriptions:
-- **Jolteon Rev 0 Prototype** | ZIP archive containing manufacturing files for Jolteon Rev 0 Prototype
-- --> **Gerber.zip** | Fabrication files for PCB manufacturer.
-- --> **Jolteon_BOM.xlsx** | Bill of Materials for PCB assembler.
-- --> **PnP Bottom.txt** | Centroid (pick-and-place) file of bottom layer for PCB assembler.
-- --> **PnP Top.txt** | Centroid (pick-and-place) file of top layer for PCB assembler.
+Work-in-progress repository.
+
+See [Firmware/Full_Bench_Test](./Firmware/Full_Bench_Test/) for the working debug firmware for the latest capstone revision test firmware. 
+
+Requires Loom on the 4.9-joshfixes branch which has a lot more debug tools for Loom. You must add the extra libraries in the branch one level up to the Loom Package to update those dependencies, it's best to delete the old files first.

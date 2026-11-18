@@ -1,0 +1,131 @@
+HOST TEST> baseline nosd
+CALL hypnos.enable(true, true), useSD=false
+Hypnos RTC initialized: 1
+[INFO] Hypnos rail controls: Rail control call returned; GPIO levels match requested state (not a measured voltage).
+D5=0 D6=1 A3=0
+D5 LOW=3VRAIL ON; D6 HIGH=5VRAIL + HIGHVRAIL ON; A3 HIGH=12V ON.
+Always-on nodes: logic=+3V3, boost=5VOUT, modem=VCC_3.8V (TP20).
+Protocol commands automatically enable Hypnos 3V/5V when needed. rails off remains available.
+Mux 0x71 control mask=0x00
+[PASS] Mux hello: Read-only control register reply; channel selection unchanged. Use mux test for all channels.
+Root, all channels OFF:
+  0x68
+  0x71
+Mux channel 0
+  0x68 upstream
+  0x71 upstream
+Mux channel 1
+  0x68 upstream
+  0x71 upstream
+Mux channel 2
+  0x68 upstream
+  0x71 upstream
+Mux channel 3
+  0x68 upstream
+  0x71 upstream
+Mux channel 4
+  0x68 upstream
+  0x71 upstream
+  0x76
+Mux channel 5
+[FAIL] I2C mux: One-hot control readback for 8 channels and final OFF. ACK lists require comparison with fitted sensors; register readback alone does not prove physical channel isolation.
+[FAIL] MS5803 pressure/temperature: Cannot read mux control; no sensor test started.
+[FAIL] DS3231 clock: Mux did not ACK deselect. Confirm address straps (default 0x71), +3V3, RESET pull-up and bus pull-ups.
+[INFO] SD mount/read: Optional SD intentionally skipped.
+[INFO] SD JSON save/readback: Optional SD intentionally skipped.
+A0 min/max/mean=31/51/45.59 estimated volts=0.0367
+[INFO] Analog known voltage: 64 samples only; enter known voltage for comparison. Do not attach raw 5/12V rails to ADC.
+HOST> AT
+MODEM> 
+OK
+
+[PASS] LTE hello: Modem replied OK to AT; awake and UART responsive.
+HOST> AT+CGMM
+MODEM> 
+SARA-R510S
+
+OK
+
+[PASS] SARA-R5 identity: AT terminal OK plus SARA-R5 model prefix. No automatic power pulse, reset, operator selection or registration change.
+HOST> AT+CGMR
+MODEM> 
+03.15
+
+OK
+
+HOST> AT+CPIN?
+MODEM> 
++CPIN: READY
+
+OK
+
+[PASS] SIM: SIM state only; no PIN attempts.
+HOST> AT+CSQ
+MODEM> 
++CSQ: 29,5
+
+OK
+
+HOST> AT+CESQ
+MODEM> 
++CESQ: 99,99,255,255,23,60
+
+OK
+
+HOST> AT+CEREG?
+MODEM> 
++CEREG: 2,5,"9006","052e4814",7
+
+OK
+
+[PASS] LTE registration: Existing registration state. This does not prove packet data or remote delivery.
+HOST> AT+CGATT?
+MODEM> 
++CGATT: 1
+
+OK
+
+HOST> AT+CGDCONT?
+MODEM> 
++CGDCONT: 1,"IP","hologram.mnc042.mcc240.gprs","10.225.3.110",0,0,0,2,0,0,0,0,0,0,0
+
+OK
+
+HOST> AT+CGACT?
+MODEM> 
++CGACT: 1,1
+
+OK
+
+HOST> AT+UGPS?
+MODEM> 
++UGPS: 0
+
+OK
+
+
+Last recorded test results:
+INFO | Hypnos rail controls | awake_ms=315623
+FAIL | I2C mux | awake_ms=315814
+FAIL | DS3231 clock | awake_ms=315815
+PASS | DS3231 alarm/clear | awake_ms=272655
+PASS | Hypnos standby/wake | awake_ms=129184
+INFO | SD mount/read | awake_ms=315815
+INFO | SD JSON save/readback | awake_ms=315816
+NOT RUN | SPI loopback | awake_ms=0
+PASS | SARA-R5 identity | awake_ms=315955
+PASS | SIM | awake_ms=315965
+PASS | LTE registration | awake_ms=315987
+NOT RUN | SDI-12 | awake_ms=0
+INFO | Analog known voltage | awake_ms=315946
+PASS | LTE hello | awake_ms=315950
+PASS | Mux hello | awake_ms=315625
+FAIL | MS5803 pressure/temperature | awake_ms=315814
+NOT RUN | LTE RF/network scan | awake_ms=0
+PASS | Modem GPIO LEDs | awake_ms=139707
+PASS | LTE internet ping | awake_ms=156840
+PASS | MQTT broker ACK | awake_ms=228560
+PASS | MQTT packet readback | awake_ms=228560
+INFO | A2 NeoPixel / A0-A1 noise | awake_ms=288148
+Commanded rails 3V/5V/12V: 1/1/0
+Results cover the named checks. Check Mongo insertion and sensor calibration separately.

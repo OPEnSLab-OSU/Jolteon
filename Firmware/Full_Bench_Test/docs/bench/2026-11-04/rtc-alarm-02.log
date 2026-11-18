@@ -1,0 +1,77 @@
+HOST TEST> rtc alarm
+
+============================================================
+JOLTEON BENCH  |  Feather M0  |  Serial 115200
+Compiled (Pacific): Nov  4 2026 13:28:28
+Device: Jolteon  instance: 1
+Protocol commands enable Hypnos 3V/5V; SDI data also enables 12V.
+
+QUICK START
+  baseline [nosd]       Run device checks; SD is optional
+  summary              Show last results
+
+POWER / I2C / SENSOR
+  rails on|off|3|5|status   hypnos enable|disable|status
+  rails 12 on|off       Sensor 12V control
+  mux hello|test       i2c scan|recover
+  mux addr <112..119>   mux expect <channel> <address>
+  ms5803 hello|read [0x76|0x77]
+
+CLOCK / SLEEP
+  rtc show|test|alarm   rtc set compile
+  rtc set 1793836800    Unix UTC seconds
+  rtc set 2026-11-05T00:00:00Z   ISO UTC timestamp
+  sleep                Use SD config/session interval
+  sleep 10s            sleep 1 min       sleep 10s 3
+  sleep set 10s        Session override
+  sleep load [file.json]    sleep save 1min
+  sleep status         Duration 3 seconds..24 hours
+
+SD / SPI
+  sd save (or test)    Save real Loom MS5803 JSON; print readback
+  sd list              List SD root files, sizes and folders
+  sd read [JLT00000.JSON]   List/read latest or selected sample
+  spi loop             Requires MOSI-MISO test jumper
+
+LTE / MQTT
+  lte hello            Auto pulse once, AT reply, LED setup
+  lte on               Explicit power pulse (alias: pulse)
+  lte leds|test|scan    LED modes / status / operator scan
+  lte connect          Register/open APN data session
+  lte ping [1.1.1.1]   LTE data + real internet echo reply
+  lte register [auto|att]    lte credentials|pins
+  mqtt test            Read mqtt_creds.json, save/send/readback
+  device name Jolteon  device instance 1
+  lte bridge           Raw AT console; Ctrl+] exits
+  AT...                One modem command; lte quiet releases UART
+  Attach LTE antenna before RF/network tests.
+
+RGB / ANALOG / SDI-12
+  rgb on               rgb off
+  rgb color r|g|b|y|c|m|w    rgb color 255,255,0
+  rgb test             A0/A1: 5s before, 5s pulsing, 5s after
+  analog A0|A1|A2 [known volts]   analog ref 3.300
+  sdi power on|off     sdi measure 0     sdi 0I!
+============================================================
+
+D5=1 D6=0 A3=0
+D5 LOW=3VRAIL ON; D6 HIGH=5VRAIL + HIGHVRAIL ON; A3 HIGH=12V ON.
+Always-on nodes: logic=+3V3, boost=5VOUT, modem=VCC_3.8V (TP20).
+Protocol commands automatically enable Hypnos 3V/5V when needed. rails off remains available.
+Auto power: enabling Hypnos 3V/5V for this command.
+[DEBUG] [Loom_Manager.cpp:initialize:310] ** Initializing Modules **
+[DEBUG] [Loom_Manager.cpp:initialize:314] Boot reset cause: software-reset (raw flags 0x40).
+[DEBUG] [Loom_Manager.cpp:initialize:319] ** Setup Complete ** 
+RTC: initialize from sketch compile time when lost/older; preserve a newer clock.
+[DEBUG] [Loom_Hypnos.cpp:initializeRTC:600] Initializing DS3231....
+[DEBUG] [Loom_Hypnos.cpp:initializeRTC:670] DS3231 Real-Time Clock Initialized Successfully!
+[DEBUG] [Loom_Hypnos.cpp:initializeRTC:679] DS3231 current time: 2026-11-04T21:29:28Z
+RTC UTC: 2026-11-04T21:29:28Z | Unix seconds: 1793827768
+Oscillator-stop flag: 0
+[PASS] DS3231 clock: Calendar/tick and oscillator-stop flag checked. Use rtc set <UTC epoch> explicitly if time is invalid; accuracy/backup retention need longer bench tests.
+Alarm arm | readback=1 | control=0x05 | D12=HIGH
+Alarm result | requested s=3 | MCU IRQ=1 | D12 LOW=1 | RTC read=1 | A1F=1 | status=0x01 | elapsed s=3 | clear=1 | D12 released=1
+Alarm arm | readback=1 | control=0x05 | D12=HIGH
+Alarm result | requested s=5 | MCU IRQ=1 | D12 LOW=1 | RTC read=1 | A1F=1 | status=0x01 | elapsed s=5 | clear=1 | D12 released=1
+Alarm diagnostic | 3s=1 | 5s=1 | restore=1
+[PASS] DS3231 alarm/clear: Two fresh alarms, latched A1F, physical LOW and HIGH after clearing, timed replacement, and configuration restoration. Alarm flags are consumed.

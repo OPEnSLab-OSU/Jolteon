@@ -1,0 +1,72 @@
+[
+  {
+    "path": "src/Hardware/Actuators/Loom_Neopixel/Loom_Neopixel.cpp",
+    "before_sha256": "35696b3f406fbb251097fb1ccfa8523ccc4088de5b30bb5d245682fff000d861",
+    "after_sha256": "a65e860ddbc621141d862be16a8ab5f6ec102b9bf9cd011e1adef0f7365984c6"
+  },
+  {
+    "path": "src/Hardware/Actuators/Loom_Neopixel/Loom_Neopixel.h",
+    "before_sha256": "6cc6dc389fb7656ce97ab4851648b674c7db240182e7e0839ecc389a72e5dfe9",
+    "after_sha256": "69489bcaca1e9892c4dd523eeff3f99d5db9c6044986d0b63aad5b7b3aa4b714"
+  },
+  {
+    "path": "src/Hardware/Loom_Hypnos/Loom_Hypnos.cpp",
+    "before_sha256": "f0cd6e670c1bf531ef557509d088da5f75ef23fe520233f28e60e53b66e32beb",
+    "after_sha256": "288538febc268c8d259b8604ed6efcdd516795f95cec441ea3e61e0ed2b0feef"
+  },
+  {
+    "path": "src/Hardware/Loom_Hypnos/Loom_Hypnos.h",
+    "before_sha256": "a6d7a279db0cc26f7c76e275e0d45bfbadf4bdc4b051884b38551ea2c85ec30f",
+    "after_sha256": "b50b784bbfb03045549434e2ef9d2a387d0efe87594c70d01e70d484b1532bea"
+  },
+  {
+    "path": "src/Internet/Connectivity/Loom_LTE/Loom_LTE.cpp",
+    "before_sha256": "e5f2167d08722b507835e49094b913cb7764106083abb413075f1d6e62cd0774",
+    "after_sha256": "26a0a034bbc8973d8b2694ac8c06f8ae15d92a28d2816f306d71cb9f7b03add2"
+  },
+  {
+    "path": "src/Internet/Connectivity/Loom_LTE/Loom_LTE.h",
+    "before_sha256": "86fc88851448a7f92d4b50b0e26eb4bb743bff1d32d976abdb4ce736f8470bb4",
+    "after_sha256": "0deb50622717e9b5323f5686b9e89801cb0d67f3001bfa73aac997ee0f3cf839"
+  },
+  {
+    "path": "src/Internet/Connectivity/Loom_LTE/Loom_LTE_SaraR5.cpp",
+    "before_sha256": "b9d43d6f1a3b344989cc205f0112db4109866150ef16c84752d6012e9b914a53",
+    "after_sha256": "ca41c9464060afdf5aa3a549a1bb23af853843a6af12e1d8389ac7c23803f736"
+  },
+  {
+    "path": "src/Internet/Connectivity/Loom_LTE/Loom_LTE_SaraR5Data.h",
+    "before_sha256": null,
+    "after_sha256": "48a29767a2b4e39411d66d451cbdb1b2200206c966c3e8a788c69e218ef18e68"
+  },
+  {
+    "path": "src/Internet/Connectivity/Loom_LTE/Loom_LTE_TinyGsmAdapter.h",
+    "before_sha256": "e73ca49c30fe769a24ea2e0d57c252192abcffb3771e2b12e816dc8bff64127e",
+    "after_sha256": "b37a924450052b6a4d6c93a2349957c55f5604cd9b589b87f560d754475a0baa"
+  },
+  {
+    "path": "src/Internet/Logging/Loom_MongoDB/Loom_MongoDB.h",
+    "before_sha256": "dbd665d4585a9821f72bcc2a440edf542a613281a5afcb446c450fa6775f7bf3",
+    "after_sha256": "b5d6d2a3a3074f0f76bfae6c9f21bb9b0651c253911e2cab029bc6f595891e0a"
+  },
+  {
+    "path": "src/Internet/Logging/MQTTComponent/MQTTComponent.h",
+    "before_sha256": "ff16bc647c14860fee36b4c82a5dd41d0dfd45a3b25bc9a79b67683583870bb6",
+    "after_sha256": "2d8cf77bc32da7c2dcaa5eea9dbe64e76abfd96c4738c68e3c94ac2772c05f2e"
+  },
+  {
+    "path": "src/Loom_Manager.cpp",
+    "before_sha256": "2c617e526d3a7572bf7fe44829f7b300ade52c0a4069ca7e8510e32a8be79b73",
+    "after_sha256": "3926ccc6f60a394548b67628b72ebfa65fa8b4377759e0f802ed0c4e1e039fa6"
+  },
+  {
+    "path": "tests/Core_Boundaries/test_manager_lifecycle.cpp",
+    "before_sha256": "5b3e19c71da75e1f9996ffc6ace933b63dddede115e3ade68012abf7497e720d",
+    "after_sha256": "6157c9002008fbc7722e5adc5c57ac2b51220b1d4638a7e2dbf6eb1890047783"
+  },
+  {
+    "path": "tests/Core_Boundaries/test_mongo_batch.cpp",
+    "before_sha256": "5a935ce3e9be8ca6800fe2f275999db5c0173e3484f77941918642351f5cba14",
+    "after_sha256": "cc74d8b1d93a90b93861e6bcb7fe7ca72d063921e95c454ec0117d8736d0216f"
+  }
+]

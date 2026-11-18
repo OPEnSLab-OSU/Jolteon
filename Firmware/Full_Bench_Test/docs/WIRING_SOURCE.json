@@ -1,0 +1,234 @@
+{
+  "source": "docs/Jolteon_Rewire.pdf",
+  "source_sha256": "25b35caa61da0ba3f9765ce1a06b669279dc1a1da5e9eb6aff90a38c92b20395",
+  "hardware_tested": false,
+  "view": "top, USB at top",
+  "left": [
+    [
+      "RESET",
+      "RESET",
+      "1",
+      "GND pushbutton",
+      "Momentary reset; do not use as a GPIO",
+      "control"
+    ],
+    [
+      "3V",
+      "power",
+      "2",
+      "No connection drawn",
+      "Carrier +3V3 comes from its own U3 regulator",
+      "unused"
+    ],
+    [
+      "AREF",
+      "PA03",
+      "3",
+      "AREF net only",
+      "No external reference source shown",
+      "unused"
+    ],
+    [
+      "GND",
+      "power",
+      "4",
+      "Common GND / JP4",
+      "All test instruments and supplies share ground",
+      "power"
+    ],
+    [
+      "A0 / D14",
+      "PA02",
+      "5",
+      "A0 net",
+      "Analog input; no sensor endpoint shown",
+      "analog"
+    ],
+    [
+      "A1 / D15",
+      "PB08",
+      "6",
+      "A1 net",
+      "Analog input; no sensor endpoint shown",
+      "analog"
+    ],
+    [
+      "A2 / D16",
+      "PB09",
+      "7",
+      "A2 net",
+      "Analog input; no sensor endpoint shown",
+      "analog"
+    ],
+    [
+      "A3 / D17",
+      "PA04",
+      "8",
+      "12V_EN -> U5 EN",
+      "HIGH enables sensor 12V boost; LOW disables",
+      "control"
+    ],
+    [
+      "A4 / D18",
+      "PA05",
+      "9",
+      "LTE_RST -> Q2 gate",
+      "HIGH pulls modem RESET_N LOW; idle LOW",
+      "control"
+    ],
+    [
+      "A5 / D19",
+      "PB02",
+      "10",
+      "4GONOFF -> Q1 gate",
+      "HIGH pulls modem PWR_ON LOW; idle LOW",
+      "control"
+    ],
+    [
+      "SCK / D24",
+      "PB11",
+      "11",
+      "CLK -> SD CLK / SPI1 pin 3",
+      "Feather SERCOM4 hardware clock",
+      "spi"
+    ],
+    [
+      "MOSI / D23",
+      "PB10",
+      "12",
+      "DI -> SD CMD / SPI1 pin 5",
+      "Host output, peripheral input",
+      "spi"
+    ],
+    [
+      "MISO / D22",
+      "PA12",
+      "13",
+      "DO -> SD DAT0 / SPI1 pin 6",
+      "Host input, peripheral output",
+      "spi"
+    ],
+    [
+      "RX / D0",
+      "PA11",
+      "14",
+      "0RX <- U4 B2/A2 <- SARA RXD",
+      "SARA pin 13 is OUTPUT (DCE naming)",
+      "uart"
+    ],
+    [
+      "TX / D1",
+      "PA10",
+      "15",
+      "1TX -> U4 B1/A1 -> SARA TXD",
+      "SARA pin 12 is INPUT (DCE naming)",
+      "uart"
+    ],
+    [
+      "NC",
+      "none",
+      "16",
+      "DFU net on NC symbol pad",
+      "Standard Feather has no GPIO on this pad",
+      "unused"
+    ]
+  ],
+  "right": [
+    [
+      "BAT",
+      "power",
+      "28",
+      "VBAT_FEATHER",
+      "From BQ_OUT through D2; also feeds U3",
+      "power"
+    ],
+    [
+      "EN",
+      "power",
+      "27",
+      "EN3V -> TP18",
+      "Feather regulator shutdown input; never GPIO",
+      "unused"
+    ],
+    [
+      "USB",
+      "power",
+      "26",
+      "5VUSB -> D3 -> BQ_IN",
+      "USB supply node; separate from boosted 5VOUT",
+      "power"
+    ],
+    [
+      "D13",
+      "PA17",
+      "25",
+      "Net \"13\" only",
+      "No carrier load shown; no automatic heartbeat",
+      "unused"
+    ],
+    [
+      "D12",
+      "PA19",
+      "24",
+      "RTC_INT -> DS3231 INT/SQW",
+      "Active LOW; firmware enables input pull-up",
+      "control"
+    ],
+    [
+      "D11",
+      "PA16",
+      "23",
+      "CS_SD -> microSD pin 2",
+      "LOW selects; R17 pull-up to switched 3VRAIL",
+      "spi"
+    ],
+    [
+      "D10",
+      "PA18",
+      "22",
+      "SDI_EN -> U7 DIR",
+      "HIGH: A-to-B TX; LOW: B-to-A RX",
+      "control"
+    ],
+    [
+      "D9",
+      "PA07",
+      "21",
+      "LOW_SDI12 -> U7 A",
+      "SDI-12 data; not available for analog sampling",
+      "control"
+    ],
+    [
+      "D6",
+      "PA20",
+      "20",
+      "Q4 + Q5 -> rail switches",
+      "HIGH enables BOTH 5VRAIL and HIGHVRAIL",
+      "power"
+    ],
+    [
+      "D5",
+      "PA15",
+      "19",
+      "PMOS2 gate -> 3VRAIL",
+      "LOW enables 3VRAIL; HIGH disables",
+      "power"
+    ],
+    [
+      "SCL / D21",
+      "PA23",
+      "18",
+      "SCL -> RTC + TCA9548A",
+      "R10 pull-up to switched 3VRAIL",
+      "i2c"
+    ],
+    [
+      "SDA / D20",
+      "PA22",
+      "17",
+      "SDA -> RTC + TCA9548A",
+      "R9 pull-up to switched 3VRAIL",
+      "i2c"
+    ]
+  ]
+}

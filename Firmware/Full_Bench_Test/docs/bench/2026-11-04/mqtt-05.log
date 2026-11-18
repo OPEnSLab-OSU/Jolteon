@@ -1,0 +1,52 @@
+HOST TEST> mqtt test
+[PASS] SD mount/read: Hardware Feather SPI, D11 select; FAT16/FAT32 mounted (no formatting).
+Card sectors=31116288
+HOST> AT
+MODEM> 
+OK
+
+[PASS] LTE hello: Modem replied OK to AT; awake and UART responsive.
+HOST> AT+CPIN?
+MODEM> 
++CPIN: READY
+
+OK
+
+HOST> AT+CFUN?
+MODEM> 
++CFUN: 1,7
+
+OK
+
+LTE: verifying registration and APN data session with Loom; no second PWR_ON pulse.
+[PASS] LTE registration: Loom cellular registration/data-session result. MQTT is a separate command.
+MS5803-02BA channel 4 address=0x76
+MS5803 PROM CRC4 OK; calling Loom_MS5803 initialize/measure.
+[DEBUG] [Loom_MS5803.cpp:initialize:89] Successfully initialized MS5803 at address: 
+0x76
+MS5803 D1=6741616 D2=8885872
+Loom temperature C=23.480 pressure mbar=983.690
+[DEBUG] [Loom_Manager.cpp:package:113] ** Packaging **
+[DEBUG] [Loom_Manager.cpp:package:143] ** Packaging Complete **
+[PASS] MS5803 pressure/temperature: PROM CRC4, fresh raw ADC reads and Loom MS5803-02BA readings checked. Compare with a reference for calibration; previous mux mask restored when possible.
+[PASS] SD mount/read: Hardware Feather SPI, D11 select; FAT16/FAT32 mounted (no formatting).
+Card sectors=31116288
+Saved test packet: JLT00001.JSON
+--- SD readback: JLT00001.JSON ---
+{"type":"data","id":{"name":"Jolteon","instance":1},"contents":[{"module":"Packet","data":{"Number":1}},{"module":"LTE","data":{"RSSI":31,"RSSI_cached":false}},{"module":"MS5803","data":{"Temperature_°C":23.47999954,"Pressure_mbar":983.6900024}},{"module":"Bringup","data":{"TestId":"3E5EEFD850305250462E3120FF0A141F-0002A7CD-0A5F7C3B-1"}}],"timestamp":{"time_utc":"2026-11-04T21:43:18Z","time_local":"2026-11-04T13:43:18","time_local_timezone":"PST","time_local_offset_minutes":-480}}
+
+--- End SD readback ---
+[PASS] SD JSON save/readback: JSON retained on SD; reopened contents printed and compared byte-for-byte with the packaged sample.
+[DEBUG] [MQTTComponent.cpp:connectToBroker:58] Attempting to connect to broker: 143.110.159.19:1883 (1/1)
+[DEBUG] [MQTTComponent.cpp:connectToBroker:75] Successfully connected to broker!
+[DEBUG] [Loom_MongoDB.cpp:publish:132] MQTT publish attempt: topic=Wisp_Pole_Test_2026/Jolteon1 bytes=486
+MQTT readback: received the exact current test packet.
+[DEBUG] [Loom_MongoDB.cpp:publish:135] MQTT broker acknowledged the packet; database persistence is not confirmed.
+[PASS] MQTT broker ACK: QoS 1 broker acknowledgement of the actual Loom packet; Mongo storage is not internally verified.
+[PASS] MQTT packet readback: Exact non-retained MQTT packet readback. Subscription permission/routing affects this result; it is separate from Mongo insertion.
+Device: Jolteon1
+MQTT topic: Wisp_Pole_Test_2026/Jolteon1
+Test ID: 3E5EEFD850305250462E3120FF0A141F-0002A7CD-0A5F7C3B-1
+Measured UTC: 2026-11-04T21:43:18Z
+Saved JSON: JLT00001.JSON
+Check MongoDB manually for this device and TestId. This firmware cannot confirm the database insert.
