@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-14",
+  "original_ino_sha256": "8deb1a2c57ef644f9d13997289f524a1b4efc5632f802416b22120ba11f45526",
+  "moves": [
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\.j18-build",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\sketches\\SAMD21J18_Blinky\\.j18-build"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bootloader",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Jolteon_Bootloader"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Feature_Verification",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Jolteon_Feature_Verification"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Mac_J18_Tools",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Mac_J18_Tools"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\RPi_J18_Tools",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\RPi_J18_Tools"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Windows_J18_Tools",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Windows_J18_Tools"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\build_and_flash_j18_separate_bootloader.bat",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\build_and_flash_j18_separate_bootloader.bat"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\build_and_flash_j18.bat",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\build_and_flash_j18.bat"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bootloader.zip",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Jolteon_Bootloader.zip"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Feature_Verification.zip",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Jolteon_Feature_Verification.zip"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Mac_J18_Tools.zip",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Mac_J18_Tools.zip"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\README_WINDOWS.md",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\README_WINDOWS.md"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\RPi_J18_Tools.zip",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\RPi_J18_Tools.zip"
+    },
+    {
+      "Source": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Windows_J18_Tools.zip",
+      "Target": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\legacy\\previous-workspace\\Windows_J18_Tools.zip"
+    }
+  ],
+  "legacy_removed_at_user_request": true,
+  "current_parent_entries": [
+    "SAMD21J18_Blinky.ino",
+    "Jolteon_Bringup"
+  ],
+  "moves_are_historical": true
+}

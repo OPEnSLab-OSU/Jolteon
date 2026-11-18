@@ -1,0 +1,1012 @@
+Open On-Chip Debugger 0.12.0 (2026-03-02) [https://github.com/sysprogs/openocd]
+Licensed under GNU GPL v2
+libusb1 d52e355daa09f17ce64819122cb067b8a2ee0d4b
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+Debug: 4 2 configuration.c:33 add_script_search_dir(): adding C:\Program Files (x86)\OpenOCD\share\openocd\scripts
+Debug: 5 2 options.c:357 parse_cmdline_args(): ARGV[0] = "C:\Program Files (x86)\OpenOCD\bin\openocd.exe"
+Debug: 6 3 options.c:357 parse_cmdline_args(): ARGV[1] = "-d3"
+Debug: 7 3 options.c:357 parse_cmdline_args(): ARGV[2] = "-s"
+Debug: 8 3 options.c:357 parse_cmdline_args(): ARGV[3] = "C:\Program Files (x86)\OpenOCD\share\openocd\scripts"
+Debug: 9 3 options.c:357 parse_cmdline_args(): ARGV[4] = "-f"
+Debug: 10 3 options.c:357 parse_cmdline_args(): ARGV[5] = "C:\Users\brews\Documents\Arduino\SAMD21J18_Blinky\Jolteon_Bringup\sketches\SAMD21J18_Blinky\.j18-build\swd\swd_probe.cfg"
+Debug: 11 3 options.c:234 add_default_dirs(): bindir=../../bin
+Debug: 12 3 options.c:235 add_default_dirs(): pkgdatadir=../../share/openocd
+Debug: 13 3 options.c:236 add_default_dirs(): exepath=C:/Program Files (x86)/OpenOCD/bin
+Debug: 14 4 options.c:237 add_default_dirs(): bin2data=../share/openocd
+Debug: 15 4 configuration.c:33 add_script_search_dir(): adding C:/Users/brews/AppData/Roaming/OpenOCD
+Debug: 16 4 configuration.c:33 add_script_search_dir(): adding C:/Program Files (x86)/OpenOCD/bin/../share/openocd/site
+Debug: 17 4 configuration.c:33 add_script_search_dir(): adding C:/Program Files (x86)/OpenOCD/bin/../share/openocd/scripts
+Debug: 18 5 command.c:82 script_debug(): command - ocd_find C:\Users\brews\Documents\Arduino\SAMD21J18_Blinky\Jolteon_Bringup\sketches\SAMD21J18_Blinky\.j18-build\swd\swd_probe.cfg
+Debug: 19 5 configuration.c:89 find_file(): found C:\Users\brews\Documents\Arduino\SAMD21J18_Blinky\Jolteon_Bringup\sketches\SAMD21J18_Blinky\.j18-build\swd\swd_probe.cfg
+Debug: 20 6 command.c:82 script_debug(): command - adapter driver st-link
+Debug: 21 6 command.c:82 script_debug(): command - st-link vid_pid 0x0483 0x3744 0x0483 0x3748 0x0483 0x374b 0x0483 0x374d 0x0483 0x374e 0x0483 0x374f 0x0483 0x3752 0x0483 0x3753 0x0483 0x3754 0x0483 0x3755 0x0483 0x3757
+Debug: 22 7 command.c:82 script_debug(): command - transport select swd
+Debug: 23 7 adi_v5_dapdirect.c:187 dapdirect_swd_select(): dapdirect_swd_select()
+Debug: 24 7 command.c:82 script_debug(): command - ocd_find target/at91samdXX.cfg
+Debug: 25 7 configuration.c:89 find_file(): found C:\Program Files (x86)\OpenOCD\share\openocd\scripts/target/at91samdXX.cfg
+Debug: 26 8 command.c:82 script_debug(): command - transport select swd
+Debug: 27 8 transport.c:355 handle_transport_select(): Transport "swd" was already selected
+Debug: 28 8 command.c:82 script_debug(): command - swd newdap samd21_probe cpu -expected-id 0x4ba00477
+Debug: 29 9 tcl.c:404 handle_jtag_newtap_args(): Creating New Tap, Chip: samd21_probe, Tap: cpu, Dotted: samd21_probe.cpu, 2 params
+Debug: 30 9 core.c:1488 jtag_tap_init(): Created Tap: samd21_probe.cpu @ abs position 0, irlen 0, capture: 0x1 mask: 0x3
+Debug: 31 9 command.c:82 script_debug(): command - dap create samd21_probe.dap -chain-position samd21_probe.cpu
+Debug: 32 9 command.c:82 script_debug(): command - target create samd21_probe.cpu cortex_m -dap samd21_probe.dap
+Debug: 33 9 command.c:187 register_command(): command 'tpiu' is already registered
+Debug: 34 9 command.c:187 register_command(): command 'rtt' is already registered
+Debug: 35 9 command.c:82 script_debug(): command - samd21_probe.cpu configure -work-area-phys 0x20000000 -work-area-size 0x800 -work-area-backup 0
+Debug: 36 9 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 37 10 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 38 10 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 39 10 command.c:82 script_debug(): command - samd21_probe.cpu configure -event reset-deassert-post 
+        at91samd dsu_reset_deassert
+
+Debug: 40 10 command.c:82 script_debug(): command - reset_config srst_gates_jtag
+Debug: 41 10 command.c:82 script_debug(): command - adapter speed 400
+Debug: 42 10 adapter.c:254 adapter_config_khz(): handle adapter khz
+Debug: 43 10 adapter.c:217 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 44 10 adapter.c:217 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 45 10 command.c:82 script_debug(): command - transport select
+Debug: 46 11 command.c:82 script_debug(): command - cortex_m reset_config sysresetreq
+Debug: 47 11 command.c:82 script_debug(): command - flash bank samd21_probe.flash at91samd 0x00000000 0 1 1 samd21_probe.cpu
+Debug: 48 11 tcl.c:1433 handle_flash_bank_command(): 'at91samd' driver usage field missing
+Debug: 49 11 command.c:82 script_debug(): command - adapter speed 100
+Debug: 50 11 adapter.c:254 adapter_config_khz(): handle adapter khz
+Debug: 51 11 adapter.c:217 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 52 11 adapter.c:217 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 53 11 command.c:82 script_debug(): command - reset_config none
+Debug: 54 11 command.c:82 script_debug(): command - cortex_m reset_config sysresetreq
+Debug: 55 12 command.c:82 script_debug(): command - samd21_probe.cpu configure -work-area-size 0 -work-area-backup 1
+Debug: 56 12 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 57 12 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 58 12 command.c:82 script_debug(): command - gdb port disabled
+Debug: 59 12 command.c:82 script_debug(): command - tcl port disabled
+Debug: 60 12 command.c:82 script_debug(): command - telnet port disabled
+Debug: 61 13 command.c:82 script_debug(): command - echo 1. Connecting and halting CPU; flash is not erased or programmed.
+User : 62 13 command.c:618 handle_echo(): 1. Connecting and halting CPU; flash is not erased or programmed.
+Debug: 63 13 command.c:82 script_debug(): command - init
+Debug: 64 13 command.c:82 script_debug(): command - target init
+Debug: 65 13 command.c:82 script_debug(): command - target names
+Debug: 66 13 command.c:82 script_debug(): command - samd21_probe.cpu cget -event gdb-flash-erase-start
+Debug: 67 13 command.c:82 script_debug(): command - samd21_probe.cpu configure -event gdb-flash-erase-start reset init
+Debug: 68 13 command.c:82 script_debug(): command - samd21_probe.cpu cget -event gdb-flash-write-end
+Debug: 69 13 command.c:82 script_debug(): command - samd21_probe.cpu configure -event gdb-flash-write-end reset halt
+Debug: 70 14 command.c:82 script_debug(): command - samd21_probe.cpu cget -event gdb-attach
+Debug: 71 14 command.c:82 script_debug(): command - samd21_probe.cpu configure -event gdb-attach halt 1000
+Debug: 72 14 target.c:1616 handle_target_init_command(): Initializing targets...
+Debug: 73 14 semihosting_common.c:111 semihosting_common_init():  
+Debug: 74 14 stlink_usb.c:5120 stlink_dap_init(): stlink_dap_init()
+Debug: 75 14 stlink_usb.c:3732 stlink_open(): stlink_open
+Debug: 76 14 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x3744 serial: 
+Debug: 77 14 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x3748 serial: 
+Debug: 78 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x374b serial: 
+Debug: 79 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x374d serial: 
+Debug: 80 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x374e serial: 
+Debug: 81 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x374f serial: 
+Debug: 82 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x3752 serial: 
+Debug: 83 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x3753 serial: 
+Debug: 84 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x3754 serial: 
+Debug: 85 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x3755 serial: 
+Debug: 86 15 stlink_usb.c:3744 stlink_open(): transport: 4 vid: 0x0483 pid: 0x3757 serial: 
+Info : 87 31 stlink_usb.c:1471 stlink_usb_version(): STLINK V2J29S7 (API v2) VID:PID 0483:3748
+Debug: 88 32 stlink_usb.c:1696 stlink_usb_exit_mode(): MODE: 0x01
+Info : 89 32 stlink_usb.c:1507 stlink_usb_check_voltage(): Target voltage: 3.268800
+Debug: 90 32 stlink_usb.c:1764 stlink_usb_init_mode(): MODE: 0x01
+Debug: 91 32 stlink_usb.c:3130 stlink_dump_speed_map(): Supported clock speeds are:
+Debug: 92 32 stlink_usb.c:3133 stlink_dump_speed_map(): 4000 kHz
+Debug: 93 32 stlink_usb.c:3133 stlink_dump_speed_map(): 1800 kHz
+Debug: 94 32 stlink_usb.c:3133 stlink_dump_speed_map(): 1200 kHz
+Debug: 95 33 stlink_usb.c:3133 stlink_dump_speed_map(): 950 kHz
+Debug: 96 33 stlink_usb.c:3133 stlink_dump_speed_map(): 480 kHz
+Debug: 97 33 stlink_usb.c:3133 stlink_dump_speed_map(): 240 kHz
+Debug: 98 33 stlink_usb.c:3133 stlink_dump_speed_map(): 125 kHz
+Debug: 99 33 stlink_usb.c:3133 stlink_dump_speed_map(): 100 kHz
+Debug: 100 33 stlink_usb.c:3133 stlink_dump_speed_map(): 50 kHz
+Debug: 101 33 stlink_usb.c:3133 stlink_dump_speed_map(): 25 kHz
+Debug: 102 33 stlink_usb.c:3133 stlink_dump_speed_map(): 15 kHz
+Debug: 103 33 stlink_usb.c:3133 stlink_dump_speed_map(): 5 kHz
+Debug: 104 47 stlink_usb.c:1824 stlink_usb_init_mode(): MODE: 0x02
+Debug: 105 49 stlink_usb.c:4127 stlink_usb_open_ap(): AP 0 enabled
+Debug: 106 52 stlink_usb.c:3820 stlink_open(): Using TAR autoincrement: 1024
+Debug: 107 53 adapter.c:217 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 108 53 adapter.c:221 adapter_khz_to_speed(): have adapter set up
+Debug: 109 53 adapter.c:217 adapter_khz_to_speed(): convert khz to adapter specific speed value
+Debug: 110 53 adapter.c:221 adapter_khz_to_speed(): have adapter set up
+Info : 111 53 adapter.c:182 adapter_init(): clock speed 100 kHz
+Debug: 112 54 openocd.c:133 handle_init_command(): Debug Adapter init complete
+Debug: 113 54 command.c:82 script_debug(): command - transport init
+Debug: 114 54 transport.c:274 handle_transport_init(): handle_transport_init
+Debug: 115 54 adi_v5_dapdirect.c:196 dapdirect_init(): dapdirect_init()
+Debug: 116 54 stlink_usb.c:5168 stlink_dap_reset(): stlink_dap_reset(0)
+Debug: 117 55 core.c:653 adapter_system_reset(): SRST line released
+Debug: 118 55 command.c:82 script_debug(): command - dap init
+Debug: 119 55 arm_dap.c:96 dap_init_all(): Initializing all DAPs ...
+Debug: 120 55 arm_dap.c:120 dap_init_all(): DAP samd21_probe.cpu configured by default to use ADIv5 protocol
+Debug: 121 55 stlink_usb.c:4197 stlink_dap_op_connect(): stlink_dap_op_connect(connect)
+Debug: 122 56 arm_adi_v5.c:791 dap_dp_init(): samd21_probe.dap
+Debug: 123 56 arm_adi_v5.c:824 dap_dp_init(): DAP: wait CDBGPWRUPACK
+Debug: 124 56 arm_adi_v5.h:682 dap_dp_poll_register(): DAP: poll 4, mask 0x20000000, value 0x20000000
+Debug: 125 59 arm_adi_v5.c:832 dap_dp_init(): DAP: wait CSYSPWRUPACK
+Debug: 126 59 arm_adi_v5.h:682 dap_dp_poll_register(): DAP: poll 4, mask 0x80000000, value 0x80000000
+Debug: 127 63 stlink_usb.c:2057 stlink_usb_idcode(): IDCODE: 0x0BC11477
+Info : 128 63 stlink_usb.c:4224 stlink_dap_op_connect(): SWD DPIDR 0x0bc11477
+Debug: 129 63 openocd.c:150 handle_init_command(): Examining targets...
+Debug: 130 63 target.c:684 target_examine_one(): [samd21_probe.cpu] Examination started
+Debug: 131 63 target.c:1802 target_call_event_callbacks(): target event 19 (examine-start) for core samd21_probe.cpu
+Debug: 132 64 arm_adi_v5.c:1226 dap_get_ap(): refcount AP#0x0 get 1
+Debug: 133 66 arm_adi_v5.c:1150 dap_find_by_types_get_ap(): Found MEM-AP AHB3 at AP index: 0 (IDR=0x04770031)
+Debug: 134 68 arm_adi_v5.c:942 mem_ap_init(): MEM_AP CFG: large data 0, long address 0, big-endian 0
+Debug: 135 71 target.c:2569 target_read_u32(): address: 0xe000ed00, value: 0x410cc601
+Info : 136 71 cortex_m.c:3008 cortex_m_examine(): [samd21_probe.cpu] Cortex-M0+ r0p1 processor detected
+Debug: 137 72 cortex_m.c:3031 cortex_m_examine(): [samd21_probe.cpu] cpuid: 0x410cc601
+Debug: 138 74 target.c:2569 target_read_u32(): address: 0xe000edf0, value: 0x01000001
+Debug: 139 81 armv7m_cache.c:93 armv7m_identify_cache_internal(): [samd21_probe.cpu] No cache detected
+Debug: 140 81 target.c:2640 target_write_u32(): address: 0xe000edfc, value: 0x01000000
+Debug: 141 84 target.c:2640 target_write_u32(): address: 0xe0000fb0, value: 0xc5acce55
+Debug: 142 89 target.c:2569 target_read_u32(): address: 0xe0000e80, value: 0x00000000
+Debug: 143 90 target.c:2640 target_write_u32(): address: 0xe0000e80, value: 0x00000000
+Debug: 144 94 target.c:2569 target_read_u32(): address: 0xe0000e80, value: 0x00000000
+Debug: 145 95 target.c:2640 target_write_u32(): address: 0xe0000e80, value: 0x00010009
+Debug: 146 97 target.c:2640 target_write_u32(): address: 0xe0000e00, value: 0x00000001
+Debug: 147 100 target.c:2640 target_write_u32(): address: 0xe0000e04, value: 0x00000000
+Debug: 148 102 target.c:2640 target_write_u32(): address: 0xe0000e08, value: 0x00000000
+Debug: 149 105 target.c:2640 target_write_u32(): address: 0xe0000e0c, value: 0x00000000
+Debug: 150 107 target.c:2640 target_write_u32(): address: 0xe0000e10, value: 0x00000000
+Debug: 151 109 target.c:2640 target_write_u32(): address: 0xe0000e14, value: 0x00000000
+Debug: 152 111 target.c:2640 target_write_u32(): address: 0xe0000e18, value: 0x00000000
+Debug: 153 113 target.c:2640 target_write_u32(): address: 0xe0000e1c, value: 0x00000000
+Debug: 154 117 target.c:2569 target_read_u32(): address: 0xe0002000, value: 0x00000041
+Debug: 155 118 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x00000000
+Debug: 156 120 target.c:2640 target_write_u32(): address: 0xe000200c, value: 0x00000000
+Debug: 157 122 target.c:2640 target_write_u32(): address: 0xe0002010, value: 0x00000000
+Debug: 158 124 target.c:2640 target_write_u32(): address: 0xe0002014, value: 0x00000000
+Debug: 159 126 cortex_m.c:3213 cortex_m_examine(): [samd21_probe.cpu] FPB fpcr 0x41, numcode 4, numlit 0
+Debug: 160 129 target.c:2569 target_read_u32(): address: 0xe0001000, value: 0x20000000
+Debug: 161 129 cortex_m.c:2704 cortex_m_dwt_setup(): [samd21_probe.cpu] DWT_CTRL: 0x20000000
+Debug: 162 132 target.c:2569 target_read_u32(): address: 0xe0001fbc, value: 0x00000000
+Debug: 163 132 cortex_m.c:2711 cortex_m_dwt_setup(): [samd21_probe.cpu] DWT_DEVARCH: 0x0
+Debug: 164 132 target.c:2640 target_write_u32(): address: 0xe0001028, value: 0x00000000
+Debug: 165 136 target.c:2640 target_write_u32(): address: 0xe0001038, value: 0x00000000
+Debug: 166 139 cortex_m.c:2758 cortex_m_dwt_setup(): [samd21_probe.cpu] DWT dwtcr 0x20000000, comp 2, watch/trigger
+Info : 167 139 cortex_m.c:3223 cortex_m_examine(): [samd21_probe.cpu] target has 4 breakpoints, 2 watchpoints
+Debug: 168 140 target.c:1802 target_call_event_callbacks(): target event 21 (examine-end) for core samd21_probe.cpu
+Info : 169 140 target.c:700 target_examine_one(): [samd21_probe.cpu] Examination succeed
+Debug: 170 140 command.c:82 script_debug(): command - flash init
+Debug: 171 141 tcl.c:1490 handle_flash_init_command(): Initializing flash devices...
+Debug: 172 141 command.c:82 script_debug(): command - nand init
+Debug: 173 141 tcl.c:485 handle_nand_init_command(): Initializing NAND devices...
+Debug: 174 141 command.c:82 script_debug(): command - pld init
+Debug: 175 142 pld.c:337 handle_pld_init_command(): Initializing PLDs...
+Debug: 176 142 command.c:82 script_debug(): command - tpiu init
+Info : 177 142 gdb_server.c:4002 gdb_target_add_one(): [samd21_probe.cpu] gdb port disabled
+Debug: 178 142 command.c:82 script_debug(): command - target names
+Debug: 179 143 command.c:82 script_debug(): command - target names
+Debug: 180 143 command.c:82 script_debug(): command - samd21_probe.cpu cget -type
+Debug: 181 143 command.c:82 script_debug(): command - halt 5000
+Debug: 182 144 target.c:3213 handle_halt_command(): -
+Debug: 183 144 cortex_m.c:1226 cortex_m_halt_one(): [samd21_probe.cpu] target->state: unknown
+Warn : 184 144 cortex_m.c:1239 cortex_m_halt_one(): [samd21_probe.cpu] target was in unknown state when halt was requested
+Debug: 185 149 command.c:82 script_debug(): command - targets
+Debug: 186 149 command.c:82 script_debug(): command - echo J18_RESULT|connection|PASS|Debug port connected and CPU halted.
+User : 187 149 command.c:618 handle_echo(): J18_RESULT|connection|PASS|Debug port connected and CPU halted.
+Debug: 188 150 command.c:82 script_debug(): command - read_memory 0xE000ED00 32 1
+Debug: 189 153 command.c:82 script_debug(): command - read_memory 0x41002018 32 1
+Debug: 190 155 command.c:82 script_debug(): command - echo J18_VALUE|CPUID|0x410cc601
+User : 191 156 command.c:618 handle_echo(): J18_VALUE|CPUID|0x410cc601
+Debug: 192 156 command.c:82 script_debug(): command - echo J18_VALUE|DSU_DID|0x10010300
+User : 193 156 command.c:618 handle_echo(): J18_VALUE|DSU_DID|0x10010300
+Debug: 194 156 command.c:82 script_debug(): command - echo J18_RESULT|cpu_identity|PASS|Cortex-M0+ CPU identification.
+User : 195 156 command.c:618 handle_echo(): J18_RESULT|cpu_identity|PASS|Cortex-M0+ CPU identification.
+Debug: 196 157 command.c:82 script_debug(): command - echo J18_VALUE|chip.revision|3
+User : 197 157 command.c:618 handle_echo(): J18_VALUE|chip.revision|3
+Debug: 198 157 command.c:82 script_debug(): command - echo J18_VALUE|chip.name|SAMD21J18A
+User : 199 157 command.c:618 handle_echo(): J18_VALUE|chip.name|SAMD21J18A
+Debug: 200 157 command.c:82 script_debug(): command - echo J18_VALUE|chip.flash_bytes|262144
+User : 201 158 command.c:618 handle_echo(): J18_VALUE|chip.flash_bytes|262144
+Debug: 202 158 command.c:82 script_debug(): command - echo J18_VALUE|chip.ram_bytes|32768
+User : 203 158 command.c:618 handle_echo(): J18_VALUE|chip.ram_bytes|32768
+Debug: 204 158 command.c:82 script_debug(): command - echo J18_RESULT|chip_identity|PASS|Detected SAMD21J18A; flash=262144 bytes, RAM=32768 bytes.
+User : 205 159 command.c:618 handle_echo(): J18_RESULT|chip_identity|PASS|Detected SAMD21J18A; flash=262144 bytes, RAM=32768 bytes.
+Debug: 206 159 command.c:82 script_debug(): command - read_memory 0x41004008 32 1
+Debug: 207 163 command.c:82 script_debug(): command - echo J18_VALUE|chip.nvm_param|0x00031000
+User : 208 163 command.c:618 handle_echo(): J18_VALUE|chip.nvm_param|0x00031000
+Debug: 209 163 command.c:82 script_debug(): command - echo J18_RESULT|memory_geometry|PASS|NVM page count/size confirms detected flash capacity.
+User : 210 164 command.c:618 handle_echo(): J18_RESULT|memory_geometry|PASS|NVM page count/size confirms detected flash capacity.
+Debug: 211 164 command.c:82 script_debug(): command - echo J18_RESULT|pin_map|PASS|Selected jolteon display map; physical board wiring is not auto-detected.
+User : 212 165 command.c:618 handle_echo(): J18_RESULT|pin_map|PASS|Selected jolteon display map; physical board wiring is not auto-detected.
+Debug: 213 165 command.c:82 script_debug(): command - echo J18_VALUE|pin_map|jolteon
+User : 214 165 command.c:618 handle_echo(): J18_VALUE|pin_map|jolteon
+Debug: 215 165 command.c:82 script_debug(): command - flash info 0
+Debug: 216 168 target.c:2569 target_read_u32(): address: 0x41002018, value: 0x10010300
+Debug: 217 173 target.c:2569 target_read_u32(): address: 0x41004008, value: 0x00031000
+Debug: 218 176 arm_adi_v5.c:408 mem_ap_setup_transfer_verify_size_packing(): AP#0x0 probed size 2: supported
+Debug: 219 179 target.c:2589 target_read_u16(): address: 0x41004020, value: 0xffff
+Info : 220 179 at91samd.c:499 samd_probe(): SAMD MCU: SAMD21J18A (256KB Flash, 32KB RAM)
+Debug: 221 182 target.c:2589 target_read_u16(): address: 0x41004020, value: 0xffff
+Debug: 222 182 command.c:82 script_debug(): command - echo --- CPU snapshot: attached ---
+User : 223 182 command.c:618 handle_echo(): --- CPU snapshot: attached ---
+Debug: 224 182 command.c:82 script_debug(): command - reg
+Debug: 225 182 target.c:2988 handle_reg_command(): -
+Debug: 226 183 command.c:82 script_debug(): command - get_reg pc lr msp psp xpsr control
+Debug: 227 191 armv7m.c:408 armv7m_read_core_reg(): [samd21_probe.cpu] read pc value 0x00003f64
+Debug: 228 195 armv7m.c:408 armv7m_read_core_reg(): [samd21_probe.cpu] read lr value 0x00003f6d
+Debug: 229 198 armv7m.c:408 armv7m_read_core_reg(): [samd21_probe.cpu] read msp value 0x20007fc8
+Debug: 230 204 armv7m.c:408 armv7m_read_core_reg(): [samd21_probe.cpu] read psp value 0xee7ffd74
+Debug: 231 208 armv7m.c:408 armv7m_read_core_reg(): [samd21_probe.cpu] read xpsr value 0x81000000
+Debug: 232 212 armv7m.c:408 armv7m_read_core_reg(): [samd21_probe.cpu] read pmsk_bpri_fltmsk_ctrl value 0x00000000
+Debug: 233 212 command.c:82 script_debug(): command - echo J18_VALUE|attached.pc|0x00003f64
+User : 234 212 command.c:618 handle_echo(): J18_VALUE|attached.pc|0x00003f64
+Debug: 235 213 command.c:82 script_debug(): command - echo J18_VALUE|attached.lr|0x00003f6d
+User : 236 213 command.c:618 handle_echo(): J18_VALUE|attached.lr|0x00003f6d
+Debug: 237 213 command.c:82 script_debug(): command - echo J18_VALUE|attached.msp|0x20007fc8
+User : 238 213 command.c:618 handle_echo(): J18_VALUE|attached.msp|0x20007fc8
+Debug: 239 214 command.c:82 script_debug(): command - echo J18_VALUE|attached.psp|0xee7ffd74
+User : 240 214 command.c:618 handle_echo(): J18_VALUE|attached.psp|0xee7ffd74
+Debug: 241 214 command.c:82 script_debug(): command - echo J18_VALUE|attached.xpsr|0x81000000
+User : 242 214 command.c:618 handle_echo(): J18_VALUE|attached.xpsr|0x81000000
+Debug: 243 214 command.c:82 script_debug(): command - echo J18_VALUE|attached.control|0x00
+User : 244 215 command.c:618 handle_echo(): J18_VALUE|attached.control|0x00
+Debug: 245 215 command.c:82 script_debug(): command - read_memory 0xE000ED04 32 1
+Debug: 246 219 command.c:82 script_debug(): command - echo J18_VALUE|attached.active_exception|0
+User : 247 220 command.c:618 handle_echo(): J18_VALUE|attached.active_exception|0
+Debug: 248 220 command.c:82 script_debug(): command - read_memory 0xE000ED08 32 1
+Debug: 249 222 command.c:82 script_debug(): command - echo J18_VALUE|attached.vtor|0x00002000
+User : 250 222 command.c:618 handle_echo(): J18_VALUE|attached.vtor|0x00002000
+Debug: 251 222 command.c:82 script_debug(): command - read_memory 0x40000438 8 1
+Debug: 252 225 arm_adi_v5.c:408 mem_ap_setup_transfer_verify_size_packing(): AP#0x0 probed size 1: supported
+Debug: 253 228 command.c:82 script_debug(): command - echo J18_VALUE|attached.reset_cause|0x40
+User : 254 228 command.c:618 handle_echo(): J18_VALUE|attached.reset_cause|0x40
+Debug: 255 228 command.c:82 script_debug(): command - read_memory 1090536448 32 1
+Debug: 256 232 command.c:82 script_debug(): command - echo J18_VALUE|attached.PORTA.DIR|0x08102020
+User : 257 232 command.c:618 handle_echo(): J18_VALUE|attached.PORTA.DIR|0x08102020
+Debug: 258 232 command.c:82 script_debug(): command - read_memory 1090536464 32 1
+Debug: 259 234 command.c:82 script_debug(): command - echo J18_VALUE|attached.PORTA.OUT|0x00000000
+User : 260 235 command.c:618 handle_echo(): J18_VALUE|attached.PORTA.OUT|0x00000000
+Debug: 261 235 command.c:82 script_debug(): command - read_memory 1090536480 32 1
+Debug: 262 237 command.c:82 script_debug(): command - echo J18_VALUE|attached.PORTA.IN|0xc2001000
+User : 263 238 command.c:618 handle_echo(): J18_VALUE|attached.PORTA.IN|0xc2001000
+Debug: 264 238 command.c:82 script_debug(): command - read_memory 1090536576 32 1
+Debug: 265 240 command.c:82 script_debug(): command - echo J18_VALUE|attached.PORTB.DIR|0xc0006000
+User : 266 245 command.c:618 handle_echo(): J18_VALUE|attached.PORTB.DIR|0xc0006000
+Debug: 267 246 command.c:82 script_debug(): command - read_memory 1090536592 32 1
+Debug: 268 250 command.c:82 script_debug(): command - echo J18_VALUE|attached.PORTB.OUT|0x00006000
+User : 269 250 command.c:618 handle_echo(): J18_VALUE|attached.PORTB.OUT|0x00006000
+Debug: 270 250 command.c:82 script_debug(): command - read_memory 1090536608 32 1
+Debug: 271 253 command.c:82 script_debug(): command - echo J18_VALUE|attached.PORTB.IN|0x00000000
+User : 272 253 command.c:618 handle_echo(): J18_VALUE|attached.PORTB.IN|0x00000000
+Debug: 273 253 command.c:82 script_debug(): command - read_memory 1090536517 8 1
+Debug: 274 256 command.c:82 script_debug(): command - read_memory 1090536498 8 1
+Debug: 275 259 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.LED|PINCFG=0x00 PMUX=0 enabled=0
+User : 276 259 command.c:618 handle_echo(): J18_VALUE|attached.pin.LED|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 277 259 command.c:82 script_debug(): command - read_memory 1090536525 8 1
+Debug: 278 263 command.c:82 script_debug(): command - read_memory 1090536502 8 1
+Debug: 279 265 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.NRF_EN|PINCFG=0x00 PMUX=0 enabled=0
+User : 280 266 command.c:618 handle_echo(): J18_VALUE|attached.pin.NRF_EN|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 281 266 command.c:82 script_debug(): command - read_memory 1090536526 8 1
+Debug: 282 268 command.c:82 script_debug(): command - read_memory 1090536503 8 1
+Debug: 283 271 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.NRF_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 284 271 command.c:618 handle_echo(): J18_VALUE|attached.pin.NRF_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 285 271 command.c:82 script_debug(): command - read_memory 1090536527 8 1
+Debug: 286 274 command.c:82 script_debug(): command - read_memory 1090536503 8 1
+Debug: 287 277 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.NRF_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+User : 288 277 command.c:618 handle_echo(): J18_VALUE|attached.pin.NRF_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 289 278 command.c:82 script_debug(): command - read_memory 1090536534 8 1
+Debug: 290 280 command.c:82 script_debug(): command - read_memory 1090536507 8 1
+Debug: 291 283 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.NRF_TX|PINCFG=0x00 PMUX=0 enabled=0
+User : 292 283 command.c:618 handle_echo(): J18_VALUE|attached.pin.NRF_TX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 293 283 command.c:82 script_debug(): command - read_memory 1090536535 8 1
+Debug: 294 286 command.c:82 script_debug(): command - read_memory 1090536507 8 1
+Debug: 295 288 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.NRF_RX|PINCFG=0x00 PMUX=0 enabled=0
+User : 296 289 command.c:618 handle_echo(): J18_VALUE|attached.pin.NRF_RX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 297 289 command.c:82 script_debug(): command - read_memory 1090536528 8 1
+Debug: 298 291 command.c:82 script_debug(): command - read_memory 1090536504 8 1
+Debug: 299 294 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.LTE_TX|PINCFG=0x00 PMUX=0 enabled=0
+User : 300 294 command.c:618 handle_echo(): J18_VALUE|attached.pin.LTE_TX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 301 294 command.c:82 script_debug(): command - read_memory 1090536529 8 1
+Debug: 302 297 command.c:82 script_debug(): command - read_memory 1090536504 8 1
+Debug: 303 299 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.LTE_RX|PINCFG=0x00 PMUX=0 enabled=0
+User : 304 300 command.c:618 handle_echo(): J18_VALUE|attached.pin.LTE_RX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 305 300 command.c:82 script_debug(): command - read_memory 1090536670 8 1
+Debug: 306 303 command.c:82 script_debug(): command - read_memory 1090536639 8 1
+Debug: 307 310 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.LTE_PWR|PINCFG=0x00 PMUX=0 enabled=0
+User : 308 310 command.c:618 handle_echo(): J18_VALUE|attached.pin.LTE_PWR|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 309 310 command.c:82 script_debug(): command - read_memory 1090536671 8 1
+Debug: 310 313 command.c:82 script_debug(): command - read_memory 1090536639 8 1
+Debug: 311 317 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.LTE_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 312 317 command.c:618 handle_echo(): J18_VALUE|attached.pin.LTE_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 313 318 command.c:82 script_debug(): command - read_memory 1090536520 8 1
+Debug: 314 321 command.c:82 script_debug(): command - read_memory 1090536500 8 1
+Debug: 315 323 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SDA|PINCFG=0x00 PMUX=0 enabled=0
+User : 316 323 command.c:618 handle_echo(): J18_VALUE|attached.pin.SDA|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 317 324 command.c:82 script_debug(): command - read_memory 1090536521 8 1
+Debug: 318 326 command.c:82 script_debug(): command - read_memory 1090536500 8 1
+Debug: 319 329 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SCL|PINCFG=0x00 PMUX=0 enabled=0
+User : 320 329 command.c:618 handle_echo(): J18_VALUE|attached.pin.SCL|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 321 329 command.c:82 script_debug(): command - read_memory 1090536663 8 1
+Debug: 322 333 command.c:82 script_debug(): command - read_memory 1090536635 8 1
+Debug: 323 337 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.MUX_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 324 338 command.c:618 handle_echo(): J18_VALUE|attached.pin.MUX_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 325 338 command.c:82 script_debug(): command - read_memory 1090536531 8 1
+Debug: 326 341 command.c:82 script_debug(): command - read_memory 1090536505 8 1
+Debug: 327 348 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.RTC_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+User : 328 348 command.c:618 handle_echo(): J18_VALUE|attached.pin.RTC_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 329 349 command.c:82 script_debug(): command - read_memory 1090536539 8 1
+Debug: 330 351 command.c:82 script_debug(): command - read_memory 1090536509 8 1
+Debug: 331 354 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.RADIO_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 332 354 command.c:618 handle_echo(): J18_VALUE|attached.pin.RADIO_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 333 355 command.c:82 script_debug(): command - read_memory 1090536540 8 1
+Debug: 334 357 command.c:82 script_debug(): command - read_memory 1090536510 8 1
+Debug: 335 360 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.RADIO_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+User : 336 360 command.c:618 handle_echo(): J18_VALUE|attached.pin.RADIO_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 337 360 command.c:82 script_debug(): command - read_memory 1090536653 8 1
+Debug: 338 362 command.c:82 script_debug(): command - read_memory 1090536630 8 1
+Debug: 339 365 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.RADIO_CS|PINCFG=0x00 PMUX=0 enabled=0
+User : 340 365 command.c:618 handle_echo(): J18_VALUE|attached.pin.RADIO_CS|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 341 365 command.c:82 script_debug(): command - read_memory 1090536654 8 1
+Debug: 342 368 command.c:82 script_debug(): command - read_memory 1090536631 8 1
+Debug: 343 371 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SD_CS|PINCFG=0x00 PMUX=0 enabled=0
+User : 344 373 command.c:618 handle_echo(): J18_VALUE|attached.pin.SD_CS|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 345 373 command.c:82 script_debug(): command - read_memory 1090536655 8 1
+Debug: 346 376 command.c:82 script_debug(): command - read_memory 1090536631 8 1
+Debug: 347 379 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SDI|PINCFG=0x00 PMUX=0 enabled=0
+User : 348 379 command.c:618 handle_echo(): J18_VALUE|attached.pin.SDI|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 349 379 command.c:82 script_debug(): command - read_memory 1090536647 8 1
+Debug: 350 382 command.c:82 script_debug(): command - read_memory 1090536627 8 1
+Debug: 351 384 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.BATTERY|PINCFG=0x00 PMUX=0 enabled=0
+User : 352 384 command.c:618 handle_echo(): J18_VALUE|attached.pin.BATTERY|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 353 385 command.c:82 script_debug(): command - read_memory 1090536650 8 1
+Debug: 354 387 command.c:82 script_debug(): command - read_memory 1090536629 8 1
+Debug: 355 390 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SPI0_SCK|PINCFG=0x00 PMUX=0 enabled=0
+User : 356 390 command.c:618 handle_echo(): J18_VALUE|attached.pin.SPI0_SCK|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 357 390 command.c:82 script_debug(): command - read_memory 1090536651 8 1
+Debug: 358 393 command.c:82 script_debug(): command - read_memory 1090536629 8 1
+Debug: 359 395 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SPI0_MISO|PINCFG=0x00 PMUX=0 enabled=0
+User : 360 395 command.c:618 handle_echo(): J18_VALUE|attached.pin.SPI0_MISO|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 361 396 command.c:82 script_debug(): command - read_memory 1090536652 8 1
+Debug: 362 398 command.c:82 script_debug(): command - read_memory 1090536630 8 1
+Debug: 363 403 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SPI0_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+User : 364 404 command.c:618 handle_echo(): J18_VALUE|attached.pin.SPI0_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 365 404 command.c:82 script_debug(): command - read_memory 1090536656 8 1
+Debug: 366 407 command.c:82 script_debug(): command - read_memory 1090536632 8 1
+Debug: 367 409 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SPI1_SCK|PINCFG=0x00 PMUX=0 enabled=0
+User : 368 409 command.c:618 handle_echo(): J18_VALUE|attached.pin.SPI1_SCK|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 369 410 command.c:82 script_debug(): command - read_memory 1090536657 8 1
+Debug: 370 412 command.c:82 script_debug(): command - read_memory 1090536632 8 1
+Debug: 371 415 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SPI1_MISO|PINCFG=0x00 PMUX=0 enabled=0
+User : 372 415 command.c:618 handle_echo(): J18_VALUE|attached.pin.SPI1_MISO|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 373 415 command.c:82 script_debug(): command - read_memory 1090536662 8 1
+Debug: 374 418 command.c:82 script_debug(): command - read_memory 1090536635 8 1
+Debug: 375 421 command.c:82 script_debug(): command - echo J18_VALUE|attached.pin.SPI1_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+User : 376 421 command.c:618 handle_echo(): J18_VALUE|attached.pin.SPI1_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 377 421 command.c:82 script_debug(): command - read_memory 1073742872 32 1
+Debug: 378 424 command.c:82 script_debug(): command - echo J18_VALUE|attached.APBAMASK|0x0000007f
+User : 379 424 command.c:618 handle_echo(): J18_VALUE|attached.APBAMASK|0x0000007f
+Debug: 380 425 command.c:82 script_debug(): command - read_memory 1073742876 32 1
+Debug: 381 427 command.c:82 script_debug(): command - echo J18_VALUE|attached.APBBMASK|0x0000007f
+User : 382 427 command.c:618 handle_echo(): J18_VALUE|attached.APBBMASK|0x0000007f
+Debug: 383 427 command.c:82 script_debug(): command - read_memory 1073742880 32 1
+Debug: 384 429 command.c:82 script_debug(): command - echo J18_VALUE|attached.APBCMASK|0x00053ffc
+User : 385 429 command.c:618 handle_echo(): J18_VALUE|attached.APBCMASK|0x00053ffc
+Debug: 386 429 command.c:82 script_debug(): command - read_memory 0x40000418 32 1
+Debug: 387 432 command.c:82 script_debug(): command - read_memory 0x4000080C 32 1
+Debug: 388 436 command.c:82 script_debug(): command - read_memory 0x40000814 16 1
+Debug: 389 440 command.c:82 script_debug(): command - echo J18_VALUE|attached.SYSCTRL.PCLKSR|0x00005b9c
+User : 390 440 command.c:618 handle_echo(): J18_VALUE|attached.SYSCTRL.PCLKSR|0x00005b9c
+Debug: 391 440 command.c:82 script_debug(): command - echo J18_VALUE|attached.SYSCTRL.XOSC32K|0x0080
+User : 392 440 command.c:618 handle_echo(): J18_VALUE|attached.SYSCTRL.XOSC32K|0x0080
+Debug: 393 441 command.c:82 script_debug(): command - echo J18_VALUE|attached.XOSC32K.enabled|0
+User : 394 444 command.c:618 handle_echo(): J18_VALUE|attached.XOSC32K.enabled|0
+Debug: 395 444 command.c:82 script_debug(): command - echo J18_VALUE|attached.XOSC32K.ready|0
+User : 396 444 command.c:618 handle_echo(): J18_VALUE|attached.XOSC32K.ready|0
+Debug: 397 445 command.c:82 script_debug(): command - read_memory 1073743896 32 1
+Debug: 398 448 command.c:82 script_debug(): command - echo J18_VALUE|attached.SYSCTRL.OSC32K|0x00440606
+User : 399 448 command.c:618 handle_echo(): J18_VALUE|attached.SYSCTRL.OSC32K|0x00440606
+Debug: 400 448 command.c:82 script_debug(): command - read_memory 1073743908 16 1
+Debug: 401 452 command.c:82 script_debug(): command - echo J18_VALUE|attached.SYSCTRL.DFLLCTRL|0x00000526
+User : 402 453 command.c:618 handle_echo(): J18_VALUE|attached.SYSCTRL.DFLLCTRL|0x00000526
+Debug: 403 454 command.c:82 script_debug(): command - read_memory 1073743912 32 1
+Debug: 404 458 command.c:82 script_debug(): command - echo J18_VALUE|attached.SYSCTRL.DFLLVAL|0x00007200
+User : 405 458 command.c:618 handle_echo(): J18_VALUE|attached.SYSCTRL.DFLLVAL|0x00007200
+Debug: 406 458 command.c:82 script_debug(): command - read_memory 1073743916 32 1
+Debug: 407 460 command.c:82 script_debug(): command - echo J18_VALUE|attached.SYSCTRL.DFLLMUL|0x1c0abb80
+User : 408 460 command.c:618 handle_echo(): J18_VALUE|attached.SYSCTRL.DFLLMUL|0x1c0abb80
+Debug: 409 460 command.c:82 script_debug(): command - read_memory 0x40000C00 8 1
+Debug: 410 463 command.c:82 script_debug(): command - echo J18_VALUE|attached.GCLK.CTRL|0x00
+User : 411 464 command.c:618 handle_echo(): J18_VALUE|attached.GCLK.CTRL|0x00
+Debug: 412 464 command.c:82 script_debug(): command - read_memory 0x40000C01 8 1
+Debug: 413 466 command.c:82 script_debug(): command - echo J18_VALUE|attached.GCLK.STATUS|0x00
+User : 414 467 command.c:618 handle_echo(): J18_VALUE|attached.GCLK.STATUS|0x00
+Debug: 415 467 command.c:82 script_debug(): command - read_memory 0x40000420 32 1
+Debug: 416 470 command.c:82 script_debug(): command - read_memory 1107298304 32 1
+Debug: 417 473 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM0.CTRLA|0x00000000
+User : 418 473 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM0.CTRLA|0x00000000
+Debug: 419 473 command.c:82 script_debug(): command - read_memory 1107298308 32 1
+Debug: 420 475 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM0.CTRLB|0x00000000
+User : 421 475 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM0.CTRLB|0x00000000
+Debug: 422 476 command.c:82 script_debug(): command - read_memory 1107298316 16 1
+Debug: 423 479 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM0.BAUD|0x00000000
+User : 424 479 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM0.BAUD|0x00000000
+Debug: 425 479 command.c:82 script_debug(): command - read_memory 1107299328 32 1
+Debug: 426 483 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM1.CTRLA|0x00000000
+User : 427 483 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM1.CTRLA|0x00000000
+Debug: 428 483 command.c:82 script_debug(): command - read_memory 1107299332 32 1
+Debug: 429 488 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM1.CTRLB|0x00000000
+User : 430 488 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM1.CTRLB|0x00000000
+Debug: 431 489 command.c:82 script_debug(): command - read_memory 1107299340 16 1
+Debug: 432 492 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM1.BAUD|0x00000000
+User : 433 493 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM1.BAUD|0x00000000
+Debug: 434 494 command.c:82 script_debug(): command - read_memory 1107300352 32 1
+Debug: 435 497 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM2.CTRLA|0x00000000
+User : 436 497 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM2.CTRLA|0x00000000
+Debug: 437 497 command.c:82 script_debug(): command - read_memory 1107300356 32 1
+Debug: 438 499 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM2.CTRLB|0x00000000
+User : 439 499 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM2.CTRLB|0x00000000
+Debug: 440 499 command.c:82 script_debug(): command - read_memory 1107300364 16 1
+Debug: 441 505 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM2.BAUD|0x00000000
+User : 442 506 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM2.BAUD|0x00000000
+Debug: 443 506 command.c:82 script_debug(): command - read_memory 1107301376 32 1
+Debug: 444 510 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM3.CTRLA|0x00000000
+User : 445 510 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM3.CTRLA|0x00000000
+Debug: 446 510 command.c:82 script_debug(): command - read_memory 1107301380 32 1
+Debug: 447 512 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM3.CTRLB|0x00000000
+User : 448 512 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM3.CTRLB|0x00000000
+Debug: 449 513 command.c:82 script_debug(): command - read_memory 1107301388 16 1
+Debug: 450 516 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM3.BAUD|0x00000000
+User : 451 516 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM3.BAUD|0x00000000
+Debug: 452 516 command.c:82 script_debug(): command - read_memory 1107302400 32 1
+Debug: 453 519 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM4.CTRLA|0x00000000
+User : 454 519 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM4.CTRLA|0x00000000
+Debug: 455 520 command.c:82 script_debug(): command - read_memory 1107302404 32 1
+Debug: 456 521 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM4.CTRLB|0x00000000
+User : 457 522 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM4.CTRLB|0x00000000
+Debug: 458 522 command.c:82 script_debug(): command - read_memory 1107302412 16 1
+Debug: 459 525 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM4.BAUD|0x00000000
+User : 460 525 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM4.BAUD|0x00000000
+Debug: 461 525 command.c:82 script_debug(): command - read_memory 1107303424 32 1
+Debug: 462 530 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM5.CTRLA|0x00000000
+User : 463 530 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM5.CTRLA|0x00000000
+Debug: 464 530 command.c:82 script_debug(): command - read_memory 1107303428 32 1
+Debug: 465 532 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM5.CTRLB|0x00000000
+User : 466 532 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM5.CTRLB|0x00000000
+Debug: 467 533 command.c:82 script_debug(): command - read_memory 1107303436 16 1
+Debug: 468 536 command.c:82 script_debug(): command - echo J18_VALUE|attached.SERCOM5.BAUD|0x00000000
+User : 469 536 command.c:618 handle_echo(): J18_VALUE|attached.SERCOM5.BAUD|0x00000000
+Debug: 470 536 command.c:82 script_debug(): command - read_memory 0x20007fc8 32 14
+Debug: 471 554 command.c:82 script_debug(): command - echo J18_VALUE|attached.stack_words|0x280b 0x4e24 0x200 0x2121 0x200005c8 0x3fcf 0x20000090 0x3e8f 0x0 0x10000 0x200 0x9df 0x4fd9e389 0x0
+User : 472 575 command.c:618 handle_echo(): J18_VALUE|attached.stack_words|0x280b 0x4e24 0x200 0x2121 0x200005c8 0x3fcf 0x20000090 0x3e8f 0x0 0x10000 0x200 0x9df 0x4fd9e389 0x0
+Debug: 473 575 command.c:82 script_debug(): command - echo 2. Reading vectors, boot protection and saved-image comparisons.
+User : 474 576 command.c:618 handle_echo(): 2. Reading vectors, boot protection and saved-image comparisons.
+Debug: 475 576 command.c:82 script_debug(): command - read_memory 0 32 2
+Debug: 476 581 command.c:82 script_debug(): command - echo J18_VALUE|boot.sp|0x20007c00
+User : 477 581 command.c:618 handle_echo(): J18_VALUE|boot.sp|0x20007c00
+Debug: 478 581 command.c:82 script_debug(): command - echo J18_VALUE|boot.reset|0x00000845
+User : 479 581 command.c:618 handle_echo(): J18_VALUE|boot.reset|0x00000845
+Debug: 480 582 command.c:82 script_debug(): command - echo J18_RESULT|boot.vectors|PASS|Stack and Thumb reset address are in range.
+User : 481 582 command.c:618 handle_echo(): J18_RESULT|boot.vectors|PASS|Stack and Thumb reset address are in range.
+Debug: 482 582 command.c:82 script_debug(): command - read_memory 8192 32 2
+Debug: 483 586 command.c:82 script_debug(): command - echo J18_VALUE|app.sp|0x20007ff8
+User : 484 586 command.c:618 handle_echo(): J18_VALUE|app.sp|0x20007ff8
+Debug: 485 586 command.c:82 script_debug(): command - echo J18_VALUE|app.reset|0x00003e7d
+User : 486 586 command.c:618 handle_echo(): J18_VALUE|app.reset|0x00003e7d
+Debug: 487 587 command.c:82 script_debug(): command - echo J18_RESULT|app.vectors|PASS|Stack and Thumb reset address are in range.
+User : 488 587 command.c:618 handle_echo(): J18_RESULT|app.vectors|PASS|Stack and Thumb reset address are in range.
+Debug: 489 587 command.c:82 script_debug(): command - dump_image C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/sketches/SAMD21J18_Blinky/.j18-build/swd/boot-vectors.bin 0 64
+Debug: 490 588 target.c:2436 target_read_buffer(): reading buffer of 64 byte at 0x00000000
+Debug: 491 608 command.c:82 script_debug(): command - dump_image C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/sketches/SAMD21J18_Blinky/.j18-build/swd/app-vectors.bin 8192 64
+Debug: 492 609 target.c:2436 target_read_buffer(): reading buffer of 64 byte at 0x00002000
+Debug: 493 629 command.c:82 script_debug(): command - read_memory 0x00804000 32 1
+Debug: 494 631 command.c:82 script_debug(): command - echo J18_VALUE|BOOTPROT|2
+User : 495 632 command.c:618 handle_echo(): J18_VALUE|BOOTPROT|2
+Debug: 496 632 command.c:82 script_debug(): command - echo J18_VALUE|BOOTPROT.bytes|8192
+User : 497 632 command.c:618 handle_echo(): J18_VALUE|BOOTPROT.bytes|8192
+Debug: 498 632 command.c:82 script_debug(): command - echo J18_RESULT|boot_protection|PASS|Observed 8192 protected bytes (code 2); fuses unchanged.
+User : 499 633 command.c:618 handle_echo(): J18_RESULT|boot_protection|PASS|Observed 8192 protected bytes (code 2); fuses unchanged.
+Debug: 500 634 command.c:82 script_debug(): command - echo J18_VALUE|expected.boot.sp|0x20007c00
+User : 501 634 command.c:618 handle_echo(): J18_VALUE|expected.boot.sp|0x20007c00
+Debug: 502 634 command.c:82 script_debug(): command - echo J18_VALUE|expected.boot.reset|0x00000845
+User : 503 635 command.c:618 handle_echo(): J18_VALUE|expected.boot.reset|0x00000845
+Debug: 504 635 command.c:82 script_debug(): command - verify_image C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/sketches/SAMD21J18_Blinky/.j18-build/swd/expected-samd21_sam_ba.bin 0 bin
+Debug: 505 636 configuration.c:89 find_file(): found C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/sketches/SAMD21J18_Blinky/.j18-build/swd/expected-samd21_sam_ba.bin
+Debug: 506 637 image.c:1270 image_calculate_checksum(): Calculating checksum
+Debug: 507 637 image.c:1302 image_calculate_checksum(): Calculating checksum done; checksum=0x4e8870b7
+Debug: 508 638 target.c:2007 target_alloc_working_area_try(): MMU disabled, using physical address for working memory 0x20000000
+Warn : 509 638 target.c:2094 target_alloc_working_area(): not enough working area available(requested 52)
+Debug: 510 638 target.c:2436 target_read_buffer(): reading buffer of 5348 byte at 0x00000000
+Debug: 511 2198 image.c:1270 image_calculate_checksum(): Calculating checksum
+Debug: 512 2199 log.c:426 gdb_timeout_warning(): keep_alive() was not invoked in the 1000 ms timelimit (1693 ms). This may cause trouble with GDB connections.
+Debug: 513 2199 image.c:1302 image_calculate_checksum(): Calculating checksum done; checksum=0x4e8870b7
+Debug: 514 2200 command.c:82 script_debug(): command - echo J18_RESULT|boot.flash|PASS|Installed flash matches the saved image.
+User : 515 2207 command.c:618 handle_echo(): J18_RESULT|boot.flash|PASS|Installed flash matches the saved image.
+Debug: 516 2209 command.c:82 script_debug(): command - echo J18_VALUE|expected.app.sp|0x20007ff8
+User : 517 2209 command.c:618 handle_echo(): J18_VALUE|expected.app.sp|0x20007ff8
+Debug: 518 2209 command.c:82 script_debug(): command - echo J18_VALUE|expected.app.reset|0x00003e7d
+User : 519 2209 command.c:618 handle_echo(): J18_VALUE|expected.app.reset|0x00003e7d
+Debug: 520 2210 command.c:82 script_debug(): command - verify_image C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/sketches/SAMD21J18_Blinky/.j18-build/swd/expected-firmware.sketch.bin 8192 bin
+Debug: 521 2211 configuration.c:89 find_file(): found C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/sketches/SAMD21J18_Blinky/.j18-build/swd/expected-firmware.sketch.bin
+Debug: 522 2212 image.c:1270 image_calculate_checksum(): Calculating checksum
+Debug: 523 2212 image.c:1302 image_calculate_checksum(): Calculating checksum done; checksum=0xded3c13
+Warn : 524 2212 target.c:2094 target_alloc_working_area(): not enough working area available(requested 52)
+Debug: 525 2213 target.c:2436 target_read_buffer(): reading buffer of 11956 byte at 0x00002000
+Debug: 526 5708 image.c:1270 image_calculate_checksum(): Calculating checksum
+Debug: 527 5708 log.c:426 gdb_timeout_warning(): keep_alive() was not invoked in the 1000 ms timelimit (3509 ms). This may cause trouble with GDB connections.
+Debug: 528 5708 image.c:1302 image_calculate_checksum(): Calculating checksum done; checksum=0xded3c13
+Debug: 529 5709 command.c:82 script_debug(): command - echo J18_RESULT|app.flash|PASS|Installed flash matches the saved image.
+User : 530 5712 command.c:618 handle_echo(): J18_RESULT|app.flash|PASS|Installed flash matches the saved image.
+Debug: 531 5713 command.c:82 script_debug(): command - echo 3. One software reset, then hardware breakpoints through startup.
+User : 532 5713 command.c:618 handle_echo(): 3. One software reset, then hardware breakpoints through startup.
+Debug: 533 5713 command.c:82 script_debug(): command - reset halt
+Debug: 534 5713 target.c:1821 target_call_reset_callbacks(): target reset 2 (halt)
+Debug: 535 5713 command.c:82 script_debug(): command - target names
+Debug: 536 5713 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event reset-start
+Debug: 537 5713 command.c:82 script_debug(): command - transport select
+Debug: 538 5714 command.c:82 script_debug(): command - transport select
+Debug: 539 5714 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event examine-start
+Debug: 540 5714 command.c:82 script_debug(): command - samd21_probe.cpu arp_examine allow-defer
+Debug: 541 5718 arm_adi_v5.c:942 mem_ap_init(): MEM_AP CFG: large data 0, long address 0, big-endian 0
+Debug: 542 5718 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event examine-end
+Debug: 543 5718 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event reset-assert-pre
+Debug: 544 5719 command.c:82 script_debug(): command - transport select
+Debug: 545 5719 command.c:82 script_debug(): command - samd21_probe.cpu arp_reset assert 1
+Debug: 546 5719 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 547 5719 target.c:1928 print_wa_layout():    0x20000000-0x1fffffff (0 bytes)
+Debug: 548 5719 cortex_m.c:1874 cortex_m_assert_reset(): [samd21_probe.cpu] target->state: halted, examined
+Debug: 549 5726 cortex_m.c:1994 cortex_m_assert_reset(): [samd21_probe.cpu] Using Cortex-M SYSRESETREQ
+Debug: 550 5731 arm_adi_v5.c:867 dap_dp_init_or_reconnect(): samd21_probe.dap
+Debug: 551 5732 arm_adi_v5.c:791 dap_dp_init(): samd21_probe.dap
+Debug: 552 5732 arm_adi_v5.c:824 dap_dp_init(): DAP: wait CDBGPWRUPACK
+Debug: 553 5733 arm_adi_v5.h:682 dap_dp_poll_register(): DAP: poll 4, mask 0x20000000, value 0x20000000
+Debug: 554 5736 arm_adi_v5.c:832 dap_dp_init(): DAP: wait CSYSPWRUPACK
+Debug: 555 5736 arm_adi_v5.h:682 dap_dp_poll_register(): DAP: poll 4, mask 0x80000000, value 0x80000000
+Debug: 556 5816 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event reset-assert-post
+Debug: 557 5818 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event reset-deassert-pre
+Debug: 558 5819 command.c:82 script_debug(): command - transport select
+Debug: 559 5820 command.c:82 script_debug(): command - samd21_probe.cpu arp_reset deassert 1
+Debug: 560 5821 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 561 5822 target.c:1928 print_wa_layout():    0x20000000-0x1fffffff (0 bytes)
+Debug: 562 5822 cortex_m.c:2037 cortex_m_deassert_reset(): [samd21_probe.cpu] target->state: reset, examined
+Debug: 563 5822 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event reset-deassert-post
+Debug: 564 5822 target.c:4732 target_handle_event(): target: samd21_probe.cpu (cortex_m) event: 14 (reset-deassert-post) action: 
+        at91samd dsu_reset_deassert
+
+Debug: 565 5823 command.c:82 script_debug(): command - at91samd dsu_reset_deassert
+Debug: 566 5829 target.c:2673 target_write_u8(): address: 0x41002001, value: 0x02
+Debug: 567 5833 arm_adi_v5.c:408 mem_ap_setup_transfer_verify_size_packing(): AP#0x0 probed size 1: supported
+Debug: 568 5835 command.c:82 script_debug(): command - transport select
+Debug: 569 5835 command.c:82 script_debug(): command - samd21_probe.cpu was_examined
+Debug: 570 5835 command.c:82 script_debug(): command - samd21_probe.cpu arp_waitstate halted 1000
+Debug: 571 5840 cortex_m.c:1035 cortex_m_poll_one(): [samd21_probe.cpu] Exit from reset with dcb_dhcsr 0x30003
+Debug: 572 5842 cortex_m.c:621 cortex_m_endreset_event(): [samd21_probe.cpu] DCB_DEMCR = 0x01000401
+Debug: 573 5846 target.c:2640 target_write_u32(): address: 0xe0002000, value: 0x00000003
+Debug: 574 5852 target.c:2569 target_read_u32(): address: 0xe0002000, value: 0x00000041
+Debug: 575 5852 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x00000000
+Debug: 576 5855 target.c:2640 target_write_u32(): address: 0xe000200c, value: 0x00000000
+Debug: 577 5857 target.c:2640 target_write_u32(): address: 0xe0002010, value: 0x00000000
+Debug: 578 5859 target.c:2640 target_write_u32(): address: 0xe0002014, value: 0x00000000
+Debug: 579 5861 target.c:2640 target_write_u32(): address: 0xe0001020, value: 0x00000000
+Debug: 580 5864 target.c:2640 target_write_u32(): address: 0xe0001024, value: 0x00000000
+Debug: 581 5866 target.c:2640 target_write_u32(): address: 0xe0001028, value: 0x00000000
+Debug: 582 5868 target.c:2640 target_write_u32(): address: 0xe0001030, value: 0x00000000
+Debug: 583 5871 target.c:2640 target_write_u32(): address: 0xe0001034, value: 0x00000000
+Debug: 584 5873 target.c:2640 target_write_u32(): address: 0xe0001038, value: 0x00000000
+Debug: 585 5878 cortex_m.c:854 cortex_m_debug_entry(): [samd21_probe.cpu]  
+Debug: 586 5886 cortex_m.c:559 cortex_m_clear_halt(): [samd21_probe.cpu] NVIC_DFSR 0xb
+Debug: 587 5947 cortex_m.c:361 cortex_m_fast_read_all_regs(): [samd21_probe.cpu] read 20 32-bit registers
+Debug: 588 5947 cortex_m.c:936 cortex_m_debug_entry(): [samd21_probe.cpu] entered debug state in core mode: Thread at PC 0x844, cpu in Non-Secure state, target->state: halted
+Debug: 589 5947 target.c:1802 target_call_event_callbacks(): target event 0 (gdb-halt) for core samd21_probe.cpu
+Debug: 590 5948 target.c:1802 target_call_event_callbacks(): target event 1 (halted) for core samd21_probe.cpu
+User : 591 5948 armv7m.c:780 armv7m_arch_state(): [samd21_probe.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x81000000 pc: 0x00000844 msp: 0x20007c00
+Debug: 592 5948 command.c:82 script_debug(): command - samd21_probe.cpu curstate
+Debug: 593 5949 command.c:82 script_debug(): command - samd21_probe.cpu invoke-event reset-end
+Debug: 594 5951 command.c:82 script_debug(): command - echo J18_RESULT|software_reset|PASS|SYSRESETREQ reset and halt succeeded without a reset wire.
+User : 595 5951 command.c:618 handle_echo(): J18_RESULT|software_reset|PASS|SYSRESETREQ reset and halt succeeded without a reset wire.
+Debug: 596 5952 command.c:82 script_debug(): command - get_reg pc
+Debug: 597 5952 command.c:82 script_debug(): command - bp 15996 2 hw
+Debug: 598 5952 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x40003e7d
+Debug: 599 5956 cortex_m.c:2106 cortex_m_set_breakpoint(): [samd21_probe.cpu] fpc_num 0 fpcr_value 0x40003e7d
+Debug: 600 5956 cortex_m.c:2155 cortex_m_set_breakpoint(): [samd21_probe.cpu] BPID: 0, Type: 0, Address: 0x00003e7c Length: 2 (n=0)
+Debug: 601 5956 breakpoints.c:101 breakpoint_add_internal(): [samd21_probe.cpu] added hardware breakpoint at 0x00003e7c of length 0x00000002, (BPID: 0)
+Debug: 602 5957 command.c:82 script_debug(): command - resume
+Debug: 603 5957 target.c:1802 target_call_event_callbacks(): target event 3 (resume-start) for core samd21_probe.cpu
+Debug: 604 5957 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 605 5957 target.c:1928 print_wa_layout():    0x20000000-0x1fffffff (0 bytes)
+Debug: 606 5958 armv7m.c:202 armv7m_restore_context(): [samd21_probe.cpu]  
+Debug: 607 5961 target.c:1802 target_call_event_callbacks(): target event 2 (resumed) for core samd21_probe.cpu
+Debug: 608 5961 cortex_m.c:1506 cortex_m_resume(): [samd21_probe.cpu] resumed at 0x00000844
+Debug: 609 5961 target.c:1802 target_call_event_callbacks(): target event 4 (resume-end) for core samd21_probe.cpu
+Debug: 610 5962 command.c:82 script_debug(): command - wait_halt 12000
+Debug: 611 5964 target.c:3193 target_wait_state(): waiting for target halted...
+Debug: 612 6464 cortex_m.c:854 cortex_m_debug_entry(): [samd21_probe.cpu]  
+Debug: 613 6471 cortex_m.c:559 cortex_m_clear_halt(): [samd21_probe.cpu] NVIC_DFSR 0x3
+Debug: 614 6535 cortex_m.c:361 cortex_m_fast_read_all_regs(): [samd21_probe.cpu] read 20 32-bit registers
+Debug: 615 6535 cortex_m.c:936 cortex_m_debug_entry(): [samd21_probe.cpu] entered debug state in core mode: Thread at PC 0x3e7c, cpu in Non-Secure state, target->state: halted
+Debug: 616 6535 target.c:1802 target_call_event_callbacks(): target event 0 (gdb-halt) for core samd21_probe.cpu
+Debug: 617 6536 target.c:1802 target_call_event_callbacks(): target event 1 (halted) for core samd21_probe.cpu
+User : 618 6536 armv7m.c:780 armv7m_arch_state(): [samd21_probe.cpu] halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x00003e7c msp: 0x20007ff8
+Debug: 619 6536 command.c:82 script_debug(): command - halt 5000
+Debug: 620 6538 target.c:3213 handle_halt_command(): -
+Debug: 621 6538 cortex_m.c:1226 cortex_m_halt_one(): [samd21_probe.cpu] target->state: halted
+Debug: 622 6539 cortex_m.c:1234 cortex_m_halt_one(): [samd21_probe.cpu] target was already halted
+Debug: 623 6541 command.c:82 script_debug(): command - get_reg pc
+Debug: 624 6541 command.c:82 script_debug(): command - rbp 15996
+Debug: 625 6541 cortex_m.c:2175 cortex_m_unset_breakpoint(): [samd21_probe.cpu] BPID: 0, Type: 0, Address: 0x00003e7c Length: 2 (n=0)
+Debug: 626 6541 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x00000000
+Debug: 627 6544 breakpoints.c:302 breakpoint_free(): [samd21_probe.cpu] free BPID: 0 --> 0
+Debug: 628 6545 command.c:82 script_debug(): command - echo J18_RESULT|app_entry|PASS|Reached hardware breakpoint at 0x00003e7c.
+User : 629 6545 command.c:618 handle_echo(): J18_RESULT|app_entry|PASS|Reached hardware breakpoint at 0x00003e7c.
+Debug: 630 6545 command.c:82 script_debug(): command - get_reg pc
+Debug: 631 6545 command.c:82 script_debug(): command - bp 8488 2 hw
+Debug: 632 6545 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x40002129
+Debug: 633 6548 cortex_m.c:2106 cortex_m_set_breakpoint(): [samd21_probe.cpu] fpc_num 0 fpcr_value 0x40002129
+Debug: 634 6549 cortex_m.c:2155 cortex_m_set_breakpoint(): [samd21_probe.cpu] BPID: 1, Type: 0, Address: 0x00002128 Length: 2 (n=0)
+Debug: 635 6549 breakpoints.c:101 breakpoint_add_internal(): [samd21_probe.cpu] added hardware breakpoint at 0x00002128 of length 0x00000002, (BPID: 1)
+Debug: 636 6550 command.c:82 script_debug(): command - resume
+Debug: 637 6550 target.c:1802 target_call_event_callbacks(): target event 3 (resume-start) for core samd21_probe.cpu
+Debug: 638 6550 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 639 6553 arm_adi_v5.c:408 mem_ap_setup_transfer_verify_size_packing(): AP#0x0 probed size 2: supported
+Debug: 640 6555 target.c:2589 target_read_u16(): address: 0x00003e7c, value: 0xb570
+Debug: 641 6555 armv7m.c:202 armv7m_restore_context(): [samd21_probe.cpu]  
+Debug: 642 6560 target.c:1802 target_call_event_callbacks(): target event 2 (resumed) for core samd21_probe.cpu
+Debug: 643 6562 cortex_m.c:1506 cortex_m_resume(): [samd21_probe.cpu] resumed at 0x00003e7c
+Debug: 644 6562 target.c:1802 target_call_event_callbacks(): target event 4 (resume-end) for core samd21_probe.cpu
+Debug: 645 6562 command.c:82 script_debug(): command - wait_halt 12000
+Debug: 646 6565 target.c:3193 target_wait_state(): waiting for target halted...
+Debug: 647 6567 cortex_m.c:854 cortex_m_debug_entry(): [samd21_probe.cpu]  
+Debug: 648 6574 cortex_m.c:559 cortex_m_clear_halt(): [samd21_probe.cpu] NVIC_DFSR 0x3
+Debug: 649 6634 cortex_m.c:361 cortex_m_fast_read_all_regs(): [samd21_probe.cpu] read 20 32-bit registers
+Debug: 650 6634 cortex_m.c:936 cortex_m_debug_entry(): [samd21_probe.cpu] entered debug state in core mode: Thread at PC 0x2128, cpu in Non-Secure state, target->state: halted
+Debug: 651 6635 target.c:1802 target_call_event_callbacks(): target event 0 (gdb-halt) for core samd21_probe.cpu
+Debug: 652 6635 target.c:1802 target_call_event_callbacks(): target event 1 (halted) for core samd21_probe.cpu
+User : 653 6635 armv7m.c:780 armv7m_arch_state(): [samd21_probe.cpu] halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x00002128 msp: 0x20007fe0
+Debug: 654 6635 command.c:82 script_debug(): command - halt 5000
+Debug: 655 6635 target.c:3213 handle_halt_command(): -
+Debug: 656 6636 cortex_m.c:1226 cortex_m_halt_one(): [samd21_probe.cpu] target->state: halted
+Debug: 657 6636 cortex_m.c:1234 cortex_m_halt_one(): [samd21_probe.cpu] target was already halted
+Debug: 658 6638 command.c:82 script_debug(): command - get_reg pc
+Debug: 659 6640 command.c:82 script_debug(): command - rbp 8488
+Debug: 660 6640 cortex_m.c:2175 cortex_m_unset_breakpoint(): [samd21_probe.cpu] BPID: 1, Type: 0, Address: 0x00002128 Length: 2 (n=0)
+Debug: 661 6641 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x00000000
+Debug: 662 6647 breakpoints.c:302 breakpoint_free(): [samd21_probe.cpu] free BPID: 1 --> 0
+Debug: 663 6648 command.c:82 script_debug(): command - echo J18_RESULT|setup|PASS|Reached hardware breakpoint at 0x00002128.
+User : 664 6648 command.c:618 handle_echo(): J18_RESULT|setup|PASS|Reached hardware breakpoint at 0x00002128.
+Debug: 665 6648 command.c:82 script_debug(): command - get_reg pc
+Debug: 666 6648 command.c:82 script_debug(): command - bp 8444 2 hw
+Debug: 667 6649 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x400020fd
+Debug: 668 6652 cortex_m.c:2106 cortex_m_set_breakpoint(): [samd21_probe.cpu] fpc_num 0 fpcr_value 0x400020fd
+Debug: 669 6652 cortex_m.c:2155 cortex_m_set_breakpoint(): [samd21_probe.cpu] BPID: 2, Type: 0, Address: 0x000020fc Length: 2 (n=0)
+Debug: 670 6652 breakpoints.c:101 breakpoint_add_internal(): [samd21_probe.cpu] added hardware breakpoint at 0x000020fc of length 0x00000002, (BPID: 2)
+Debug: 671 6653 command.c:82 script_debug(): command - resume
+Debug: 672 6653 target.c:1802 target_call_event_callbacks(): target event 3 (resume-start) for core samd21_probe.cpu
+Debug: 673 6653 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 674 6657 target.c:2589 target_read_u16(): address: 0x00002128, value: 0x2280
+Debug: 675 6657 armv7m.c:202 armv7m_restore_context(): [samd21_probe.cpu]  
+Debug: 676 6662 target.c:1802 target_call_event_callbacks(): target event 2 (resumed) for core samd21_probe.cpu
+Debug: 677 6662 cortex_m.c:1506 cortex_m_resume(): [samd21_probe.cpu] resumed at 0x00002128
+Debug: 678 6663 target.c:1802 target_call_event_callbacks(): target event 4 (resume-end) for core samd21_probe.cpu
+Debug: 679 6663 command.c:82 script_debug(): command - wait_halt 12000
+Debug: 680 6665 target.c:3193 target_wait_state(): waiting for target halted...
+Debug: 681 7422 cortex_m.c:854 cortex_m_debug_entry(): [samd21_probe.cpu]  
+Debug: 682 7429 cortex_m.c:559 cortex_m_clear_halt(): [samd21_probe.cpu] NVIC_DFSR 0x3
+Debug: 683 7492 cortex_m.c:361 cortex_m_fast_read_all_regs(): [samd21_probe.cpu] read 20 32-bit registers
+Debug: 684 7492 cortex_m.c:936 cortex_m_debug_entry(): [samd21_probe.cpu] entered debug state in core mode: Thread at PC 0x20fc, cpu in Non-Secure state, target->state: halted
+Debug: 685 7492 target.c:1802 target_call_event_callbacks(): target event 0 (gdb-halt) for core samd21_probe.cpu
+Debug: 686 7493 target.c:1802 target_call_event_callbacks(): target event 1 (halted) for core samd21_probe.cpu
+User : 687 7493 armv7m.c:780 armv7m_arch_state(): [samd21_probe.cpu] halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x000020fc msp: 0x20007fe0
+Debug: 688 7494 command.c:82 script_debug(): command - halt 5000
+Debug: 689 7495 target.c:3213 handle_halt_command(): -
+Debug: 690 7496 cortex_m.c:1226 cortex_m_halt_one(): [samd21_probe.cpu] target->state: halted
+Debug: 691 7496 cortex_m.c:1234 cortex_m_halt_one(): [samd21_probe.cpu] target was already halted
+Debug: 692 7498 command.c:82 script_debug(): command - get_reg pc
+Debug: 693 7498 command.c:82 script_debug(): command - rbp 8444
+Debug: 694 7498 cortex_m.c:2175 cortex_m_unset_breakpoint(): [samd21_probe.cpu] BPID: 2, Type: 0, Address: 0x000020fc Length: 2 (n=0)
+Debug: 695 7498 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x00000000
+Debug: 696 7503 breakpoints.c:302 breakpoint_free(): [samd21_probe.cpu] free BPID: 2 --> 0
+Debug: 697 7503 command.c:82 script_debug(): command - echo J18_RESULT|loop|PASS|Reached hardware breakpoint at 0x000020fc.
+User : 698 7503 command.c:618 handle_echo(): J18_RESULT|loop|PASS|Reached hardware breakpoint at 0x000020fc.
+Debug: 699 7503 command.c:82 script_debug(): command - get_reg pc
+Debug: 700 7504 command.c:82 script_debug(): command - bp 8444 2 hw
+Debug: 701 7504 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x400020fd
+Debug: 702 7507 cortex_m.c:2106 cortex_m_set_breakpoint(): [samd21_probe.cpu] fpc_num 0 fpcr_value 0x400020fd
+Debug: 703 7507 cortex_m.c:2155 cortex_m_set_breakpoint(): [samd21_probe.cpu] BPID: 3, Type: 0, Address: 0x000020fc Length: 2 (n=0)
+Debug: 704 7507 breakpoints.c:101 breakpoint_add_internal(): [samd21_probe.cpu] added hardware breakpoint at 0x000020fc of length 0x00000002, (BPID: 3)
+Debug: 705 7508 command.c:82 script_debug(): command - resume
+Debug: 706 7508 target.c:1802 target_call_event_callbacks(): target event 3 (resume-start) for core samd21_probe.cpu
+Debug: 707 7508 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 708 7508 armv7m.c:202 armv7m_restore_context(): [samd21_probe.cpu]  
+Debug: 709 7509 cortex_m.c:1415 cortex_m_restore_one(): [samd21_probe.cpu] unset breakpoint at 0x000020fc (ID: 3)
+Debug: 710 7509 cortex_m.c:2175 cortex_m_unset_breakpoint(): [samd21_probe.cpu] BPID: 3, Type: 0, Address: 0x000020fc Length: 2 (n=0)
+Debug: 711 7509 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x00000000
+Debug: 712 7518 cortex_m.c:581 cortex_m_single_step_core(): [samd21_probe.cpu] single step
+Debug: 713 7525 cortex_m.c:559 cortex_m_clear_halt(): [samd21_probe.cpu] NVIC_DFSR 0x1
+Debug: 714 7525 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x400020fd
+Debug: 715 7528 cortex_m.c:2106 cortex_m_set_breakpoint(): [samd21_probe.cpu] fpc_num 0 fpcr_value 0x400020fd
+Debug: 716 7529 cortex_m.c:2155 cortex_m_set_breakpoint(): [samd21_probe.cpu] BPID: 3, Type: 0, Address: 0x000020fc Length: 2 (n=0)
+Debug: 717 7546 target.c:1802 target_call_event_callbacks(): target event 2 (resumed) for core samd21_probe.cpu
+Debug: 718 7546 cortex_m.c:1506 cortex_m_resume(): [samd21_probe.cpu] resumed at 0x000020fc
+Debug: 719 7546 target.c:1802 target_call_event_callbacks(): target event 4 (resume-end) for core samd21_probe.cpu
+Debug: 720 7547 command.c:82 script_debug(): command - wait_halt 12000
+Debug: 721 7549 target.c:3193 target_wait_state(): waiting for target halted...
+Debug: 722 8054 cortex_m.c:854 cortex_m_debug_entry(): [samd21_probe.cpu]  
+Debug: 723 8061 cortex_m.c:559 cortex_m_clear_halt(): [samd21_probe.cpu] NVIC_DFSR 0x3
+Debug: 724 8125 cortex_m.c:361 cortex_m_fast_read_all_regs(): [samd21_probe.cpu] read 20 32-bit registers
+Debug: 725 8126 cortex_m.c:936 cortex_m_debug_entry(): [samd21_probe.cpu] entered debug state in core mode: Thread at PC 0x20fc, cpu in Non-Secure state, target->state: halted
+Debug: 726 8126 target.c:1802 target_call_event_callbacks(): target event 0 (gdb-halt) for core samd21_probe.cpu
+Debug: 727 8126 target.c:1802 target_call_event_callbacks(): target event 1 (halted) for core samd21_probe.cpu
+User : 728 8127 armv7m.c:780 armv7m_arch_state(): [samd21_probe.cpu] halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x000020fc msp: 0x20007fe0
+Debug: 729 8127 command.c:82 script_debug(): command - halt 5000
+Debug: 730 8129 target.c:3213 handle_halt_command(): -
+Debug: 731 8129 cortex_m.c:1226 cortex_m_halt_one(): [samd21_probe.cpu] target->state: halted
+Debug: 732 8129 cortex_m.c:1234 cortex_m_halt_one(): [samd21_probe.cpu] target was already halted
+Debug: 733 8131 command.c:82 script_debug(): command - get_reg pc
+Debug: 734 8131 command.c:82 script_debug(): command - rbp 8444
+Debug: 735 8131 cortex_m.c:2175 cortex_m_unset_breakpoint(): [samd21_probe.cpu] BPID: 3, Type: 0, Address: 0x000020fc Length: 2 (n=0)
+Debug: 736 8132 target.c:2640 target_write_u32(): address: 0xe0002008, value: 0x00000000
+Debug: 737 8135 breakpoints.c:302 breakpoint_free(): [samd21_probe.cpu] free BPID: 3 --> 0
+Debug: 738 8136 command.c:82 script_debug(): command - echo J18_RESULT|loop_again|PASS|Reached hardware breakpoint at 0x000020fc.
+User : 739 8136 command.c:618 handle_echo(): J18_RESULT|loop_again|PASS|Reached hardware breakpoint at 0x000020fc.
+Debug: 740 8136 command.c:82 script_debug(): command - echo --- CPU snapshot: startup_end ---
+User : 741 8136 command.c:618 handle_echo(): --- CPU snapshot: startup_end ---
+Debug: 742 8137 command.c:82 script_debug(): command - reg
+Debug: 743 8137 target.c:2988 handle_reg_command(): -
+Debug: 744 8137 command.c:82 script_debug(): command - get_reg pc lr msp psp xpsr control
+Debug: 745 8138 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pc|0x000020fc
+User : 746 8138 command.c:618 handle_echo(): J18_VALUE|startup_end.pc|0x000020fc
+Debug: 747 8138 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.lr|0x00003fcf
+User : 748 8138 command.c:618 handle_echo(): J18_VALUE|startup_end.lr|0x00003fcf
+Debug: 749 8139 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.msp|0x20007fe0
+User : 750 8139 command.c:618 handle_echo(): J18_VALUE|startup_end.msp|0x20007fe0
+Debug: 751 8139 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.psp|0xee7ffd74
+User : 752 8140 command.c:618 handle_echo(): J18_VALUE|startup_end.psp|0xee7ffd74
+Debug: 753 8140 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.xpsr|0x61000000
+User : 754 8140 command.c:618 handle_echo(): J18_VALUE|startup_end.xpsr|0x61000000
+Debug: 755 8140 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.control|0x00
+User : 756 8140 command.c:618 handle_echo(): J18_VALUE|startup_end.control|0x00
+Debug: 757 8141 command.c:82 script_debug(): command - read_memory 0xE000ED04 32 1
+Debug: 758 8143 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.active_exception|0
+User : 759 8144 command.c:618 handle_echo(): J18_VALUE|startup_end.active_exception|0
+Debug: 760 8144 command.c:82 script_debug(): command - read_memory 0xE000ED08 32 1
+Debug: 761 8146 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.vtor|0x00002000
+User : 762 8146 command.c:618 handle_echo(): J18_VALUE|startup_end.vtor|0x00002000
+Debug: 763 8146 command.c:82 script_debug(): command - read_memory 0x40000438 8 1
+Debug: 764 8150 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.reset_cause|0x40
+User : 765 8150 command.c:618 handle_echo(): J18_VALUE|startup_end.reset_cause|0x40
+Debug: 766 8150 command.c:82 script_debug(): command - read_memory 1090536448 32 1
+Debug: 767 8154 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.PORTA.DIR|0x08102020
+User : 768 8154 command.c:618 handle_echo(): J18_VALUE|startup_end.PORTA.DIR|0x08102020
+Debug: 769 8154 command.c:82 script_debug(): command - read_memory 1090536464 32 1
+Debug: 770 8157 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.PORTA.OUT|0x00100000
+User : 771 8157 command.c:618 handle_echo(): J18_VALUE|startup_end.PORTA.OUT|0x00100000
+Debug: 772 8157 command.c:82 script_debug(): command - read_memory 1090536480 32 1
+Debug: 773 8160 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.PORTA.IN|0xc2101000
+User : 774 8160 command.c:618 handle_echo(): J18_VALUE|startup_end.PORTA.IN|0xc2101000
+Debug: 775 8160 command.c:82 script_debug(): command - read_memory 1090536576 32 1
+Debug: 776 8162 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.PORTB.DIR|0xc0006000
+User : 777 8163 command.c:618 handle_echo(): J18_VALUE|startup_end.PORTB.DIR|0xc0006000
+Debug: 778 8163 command.c:82 script_debug(): command - read_memory 1090536592 32 1
+Debug: 779 8170 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.PORTB.OUT|0x00006000
+User : 780 8170 command.c:618 handle_echo(): J18_VALUE|startup_end.PORTB.OUT|0x00006000
+Debug: 781 8171 command.c:82 script_debug(): command - read_memory 1090536608 32 1
+Debug: 782 8173 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.PORTB.IN|0x00000000
+User : 783 8174 command.c:618 handle_echo(): J18_VALUE|startup_end.PORTB.IN|0x00000000
+Debug: 784 8174 command.c:82 script_debug(): command - read_memory 1090536517 8 1
+Debug: 785 8178 command.c:82 script_debug(): command - read_memory 1090536498 8 1
+Debug: 786 8180 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.LED|PINCFG=0x00 PMUX=0 enabled=0
+User : 787 8180 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.LED|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 788 8181 command.c:82 script_debug(): command - read_memory 1090536525 8 1
+Debug: 789 8183 command.c:82 script_debug(): command - read_memory 1090536502 8 1
+Debug: 790 8186 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.NRF_EN|PINCFG=0x00 PMUX=0 enabled=0
+User : 791 8186 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.NRF_EN|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 792 8187 command.c:82 script_debug(): command - read_memory 1090536526 8 1
+Debug: 793 8189 command.c:82 script_debug(): command - read_memory 1090536503 8 1
+Debug: 794 8192 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.NRF_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 795 8192 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.NRF_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 796 8192 command.c:82 script_debug(): command - read_memory 1090536527 8 1
+Debug: 797 8195 command.c:82 script_debug(): command - read_memory 1090536503 8 1
+Debug: 798 8197 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.NRF_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+User : 799 8198 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.NRF_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 800 8198 command.c:82 script_debug(): command - read_memory 1090536534 8 1
+Debug: 801 8201 command.c:82 script_debug(): command - read_memory 1090536507 8 1
+Debug: 802 8203 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.NRF_TX|PINCFG=0x00 PMUX=0 enabled=0
+User : 803 8204 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.NRF_TX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 804 8204 command.c:82 script_debug(): command - read_memory 1090536535 8 1
+Debug: 805 8207 command.c:82 script_debug(): command - read_memory 1090536507 8 1
+Debug: 806 8209 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.NRF_RX|PINCFG=0x00 PMUX=0 enabled=0
+User : 807 8209 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.NRF_RX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 808 8210 command.c:82 script_debug(): command - read_memory 1090536528 8 1
+Debug: 809 8212 command.c:82 script_debug(): command - read_memory 1090536504 8 1
+Debug: 810 8215 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.LTE_TX|PINCFG=0x00 PMUX=0 enabled=0
+User : 811 8215 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.LTE_TX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 812 8215 command.c:82 script_debug(): command - read_memory 1090536529 8 1
+Debug: 813 8218 command.c:82 script_debug(): command - read_memory 1090536504 8 1
+Debug: 814 8221 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.LTE_RX|PINCFG=0x00 PMUX=0 enabled=0
+User : 815 8221 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.LTE_RX|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 816 8222 command.c:82 script_debug(): command - read_memory 1090536670 8 1
+Debug: 817 8224 command.c:82 script_debug(): command - read_memory 1090536639 8 1
+Debug: 818 8227 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.LTE_PWR|PINCFG=0x00 PMUX=0 enabled=0
+User : 819 8231 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.LTE_PWR|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 820 8231 command.c:82 script_debug(): command - read_memory 1090536671 8 1
+Debug: 821 8235 command.c:82 script_debug(): command - read_memory 1090536639 8 1
+Debug: 822 8238 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.LTE_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 823 8238 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.LTE_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 824 8239 command.c:82 script_debug(): command - read_memory 1090536520 8 1
+Debug: 825 8241 command.c:82 script_debug(): command - read_memory 1090536500 8 1
+Debug: 826 8244 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SDA|PINCFG=0x00 PMUX=0 enabled=0
+User : 827 8244 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SDA|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 828 8244 command.c:82 script_debug(): command - read_memory 1090536521 8 1
+Debug: 829 8247 command.c:82 script_debug(): command - read_memory 1090536500 8 1
+Debug: 830 8249 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SCL|PINCFG=0x00 PMUX=0 enabled=0
+User : 831 8249 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SCL|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 832 8250 command.c:82 script_debug(): command - read_memory 1090536663 8 1
+Debug: 833 8253 command.c:82 script_debug(): command - read_memory 1090536635 8 1
+Debug: 834 8255 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.MUX_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 835 8256 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.MUX_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 836 8256 command.c:82 script_debug(): command - read_memory 1090536531 8 1
+Debug: 837 8258 command.c:82 script_debug(): command - read_memory 1090536505 8 1
+Debug: 838 8261 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.RTC_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+User : 839 8261 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.RTC_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 840 8262 command.c:82 script_debug(): command - read_memory 1090536539 8 1
+Debug: 841 8264 command.c:82 script_debug(): command - read_memory 1090536509 8 1
+Debug: 842 8267 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.RADIO_RST|PINCFG=0x00 PMUX=0 enabled=0
+User : 843 8267 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.RADIO_RST|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 844 8267 command.c:82 script_debug(): command - read_memory 1090536540 8 1
+Debug: 845 8270 command.c:82 script_debug(): command - read_memory 1090536510 8 1
+Debug: 846 8273 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.RADIO_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+User : 847 8273 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.RADIO_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 848 8274 command.c:82 script_debug(): command - read_memory 1090536653 8 1
+Debug: 849 8276 command.c:82 script_debug(): command - read_memory 1090536630 8 1
+Debug: 850 8279 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.RADIO_CS|PINCFG=0x00 PMUX=0 enabled=0
+User : 851 8279 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.RADIO_CS|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 852 8279 command.c:82 script_debug(): command - read_memory 1090536654 8 1
+Debug: 853 8282 command.c:82 script_debug(): command - read_memory 1090536631 8 1
+Debug: 854 8284 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SD_CS|PINCFG=0x00 PMUX=0 enabled=0
+User : 855 8284 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SD_CS|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 856 8285 command.c:82 script_debug(): command - read_memory 1090536655 8 1
+Debug: 857 8287 command.c:82 script_debug(): command - read_memory 1090536631 8 1
+Debug: 858 8290 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SDI|PINCFG=0x00 PMUX=0 enabled=0
+User : 859 8290 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SDI|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 860 8290 command.c:82 script_debug(): command - read_memory 1090536647 8 1
+Debug: 861 8293 command.c:82 script_debug(): command - read_memory 1090536627 8 1
+Debug: 862 8296 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.BATTERY|PINCFG=0x00 PMUX=0 enabled=0
+User : 863 8296 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.BATTERY|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 864 8296 command.c:82 script_debug(): command - read_memory 1090536650 8 1
+Debug: 865 8299 command.c:82 script_debug(): command - read_memory 1090536629 8 1
+Debug: 866 8301 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SPI0_SCK|PINCFG=0x00 PMUX=0 enabled=0
+User : 867 8301 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SPI0_SCK|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 868 8302 command.c:82 script_debug(): command - read_memory 1090536651 8 1
+Debug: 869 8304 command.c:82 script_debug(): command - read_memory 1090536629 8 1
+Debug: 870 8307 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SPI0_MISO|PINCFG=0x00 PMUX=0 enabled=0
+User : 871 8307 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SPI0_MISO|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 872 8307 command.c:82 script_debug(): command - read_memory 1090536652 8 1
+Debug: 873 8310 command.c:82 script_debug(): command - read_memory 1090536630 8 1
+Debug: 874 8313 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SPI0_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+User : 875 8313 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SPI0_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 876 8313 command.c:82 script_debug(): command - read_memory 1090536656 8 1
+Debug: 877 8316 command.c:82 script_debug(): command - read_memory 1090536632 8 1
+Debug: 878 8318 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SPI1_SCK|PINCFG=0x00 PMUX=0 enabled=0
+User : 879 8318 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SPI1_SCK|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 880 8318 command.c:82 script_debug(): command - read_memory 1090536657 8 1
+Debug: 881 8321 command.c:82 script_debug(): command - read_memory 1090536632 8 1
+Debug: 882 8323 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SPI1_MISO|PINCFG=0x00 PMUX=0 enabled=0
+User : 883 8324 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SPI1_MISO|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 884 8324 command.c:82 script_debug(): command - read_memory 1090536662 8 1
+Debug: 885 8332 command.c:82 script_debug(): command - read_memory 1090536635 8 1
+Debug: 886 8339 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.pin.SPI1_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+User : 887 8339 command.c:618 handle_echo(): J18_VALUE|startup_end.pin.SPI1_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+Debug: 888 8339 command.c:82 script_debug(): command - read_memory 1073742872 32 1
+Debug: 889 8342 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.APBAMASK|0x0000007f
+User : 890 8343 command.c:618 handle_echo(): J18_VALUE|startup_end.APBAMASK|0x0000007f
+Debug: 891 8343 command.c:82 script_debug(): command - read_memory 1073742876 32 1
+Debug: 892 8345 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.APBBMASK|0x0000007f
+User : 893 8346 command.c:618 handle_echo(): J18_VALUE|startup_end.APBBMASK|0x0000007f
+Debug: 894 8346 command.c:82 script_debug(): command - read_memory 1073742880 32 1
+Debug: 895 8348 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.APBCMASK|0x00053ffc
+User : 896 8348 command.c:618 handle_echo(): J18_VALUE|startup_end.APBCMASK|0x00053ffc
+Debug: 897 8348 command.c:82 script_debug(): command - read_memory 0x40000418 32 1
+Debug: 898 8351 command.c:82 script_debug(): command - read_memory 0x4000080C 32 1
+Debug: 899 8353 command.c:82 script_debug(): command - read_memory 0x40000814 16 1
+Debug: 900 8356 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SYSCTRL.PCLKSR|0x00005b9c
+User : 901 8357 command.c:618 handle_echo(): J18_VALUE|startup_end.SYSCTRL.PCLKSR|0x00005b9c
+Debug: 902 8357 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SYSCTRL.XOSC32K|0x0080
+User : 903 8357 command.c:618 handle_echo(): J18_VALUE|startup_end.SYSCTRL.XOSC32K|0x0080
+Debug: 904 8357 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.XOSC32K.enabled|0
+User : 905 8357 command.c:618 handle_echo(): J18_VALUE|startup_end.XOSC32K.enabled|0
+Debug: 906 8358 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.XOSC32K.ready|0
+User : 907 8358 command.c:618 handle_echo(): J18_VALUE|startup_end.XOSC32K.ready|0
+Debug: 908 8358 command.c:82 script_debug(): command - read_memory 1073743896 32 1
+Debug: 909 8362 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SYSCTRL.OSC32K|0x00440606
+User : 910 8362 command.c:618 handle_echo(): J18_VALUE|startup_end.SYSCTRL.OSC32K|0x00440606
+Debug: 911 8362 command.c:82 script_debug(): command - read_memory 1073743908 16 1
+Debug: 912 8365 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SYSCTRL.DFLLCTRL|0x00000526
+User : 913 8365 command.c:618 handle_echo(): J18_VALUE|startup_end.SYSCTRL.DFLLCTRL|0x00000526
+Debug: 914 8366 command.c:82 script_debug(): command - read_memory 1073743912 32 1
+Debug: 915 8369 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SYSCTRL.DFLLVAL|0x00007200
+User : 916 8369 command.c:618 handle_echo(): J18_VALUE|startup_end.SYSCTRL.DFLLVAL|0x00007200
+Debug: 917 8369 command.c:82 script_debug(): command - read_memory 1073743916 32 1
+Debug: 918 8371 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SYSCTRL.DFLLMUL|0x1c0abb80
+User : 919 8371 command.c:618 handle_echo(): J18_VALUE|startup_end.SYSCTRL.DFLLMUL|0x1c0abb80
+Debug: 920 8372 command.c:82 script_debug(): command - read_memory 0x40000C00 8 1
+Debug: 921 8375 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.GCLK.CTRL|0x00
+User : 922 8375 command.c:618 handle_echo(): J18_VALUE|startup_end.GCLK.CTRL|0x00
+Debug: 923 8375 command.c:82 script_debug(): command - read_memory 0x40000C01 8 1
+Debug: 924 8377 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.GCLK.STATUS|0x00
+User : 925 8377 command.c:618 handle_echo(): J18_VALUE|startup_end.GCLK.STATUS|0x00
+Debug: 926 8377 command.c:82 script_debug(): command - read_memory 0x40000420 32 1
+Debug: 927 8381 command.c:82 script_debug(): command - read_memory 1107298304 32 1
+Debug: 928 8383 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM0.CTRLA|0x00000000
+User : 929 8383 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM0.CTRLA|0x00000000
+Debug: 930 8384 command.c:82 script_debug(): command - read_memory 1107298308 32 1
+Debug: 931 8386 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM0.CTRLB|0x00000000
+User : 932 8386 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM0.CTRLB|0x00000000
+Debug: 933 8386 command.c:82 script_debug(): command - read_memory 1107298316 16 1
+Debug: 934 8389 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM0.BAUD|0x00000000
+User : 935 8390 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM0.BAUD|0x00000000
+Debug: 936 8390 command.c:82 script_debug(): command - read_memory 1107299328 32 1
+Debug: 937 8393 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM1.CTRLA|0x00000000
+User : 938 8393 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM1.CTRLA|0x00000000
+Debug: 939 8393 command.c:82 script_debug(): command - read_memory 1107299332 32 1
+Debug: 940 8395 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM1.CTRLB|0x00000000
+User : 941 8395 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM1.CTRLB|0x00000000
+Debug: 942 8396 command.c:82 script_debug(): command - read_memory 1107299340 16 1
+Debug: 943 8399 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM1.BAUD|0x00000000
+User : 944 8399 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM1.BAUD|0x00000000
+Debug: 945 8399 command.c:82 script_debug(): command - read_memory 1107300352 32 1
+Debug: 946 8404 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM2.CTRLA|0x00000000
+User : 947 8405 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM2.CTRLA|0x00000000
+Debug: 948 8405 command.c:82 script_debug(): command - read_memory 1107300356 32 1
+Debug: 949 8407 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM2.CTRLB|0x00000000
+User : 950 8407 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM2.CTRLB|0x00000000
+Debug: 951 8408 command.c:82 script_debug(): command - read_memory 1107300364 16 1
+Debug: 952 8411 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM2.BAUD|0x00000000
+User : 953 8412 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM2.BAUD|0x00000000
+Debug: 954 8412 command.c:82 script_debug(): command - read_memory 1107301376 32 1
+Debug: 955 8415 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM3.CTRLA|0x00000000
+User : 956 8415 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM3.CTRLA|0x00000000
+Debug: 957 8415 command.c:82 script_debug(): command - read_memory 1107301380 32 1
+Debug: 958 8417 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM3.CTRLB|0x00000000
+User : 959 8418 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM3.CTRLB|0x00000000
+Debug: 960 8418 command.c:82 script_debug(): command - read_memory 1107301388 16 1
+Debug: 961 8421 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM3.BAUD|0x00000000
+User : 962 8422 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM3.BAUD|0x00000000
+Debug: 963 8422 command.c:82 script_debug(): command - read_memory 1107302400 32 1
+Debug: 964 8425 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM4.CTRLA|0x00000000
+User : 965 8425 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM4.CTRLA|0x00000000
+Debug: 966 8425 command.c:82 script_debug(): command - read_memory 1107302404 32 1
+Debug: 967 8427 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM4.CTRLB|0x00000000
+User : 968 8428 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM4.CTRLB|0x00000000
+Debug: 969 8428 command.c:82 script_debug(): command - read_memory 1107302412 16 1
+Debug: 970 8431 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM4.BAUD|0x00000000
+User : 971 8431 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM4.BAUD|0x00000000
+Debug: 972 8431 command.c:82 script_debug(): command - read_memory 1107303424 32 1
+Debug: 973 8434 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM5.CTRLA|0x00000000
+User : 974 8437 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM5.CTRLA|0x00000000
+Debug: 975 8438 command.c:82 script_debug(): command - read_memory 1107303428 32 1
+Debug: 976 8441 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM5.CTRLB|0x00000000
+User : 977 8441 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM5.CTRLB|0x00000000
+Debug: 978 8441 command.c:82 script_debug(): command - read_memory 1107303436 16 1
+Debug: 979 8444 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.SERCOM5.BAUD|0x00000000
+User : 980 8445 command.c:618 handle_echo(): J18_VALUE|startup_end.SERCOM5.BAUD|0x00000000
+Debug: 981 8445 command.c:82 script_debug(): command - read_memory 0x20007fe0 32 8
+Debug: 982 8456 command.c:82 script_debug(): command - echo J18_VALUE|startup_end.stack_words|0x20000090 0x3e8f 0x0 0x10000 0x200 0x9df 0x4fd9e389 0x0
+User : 983 8456 command.c:618 handle_echo(): J18_VALUE|startup_end.stack_words|0x20000090 0x3e8f 0x0 0x10000 0x200 0x9df 0x4fd9e389 0x0
+Debug: 984 8456 command.c:82 script_debug(): command - resume
+Debug: 985 8456 target.c:1802 target_call_event_callbacks(): target event 3 (resume-start) for core samd21_probe.cpu
+Debug: 986 8457 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 987 8460 target.c:2589 target_read_u16(): address: 0x000020fc, value: 0x2280
+Debug: 988 8460 armv7m.c:202 armv7m_restore_context(): [samd21_probe.cpu]  
+Debug: 989 8464 target.c:1802 target_call_event_callbacks(): target event 2 (resumed) for core samd21_probe.cpu
+Debug: 990 8464 cortex_m.c:1506 cortex_m_resume(): [samd21_probe.cpu] resumed at 0x000020fc
+Debug: 991 8464 target.c:1802 target_call_event_callbacks(): target event 4 (resume-end) for core samd21_probe.cpu
+Debug: 992 8464 command.c:82 script_debug(): command - echo J18_RESULT|cleanup|PASS|Probe breakpoints removed and CPU resumed without another reset.
+User : 993 8465 command.c:618 handle_echo(): J18_RESULT|cleanup|PASS|Probe breakpoints removed and CPU resumed without another reset.
+Debug: 994 8465 command.c:82 script_debug(): command - shutdown
+User : 995 8465 server.c:770 handle_shutdown_command(): shutdown command invoked
+Debug: 996 8465 breakpoints.c:330 breakpoint_remove_all_internal(): [samd21_probe.cpu] Delete all breakpoints
+Debug: 997 8465 breakpoints.c:417 watchpoint_remove_all_internal(): [samd21_probe.cpu] Delete all watchpoints
+Debug: 998 8466 arm_adi_v5.c:1251 dap_put_ap(): refcount AP#0x0 put 0
+Debug: 999 8466 target.c:2158 target_free_all_working_areas_restore(): freeing all working areas
+Debug: 1000 8467 stlink_usb.c:5160 stlink_dap_quit(): stlink_dap_quit()
+Debug: 1001 8468 stlink_usb.c:1696 stlink_usb_exit_mode(): MODE: 0x02

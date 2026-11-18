@@ -1,0 +1,1869 @@
+{
+  "date": "2026-10-13",
+  "bridge_commit": "d04599003575f9e2c5acb4400d0b186a87c38e84",
+  "missing_reference_files": [
+    "Jolteon_Rewire.pdf"
+  ],
+  "files": [
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/.gitignore",
+      "destination": "bootloader/.gitignore",
+      "sha256_at_import": "b869f0c6d8275470a5398e1d33524b55b82a00b17cdd199643c6d9b0a6e325dd"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/app_flash_with_bootloader.ld",
+      "destination": "bootloader/app_flash_with_bootloader.ld",
+      "sha256_at_import": "c83a04f8bc5552fc57ac3a5f08e8295994a7888fe2c4aac56b239c340aec3ae9"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/boards.txt",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/boards.txt",
+      "sha256_at_import": "c858e2e9da49d4f284c1b0daf18f162d602d38720624ab6d5e0f328de8026884"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/bootloaders/jolteon/manifest.json",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/bootloaders/jolteon/manifest.json",
+      "sha256_at_import": "860dcb128b0cd0fdae94dd7e32b0014f57d553e2944c669a42185e3decb7634d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/bootloaders/jolteon/samd21_sam_ba.bin",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/bootloaders/jolteon/samd21_sam_ba.bin",
+      "sha256_at_import": "b1329aee68cc06e2ad7fceefd0ba190963249feee76300760c8724cf0d3426f5"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/LICENSE",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/LICENSE",
+      "sha256_at_import": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/README.md",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/README.md",
+      "sha256_at_import": "ff556f0085c033ba086f97df7815c3ba7e7047f02356b8c4ed6e646bc414095b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/flash_with_bootloader.ld",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/flash_with_bootloader.ld",
+      "sha256_at_import": "d5178f51923b0ed0c061b29fc98f1128fcfa59314c1ddccacccfa02eebf2183b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/jolteon_board.c",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/jolteon_board.c",
+      "sha256_at_import": "5ad593478fbf2a62752a8d25ac9c4bc888959ead9e2bfe3d97b989de7c973583"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/jolteon_board.h",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/jolteon_board.h",
+      "sha256_at_import": "3a60e692dd4e34fba75745d3cd74689daf0a2d108949705e03f97b571f6588ed"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/JolteonBootloaderIdentity.h",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/JolteonBootloaderIdentity.h",
+      "sha256_at_import": "8c2c4f33b630d671c5c10a83ec922df709cc065f136262fb87e5e369135e8d2b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/variant.cpp",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/variant.cpp",
+      "sha256_at_import": "341597f60b8aa8c96639cd5c14d6f6c58026b65be3a08267d0d58dc13767acf8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/variant.h",
+      "destination": "bootloader/arduino-profile/hardware/opens/samd/variants/jolteon_j18/variant.h",
+      "sha256_at_import": "6918e5dda1c4d174fb66e9089e04a87ae4cc0e21fd753bf74daffb3aac241709"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/board.json",
+      "destination": "bootloader/board.json",
+      "sha256_at_import": "0058d37444db42427b2e91534bd5a00bbcf230b37adceb4eb3a67b652e5421e8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/build.py",
+      "destination": "bootloader/build.py",
+      "sha256_at_import": "94fdf478ec154b1d28b16becc26751ea04dcf7169a2a136e00902d8e8e4bc452"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/build_bootloader.bat",
+      "destination": "bootloader/build_bootloader.bat",
+      "sha256_at_import": "b8ec3be5907b6d5f021b7bb56e5f5de6cfdaa0890b90a2bc9c60e1532cb9b4a6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/build_bootloader.sh",
+      "destination": "bootloader/build_bootloader.sh",
+      "sha256_at_import": "8fb30da4615b116d3218fbc5634a9f5a11cf09c09a603b27e6440e83647f9618"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/CHANGES.patch",
+      "destination": "bootloader/CHANGES.patch",
+      "sha256_at_import": "3c5a4643d4c1e212013fba179b77496b3199dc8e035dd0872a5b6fb64b50ee1a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/combine.py",
+      "destination": "bootloader/combine.py",
+      "sha256_at_import": "e8882b0ac81e87c8570c7e3424e250768f3774dae0e1b72e783ed237940443af"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/examples/ProfileSmoke/ProfileSmoke.ino",
+      "destination": "bootloader/examples/ProfileSmoke/ProfileSmoke.ino",
+      "sha256_at_import": "3742e3ea82436cd96728f9f5c5ba795cc81f00fe7c78217c438d72135748dec7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/install_profile.py",
+      "destination": "bootloader/install_profile.py",
+      "sha256_at_import": "513c6380b7ba287fbfe71ab0b5c13815a851b7a8732a92e83474b3176ed0d558"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/LICENSE",
+      "destination": "bootloader/LICENSE",
+      "sha256_at_import": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/openocd_bootloader_common.cfg",
+      "destination": "bootloader/openocd_bootloader_common.cfg",
+      "sha256_at_import": "dfa0bdefe24eb8f2db4e317db004b9ddddd301483b4c6ab64bcea95e5f654467"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/openocd_bootloader_rpi.cfg",
+      "destination": "bootloader/openocd_bootloader_rpi.cfg",
+      "sha256_at_import": "24a1419d13b2e1925f9f0b84b7012cb229d99d998147b17ccc9d76394439e72a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/openocd_bootloader_stlink.cfg",
+      "destination": "bootloader/openocd_bootloader_stlink.cfg",
+      "sha256_at_import": "60daf6ff6414e443d31f4402dbe6cb272bc256035c5a7468f4ea9d8d8302fca5"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/package_release.py",
+      "destination": "bootloader/package_release.py",
+      "sha256_at_import": "8607441879f7f73217351e6ab6815e02bffbcba774567cc9077d1ab56660e054"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/PIN_ALIASES.md",
+      "destination": "bootloader/PIN_ALIASES.md",
+      "sha256_at_import": "cee00650fa2c4c4eeb226e76183b476e8cda5adfb781dd70910211ef1854ecb0"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/profile.py",
+      "destination": "bootloader/profile.py",
+      "sha256_at_import": "f3f64792739163bffdde992bc536d0a81d330b55bd70a5cc8b463e033d8ab35b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/README.md",
+      "destination": "bootloader/README.md",
+      "sha256_at_import": "a16a0161ee1daddea2cb6eb12bf5a8dd2df7141cd9f179d0cda5beb20529218d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions.h",
+      "destination": "bootloader/src/board_definitions.h",
+      "sha256_at_import": "d15382c868c2d04490f7b120abeb0dca70b75e9f30d3df5b512540717291bde7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkr1000.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkr1000.h",
+      "sha256_at_import": "ae5084973dd45efda94fa00650e20ddc4ad7a93fe8b6d1cc08b1452564bc8842"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrfox1200.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrfox1200.h",
+      "sha256_at_import": "b6171064dac7a31a678b17e8e80fe3fe941a6a608a9ae976bd40ccb3b1d0539a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrgsm1400.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrgsm1400.h",
+      "sha256_at_import": "e7ca5762c34326dd2e7f0b71cd6b921db8db1b739e163e24390b2c91a0613a1c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrnb1500.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrnb1500.h",
+      "sha256_at_import": "5e1d760510372e0d38af26b45ac25c657a4b1de88e27b6c6770a6f66eb077f06"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrvidor4000.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrvidor4000.h",
+      "sha256_at_import": "82ea99adb86eb28e33f78b7979fee05dfbf8af6571dd643e9d28c19ee8d5c8d8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrwan1300.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrwan1300.h",
+      "sha256_at_import": "d0dd9ec4eb1f7da05be2d744af5d2693d9078c8550749734780e8ca87a1be46f"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrwan1310.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrwan1310.h",
+      "sha256_at_import": "1833df6abae6b4a1a37bd7363da37bd48acc19c954e52c3cdc7ca692afe9b064"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrwifi1010.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrwifi1010.h",
+      "sha256_at_import": "0211f556343f07321cfce0b69f67590cdf9962516af9ea4e49ade91c62ec509c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_mkrzero.h",
+      "destination": "bootloader/src/board_definitions_arduino_mkrzero.h",
+      "sha256_at_import": "067033d7dc61a2b70c1889def50993312de7728b14948c34e03ab37cbef436a8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_nano_33_iot.h",
+      "destination": "bootloader/src/board_definitions_arduino_nano_33_iot.h",
+      "sha256_at_import": "bba6e8128215e6c34e83b9ce4514b3c38d17c7d758cc553b79ec9e1c87a52f39"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_arduino_zero.h",
+      "destination": "bootloader/src/board_definitions_arduino_zero.h",
+      "sha256_at_import": "fb7127bd47167a3c8f69e7da6774534aef5eb930fdc6dea05d140810ba8a294e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_definitions_jolteon_j18.h",
+      "destination": "bootloader/src/board_definitions_jolteon_j18.h",
+      "sha256_at_import": "d47ede7f0e4b9ee7a01d796cc6ce43bf97b70f3771f9e0c8dcbf1ec4d84e5443"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_i2c.c",
+      "destination": "bootloader/src/board_driver_i2c.c",
+      "sha256_at_import": "51af4a4b65840983697c9b74bd5c5e75fc2ec442ec73a164b8beb0edf3194cb6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_i2c.h",
+      "destination": "bootloader/src/board_driver_i2c.h",
+      "sha256_at_import": "464a6d40ce69064334b875af61bcc3943a470f3de44f9e83287307388fa85013"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_jtag.c",
+      "destination": "bootloader/src/board_driver_jtag.c",
+      "sha256_at_import": "ff1f3bf8bab801f6e70d87ba3eacac06d430b0891e96e4be46f93ce789087933"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_jtag.h",
+      "destination": "bootloader/src/board_driver_jtag.h",
+      "sha256_at_import": "6a678fccbfd1b58b95c68d7b7e245b72b5f985634de04ace717751e3b8568135"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_led.c",
+      "destination": "bootloader/src/board_driver_led.c",
+      "sha256_at_import": "2c9d41de71bcfa2b504306b16f8a8e2fde2a12e419455d903b12b109d94fa212"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_led.h",
+      "destination": "bootloader/src/board_driver_led.h",
+      "sha256_at_import": "e580eb4064cf7cdb970f675adf400bb5bbad2fa9efc9adfa67bd723487d40b89"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_pmic.c",
+      "destination": "bootloader/src/board_driver_pmic.c",
+      "sha256_at_import": "8117535e1e6ca8c51b663a3db28becd36a5511c6692b0bc65ebf1c35e0c642e7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_pmic.h",
+      "destination": "bootloader/src/board_driver_pmic.h",
+      "sha256_at_import": "74075c6b29950d0e9c250b284762214c00bd8bcf0c4b87cfe3d176e627c83194"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_serial.c",
+      "destination": "bootloader/src/board_driver_serial.c",
+      "sha256_at_import": "b422f2ef75e14e13f09a8114e462a7350fae48627884e5f8efaba22b2c2788ee"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_serial.h",
+      "destination": "bootloader/src/board_driver_serial.h",
+      "sha256_at_import": "a344762bf23521edd07b2b790afda8f8a1ee78db9497367026095c6beebc5373"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_usb.c",
+      "destination": "bootloader/src/board_driver_usb.c",
+      "sha256_at_import": "0bcbba6cd02975ca3d0d1ae7e29a3f306da555564a2dd7dd7f970eb8fbdc63ec"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_driver_usb.h",
+      "destination": "bootloader/src/board_driver_usb.h",
+      "sha256_at_import": "09ca53944ef992fd2c860d12fffa358137b71406fee77851f7603d480b10259b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_init.c",
+      "destination": "bootloader/src/board_init.c",
+      "sha256_at_import": "4e46473fcd4c77e7813a2ac1678e63b2b4f74eab514774e286c2edaceaafa35a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/board_startup.c",
+      "destination": "bootloader/src/board_startup.c",
+      "sha256_at_import": "b8a57f58c3bb19babe987bcad803d4cfc1b92cac20df75066518f6462bd20ff1"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/bootloader_samd21x18.ld",
+      "destination": "bootloader/src/bootloader_samd21x18.ld",
+      "sha256_at_import": "293c00a8e2d536c1ac2b025ecd490a75018faa54c2606a84e45eef071d56e94b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/jolteon_board.c",
+      "destination": "bootloader/src/jolteon_board.c",
+      "sha256_at_import": "5ad593478fbf2a62752a8d25ac9c4bc888959ead9e2bfe3d97b989de7c973583"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/jolteon_board.h",
+      "destination": "bootloader/src/jolteon_board.h",
+      "sha256_at_import": "3a60e692dd4e34fba75745d3cd74689daf0a2d108949705e03f97b571f6588ed"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/main.c",
+      "destination": "bootloader/src/main.c",
+      "sha256_at_import": "2a6941b81a496863a8075c08f19ca43a0e48bed03d531ef9cc27d08256e808a3"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/Makefile",
+      "destination": "bootloader/src/Makefile",
+      "sha256_at_import": "e68dfb5f0160260c29d3cbcabd5741440232f28d353e0f844fe65971f5804a10"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/README.md",
+      "destination": "bootloader/src/README.md",
+      "sha256_at_import": "7ff29ce471e8bb35c578258a30901f94c363c862b7fb9dc6f8ef68bc0e3dc90c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_cdc.c",
+      "destination": "bootloader/src/sam_ba_cdc.c",
+      "sha256_at_import": "626e354c1f29fed1ce8edda22e882947d3c42bff6b995346693e8a8b1353cba2"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_cdc.h",
+      "destination": "bootloader/src/sam_ba_cdc.h",
+      "sha256_at_import": "e11debe51064645c68aa36a2926aa87df752c5b64a6ea6c79b08dcf9106f8a43"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_monitor.c",
+      "destination": "bootloader/src/sam_ba_monitor.c",
+      "sha256_at_import": "19ad38280ca93409f5418683b0487090433c03dc207a8c79ac4e59abed3a401b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_monitor.h",
+      "destination": "bootloader/src/sam_ba_monitor.h",
+      "sha256_at_import": "1d12fb3f9bf06c10596c49d0f1b58ec5944de2ca4c51f84e6eb40d8183225506"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_serial.c",
+      "destination": "bootloader/src/sam_ba_serial.c",
+      "sha256_at_import": "c9d360760a32420b4e5208337a6c7e383f556f772dae34b6c45a856d918b6c61"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_serial.h",
+      "destination": "bootloader/src/sam_ba_serial.h",
+      "sha256_at_import": "30107e1f3517125b1d128d0ba7c325032fdb90995cbeb1426f493bba414a6b04"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_usb.c",
+      "destination": "bootloader/src/sam_ba_usb.c",
+      "sha256_at_import": "3fc82760236cb2c8c718a6f99938052d6a4c2fd8b3bf422defeec85d941e0603"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/src/sam_ba_usb.h",
+      "destination": "bootloader/src/sam_ba_usb.h",
+      "sha256_at_import": "cb739fcce153fa1737580999a44e489674fd303cb8c56067e570228f5901225a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/tests/host/sam.h",
+      "destination": "bootloader/tests/host/sam.h",
+      "sha256_at_import": "76334585a812781cd812a813149bfb01dae863a2238ec6a58cda26777eda910d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/tests/run_tests.ps1",
+      "destination": "bootloader/tests/run_tests.ps1",
+      "sha256_at_import": "99bbc7365985e008c3cfb786ec34da814d0b4bb4a0c47fd558d540b67e85e3ec"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/tests/test_gpio.cpp",
+      "destination": "bootloader/tests/test_gpio.cpp",
+      "sha256_at_import": "776ee1679fcfe809b50581c0b2a2c8225d79493f13184ad69eb47e58b6435b75"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/tests/test_images.py",
+      "destination": "bootloader/tests/test_images.py",
+      "sha256_at_import": "54d31133caa0269c4ef45a4e17311d84d3af9a85a5ccef65781111f02ff4243d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions.h",
+      "destination": "bootloader/upstream/board_definitions.h",
+      "sha256_at_import": "39d8ad1ce960d3df73ae07f66d7b9c90175c17e677788acd3af8353b2baa4353"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkr1000.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkr1000.h",
+      "sha256_at_import": "ae5084973dd45efda94fa00650e20ddc4ad7a93fe8b6d1cc08b1452564bc8842"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrfox1200.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrfox1200.h",
+      "sha256_at_import": "b6171064dac7a31a678b17e8e80fe3fe941a6a608a9ae976bd40ccb3b1d0539a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrgsm1400.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrgsm1400.h",
+      "sha256_at_import": "e7ca5762c34326dd2e7f0b71cd6b921db8db1b739e163e24390b2c91a0613a1c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrnb1500.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrnb1500.h",
+      "sha256_at_import": "5e1d760510372e0d38af26b45ac25c657a4b1de88e27b6c6770a6f66eb077f06"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrvidor4000.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrvidor4000.h",
+      "sha256_at_import": "82ea99adb86eb28e33f78b7979fee05dfbf8af6571dd643e9d28c19ee8d5c8d8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrwan1300.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrwan1300.h",
+      "sha256_at_import": "d0dd9ec4eb1f7da05be2d744af5d2693d9078c8550749734780e8ca87a1be46f"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrwan1310.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrwan1310.h",
+      "sha256_at_import": "1833df6abae6b4a1a37bd7363da37bd48acc19c954e52c3cdc7ca692afe9b064"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrwifi1010.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrwifi1010.h",
+      "sha256_at_import": "0211f556343f07321cfce0b69f67590cdf9962516af9ea4e49ade91c62ec509c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_mkrzero.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_mkrzero.h",
+      "sha256_at_import": "067033d7dc61a2b70c1889def50993312de7728b14948c34e03ab37cbef436a8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_nano_33_iot.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_nano_33_iot.h",
+      "sha256_at_import": "bba6e8128215e6c34e83b9ce4514b3c38d17c7d758cc553b79ec9e1c87a52f39"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_definitions_arduino_zero.h",
+      "destination": "bootloader/upstream/board_definitions_arduino_zero.h",
+      "sha256_at_import": "fb7127bd47167a3c8f69e7da6774534aef5eb930fdc6dea05d140810ba8a294e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_i2c.c",
+      "destination": "bootloader/upstream/board_driver_i2c.c",
+      "sha256_at_import": "51af4a4b65840983697c9b74bd5c5e75fc2ec442ec73a164b8beb0edf3194cb6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_i2c.h",
+      "destination": "bootloader/upstream/board_driver_i2c.h",
+      "sha256_at_import": "464a6d40ce69064334b875af61bcc3943a470f3de44f9e83287307388fa85013"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_jtag.c",
+      "destination": "bootloader/upstream/board_driver_jtag.c",
+      "sha256_at_import": "ff1f3bf8bab801f6e70d87ba3eacac06d430b0891e96e4be46f93ce789087933"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_jtag.h",
+      "destination": "bootloader/upstream/board_driver_jtag.h",
+      "sha256_at_import": "6a678fccbfd1b58b95c68d7b7e245b72b5f985634de04ace717751e3b8568135"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_led.c",
+      "destination": "bootloader/upstream/board_driver_led.c",
+      "sha256_at_import": "2c9d41de71bcfa2b504306b16f8a8e2fde2a12e419455d903b12b109d94fa212"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_led.h",
+      "destination": "bootloader/upstream/board_driver_led.h",
+      "sha256_at_import": "e580eb4064cf7cdb970f675adf400bb5bbad2fa9efc9adfa67bd723487d40b89"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_pmic.c",
+      "destination": "bootloader/upstream/board_driver_pmic.c",
+      "sha256_at_import": "8117535e1e6ca8c51b663a3db28becd36a5511c6692b0bc65ebf1c35e0c642e7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_pmic.h",
+      "destination": "bootloader/upstream/board_driver_pmic.h",
+      "sha256_at_import": "74075c6b29950d0e9c250b284762214c00bd8bcf0c4b87cfe3d176e627c83194"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_serial.c",
+      "destination": "bootloader/upstream/board_driver_serial.c",
+      "sha256_at_import": "b422f2ef75e14e13f09a8114e462a7350fae48627884e5f8efaba22b2c2788ee"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_serial.h",
+      "destination": "bootloader/upstream/board_driver_serial.h",
+      "sha256_at_import": "a344762bf23521edd07b2b790afda8f8a1ee78db9497367026095c6beebc5373"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_usb.c",
+      "destination": "bootloader/upstream/board_driver_usb.c",
+      "sha256_at_import": "0bcbba6cd02975ca3d0d1ae7e29a3f306da555564a2dd7dd7f970eb8fbdc63ec"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_driver_usb.h",
+      "destination": "bootloader/upstream/board_driver_usb.h",
+      "sha256_at_import": "09ca53944ef992fd2c860d12fffa358137b71406fee77851f7603d480b10259b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_init.c",
+      "destination": "bootloader/upstream/board_init.c",
+      "sha256_at_import": "4e46473fcd4c77e7813a2ac1678e63b2b4f74eab514774e286c2edaceaafa35a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/board_startup.c",
+      "destination": "bootloader/upstream/board_startup.c",
+      "sha256_at_import": "b8a57f58c3bb19babe987bcad803d4cfc1b92cac20df75066518f6462bd20ff1"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/bootloader_samd21x18.ld",
+      "destination": "bootloader/upstream/bootloader_samd21x18.ld",
+      "sha256_at_import": "293c00a8e2d536c1ac2b025ecd490a75018faa54c2606a84e45eef071d56e94b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/main.c",
+      "destination": "bootloader/upstream/main.c",
+      "sha256_at_import": "8201546da8778fa1132177585c4cfb7984cc1586f729d7458ec33d293145e970"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/Makefile",
+      "destination": "bootloader/upstream/Makefile",
+      "sha256_at_import": "e68dfb5f0160260c29d3cbcabd5741440232f28d353e0f844fe65971f5804a10"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/README.md",
+      "destination": "bootloader/upstream/README.md",
+      "sha256_at_import": "7ff29ce471e8bb35c578258a30901f94c363c862b7fb9dc6f8ef68bc0e3dc90c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_cdc.c",
+      "destination": "bootloader/upstream/sam_ba_cdc.c",
+      "sha256_at_import": "626e354c1f29fed1ce8edda22e882947d3c42bff6b995346693e8a8b1353cba2"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_cdc.h",
+      "destination": "bootloader/upstream/sam_ba_cdc.h",
+      "sha256_at_import": "e11debe51064645c68aa36a2926aa87df752c5b64a6ea6c79b08dcf9106f8a43"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_monitor.c",
+      "destination": "bootloader/upstream/sam_ba_monitor.c",
+      "sha256_at_import": "028b11b673328296b037da8e788e6560a4f2678bbb79c39c3a4deb89bca675f4"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_monitor.h",
+      "destination": "bootloader/upstream/sam_ba_monitor.h",
+      "sha256_at_import": "1d12fb3f9bf06c10596c49d0f1b58ec5944de2ca4c51f84e6eb40d8183225506"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_serial.c",
+      "destination": "bootloader/upstream/sam_ba_serial.c",
+      "sha256_at_import": "c9d360760a32420b4e5208337a6c7e383f556f772dae34b6c45a856d918b6c61"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_serial.h",
+      "destination": "bootloader/upstream/sam_ba_serial.h",
+      "sha256_at_import": "30107e1f3517125b1d128d0ba7c325032fdb90995cbeb1426f493bba414a6b04"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_usb.c",
+      "destination": "bootloader/upstream/sam_ba_usb.c",
+      "sha256_at_import": "3fc82760236cb2c8c718a6f99938052d6a4c2fd8b3bf422defeec85d941e0603"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/sam_ba_usb.h",
+      "destination": "bootloader/upstream/sam_ba_usb.h",
+      "sha256_at_import": "cb739fcce153fa1737580999a44e489674fd303cb8c56067e570228f5901225a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/upstream/SHA256.json",
+      "destination": "bootloader/upstream/SHA256.json",
+      "sha256_at_import": "146386edb989a19cb65ba64bdfa4d27afa6124a33063dcea0548fe36f7745e84"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Bootloader/VALIDATION.md",
+      "destination": "bootloader/VALIDATION.md",
+      "sha256_at_import": "d15b9a9fd2c4d1b545a47c08925df9f0cc0826d37834341ae75506244a0fa82a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/BoardIO.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/BoardIO.cpp",
+      "sha256_at_import": "5a217b003bf2075e162ab244db1773a08c4bac221e71bba74174180feb08a6db"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/BoardIO.h",
+      "destination": "sketches/Jolteon_Feature_Verification/BoardIO.h",
+      "sha256_at_import": "23621824f2876d6fe931241adb6cbc8e5b5c693959c0ea90b93daa4d6daca7e7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/config.h",
+      "destination": "sketches/Jolteon_Feature_Verification/config.h",
+      "sha256_at_import": "2c8868cf5406dc595649fe0a77acf402651c804a96bdbaa4361d4ebfb0631240"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/HARDWARE_ISSUES.md",
+      "destination": "sketches/Jolteon_Feature_Verification/HARDWARE_ISSUES.md",
+      "sha256_at_import": "e45c8c8f8e08a928b502e223f67912a43baa7dc78cd5b5c04d37f2065421f58c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Indicators.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/Indicators.cpp",
+      "sha256_at_import": "4657918acb4ea94220752291ff8d2e8a6aa86f6b70d9795441bf802f4ca578e1"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Indicators.h",
+      "destination": "sketches/Jolteon_Feature_Verification/Indicators.h",
+      "sha256_at_import": "cc0ff0b5b663eeb0592a660e4a52df23cb38a078733f9f11aeddcc89a64fab2e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/J18BuildOverrides.h",
+      "destination": "sketches/Jolteon_Feature_Verification/J18BuildOverrides.h",
+      "sha256_at_import": "e2e0049bf9defb1559f59c9b75d2824eb64b427582d628fa661524b63ebb9538"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Jolteon_Feature_Verification.ino",
+      "destination": "sketches/Jolteon_Feature_Verification/Jolteon_Feature_Verification.ino",
+      "sha256_at_import": "b3d2f6c4298908c411532e58c161cb9d69db9759c877da2b0fe9147bcaa99eb6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Protocol.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/Protocol.cpp",
+      "sha256_at_import": "9beaec62fadb93690281cc231bbb422d9d51db83ead93774d5ff6cc4a8ccdbe8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Protocol.h",
+      "destination": "sketches/Jolteon_Feature_Verification/Protocol.h",
+      "sha256_at_import": "f3591dfe364307b2bf5a06746022c01e7e7cdedcf8ed72da6059870457c5486a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/README.md",
+      "destination": "sketches/Jolteon_Feature_Verification/README.md",
+      "sha256_at_import": "d22daec197804d56b1d3d404f1ef11e9a7f24c43c4663de6c1977144a2bdf2f8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/SdFat_library_properties.txt",
+      "destination": "sketches/Jolteon_Feature_Verification/SdFat_library_properties.txt",
+      "sha256_at_import": "d9a976f915f5d0b00762e2f2f8435a97e73b9e34811aad0970192a00f26d5f79"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/SdFat_LICENSE.txt",
+      "destination": "sketches/Jolteon_Feature_Verification/SdFat_LICENSE.txt",
+      "sha256_at_import": "f07af78e816ae273bcdba2ba7878892d9192202a0214f10850635ff37daeba4a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Sdi12.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/Sdi12.cpp",
+      "sha256_at_import": "30fb273f02b23585c56c5fb1d2d471d2c3d7025bab28f45a0c84523e2094a7ec"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Sdi12.h",
+      "destination": "sketches/Jolteon_Feature_Verification/Sdi12.h",
+      "sha256_at_import": "e57af765f1fdc11648ce8b518417e07de8ffe9e8a4c365e2b0319dbe49b18463"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/.clang-format-ignore",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/.clang-format-ignore",
+      "sha256_at_import": "d5c02dfae773cb6a83687bb7c3a00da633234bdc86e470a6c795aafdb62d6b1d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/BufferedPrint.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/BufferedPrint.h",
+      "sha256_at_import": "13a5dc71ee9bed2cc5a621507198dae9862516a818e2dab022793be1751d7924"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/ArduinoFiles.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/ArduinoFiles.h",
+      "sha256_at_import": "65b99a23873f653b596238089b2210efdca79df6a7023094e64404de14eb3263"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/CompileDateTime.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/CompileDateTime.h",
+      "sha256_at_import": "26b9aefa164fb3ac3f773fae13296b8d6023a358a46198fd31a7f3c1e2e77164"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/CPPLINT.cfg",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/CPPLINT.cfg",
+      "sha256_at_import": "2ede123ab38635046e4ee2586d7b5674d1044d03dede0676717764bef273fb9a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/DateLib.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/DateLib.h",
+      "sha256_at_import": "2a223f9feb8d559a3f36009500109b9d9eeb3844de7fea4a10528e15c381efdf"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/DebugMacros.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/DebugMacros.h",
+      "sha256_at_import": "be4a8f21eb54a06dc973db137058cbaaec6068ed657345d5aaa0f9221ea90798"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FmtNumber.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FmtNumber.cpp",
+      "sha256_at_import": "4dbf1b38c476cca86a3954758d25d6f73ca5a2768ddf67d97a68612d238a7428"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FmtNumber.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FmtNumber.h",
+      "sha256_at_import": "80dc68bd10cb0727fc15cb4f21fc73ce58b8464492fdc99b075a91cd397eeccc"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsApiConstants.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsApiConstants.h",
+      "sha256_at_import": "f935453a3a187559a1c28d6d9f6b182c8061082c6903405dc1fabf43b69e0174"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsBlockDevice.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsBlockDevice.h",
+      "sha256_at_import": "ab8f7e653a4616b4539d5b1ca27bf052667083d1e2807db230c5d503bf165bcb"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsBlockDeviceInterface.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsBlockDeviceInterface.h",
+      "sha256_at_import": "2b7aaeddabd2c78796a54d56f9489eb9383c3eabb2eed3f0c65a6016e1ba1dd0"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsCache.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsCache.cpp",
+      "sha256_at_import": "ba4f99dd660c7c6a747b20abcf11354379aa689115d1ee1ad1cf9577706a67bb"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsCache.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsCache.h",
+      "sha256_at_import": "8bfdfac0ce212fb0db0353acf8974aa79b30bb20e66e2c324d00acf6b327f19c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsDateTime.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsDateTime.cpp",
+      "sha256_at_import": "241f2da9027e41843452cba5d333910092722767b533b751d40952f5a3834b67"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsDateTime.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsDateTime.h",
+      "sha256_at_import": "714cbdcc00e441a46eca80d63ecceb31eae6ac0634a2914315270cde5032efa2"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsName.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsName.cpp",
+      "sha256_at_import": "6fc018c2953955d742344f6a012e1f463456884fa98fb51d0d65b7488954cbf5"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsName.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsName.h",
+      "sha256_at_import": "96ab4e87b742b606f2d0011f6b0f8e260c6922271194ba6a3dc076ca82cb52d9"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsStructs.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsStructs.cpp",
+      "sha256_at_import": "730693005271d0d15962212e4b674868163981128f1fa941ac2c774c75571256"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsStructs.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsStructs.h",
+      "sha256_at_import": "e7f2f85ce6dfdc915fdb7cf558b6a404c20437d0475bc4a9f9f56d263011d1e4"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsUtf.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsUtf.cpp",
+      "sha256_at_import": "94f0c666998877bbb8f678d10073ad71ef1f2ac6c430ccf59af5711eb3f6721d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/FsUtf.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/FsUtf.h",
+      "sha256_at_import": "c40521f68801342b1d480acc1e8a20daa569352588808ae70d4d1ccd17ae6911"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/PrintBasic.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/PrintBasic.cpp",
+      "sha256_at_import": "14e7f2d3e3eecc082f4d69a5988f5ae1be9965f68bad23b77d89759141ceac9f"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/PrintBasic.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/PrintBasic.h",
+      "sha256_at_import": "b75e66dc6235693a314e185fb5e1ae5ac641349d0f976c9a2de72ec809ad9bad"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/SysCall.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/SysCall.h",
+      "sha256_at_import": "abe25a9a0f5b2c1ab1b7a756d7db867b68d7e30f890733dca2dec32beb6807bd"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/upcase.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/upcase.cpp",
+      "sha256_at_import": "f82842622b8712eadaea801368f961a1e55217de731d869ad3c66dd7de69c567"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/common/upcase.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/common/upcase.h",
+      "sha256_at_import": "1a3103fd2ac76564791f329957f1fd505653ca8247082a9bde47a1dd5e69e0c2"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/CPPLINT.cfg",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/CPPLINT.cfg",
+      "sha256_at_import": "d47639ff53413904dbb6e53b9affaef15e9265f3c21b6f687aca73229aae5d98"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatDbg.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatDbg.cpp",
+      "sha256_at_import": "2f5f6a01edc82acb62776cb2c0768205f28daf57c8fd677c20394f23e30ee564"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFile.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFile.cpp",
+      "sha256_at_import": "ebcdb4c15e9200caf15a93095a37428d987e96da0f85733104550373ce6f0aa0"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFile.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFile.h",
+      "sha256_at_import": "a0863afa1035a8dd799e8d17899a62369f9b50b3916a197ce99504ba3cb8ab13"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFilePrint.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFilePrint.cpp",
+      "sha256_at_import": "0c2fe65674e955874206940c04d3008e15d225847c40a813eda620fa39663cc9"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFileWrite.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFileWrite.cpp",
+      "sha256_at_import": "439e1fe566bc04c8e53962eeb8bdd91c89d5358cfff20bcf8be90c742e683ea4"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFormatter.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFormatter.cpp",
+      "sha256_at_import": "80b6e8da126f46fe17405f1e07cabbf7de25412cca4135b2448d17a31256e4f2"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFormatter.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatFormatter.h",
+      "sha256_at_import": "d395b171105b3c4f134905ad084e98e5b0228c1f648e7a03be022a9150d57196"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatLib.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatLib.h",
+      "sha256_at_import": "abbb95db75a8022e7e9bef1f589e76d895057d9f51488d2fe336bfcb6f80bd9d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatName.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatName.cpp",
+      "sha256_at_import": "65b68473f51e97820fa6fd477addc14c247810902e3b77b5a4fe69849a6988a8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatPartition.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatPartition.cpp",
+      "sha256_at_import": "50f5d03be0f0f6c282bbbecd5b1d20c76c1ee095850c057394e977689f77aa3b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatPartition.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatPartition.h",
+      "sha256_at_import": "7d542a80c4e68c52ec1c53b349e72d3fa8a271c18a02d28332a3d75aff9fef04"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatVolume.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatVolume.cpp",
+      "sha256_at_import": "92a277f2895e1a45cb1a53b8fbc9ad08f8d5256345e29da353b11b9f93ad80b6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatVolume.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/ExFatLib/ExFatVolume.h",
+      "sha256_at_import": "61ef51428522b2266a874ea79c0e7c89e38c50c88d04f3598d6b447f9323bf38"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatDbg.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatDbg.cpp",
+      "sha256_at_import": "d6f054e1ea6b6e7c0ae2ac93651d71ef21e454012a07a1b1f7df95cb4bdf0775"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFile.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFile.cpp",
+      "sha256_at_import": "c1757a57ea134df2aab650d2db109b7d731f66cf309e5a070a9b50667c258948"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFile.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFile.h",
+      "sha256_at_import": "42355cd5bf5dc6e37b13931922e029a7c2a64bc409e7b3e56b632021ee925644"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFileLFN.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFileLFN.cpp",
+      "sha256_at_import": "e7a13328625505c5f2c18279087a36d90b308bc7c97513371a6ce14884026be2"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFilePrint.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFilePrint.cpp",
+      "sha256_at_import": "7a4094a579192406ce19e975085857761aeed8658c64401297f29fa655685dff"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFileSFN.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFileSFN.cpp",
+      "sha256_at_import": "d44a4c50f9640da6dceccbc31f7d171c0992b51cdd18c0000d87a8590222f3f5"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFormatter.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFormatter.cpp",
+      "sha256_at_import": "3fc6f942b1aac898ce291443c75c683d74b3b5ac6cfba1e485045ee906603130"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFormatter.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatFormatter.h",
+      "sha256_at_import": "001012ef1890273cb697008d9e3c590deaa7c92416c46e3344f1f72f179d8133"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatLib.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatLib.h",
+      "sha256_at_import": "3101541ef135faaeb0119cd6d453b4846fbd463766188b1453e04c135afc09bc"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatName.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatName.cpp",
+      "sha256_at_import": "68e5ebd02a463511391303c78e15e43943c8e96df45c3d3e13267347af2f203b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatPartition.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatPartition.cpp",
+      "sha256_at_import": "36163b3dc4ee985da9a6c6fb99b635fb5b63255d35fa5b3ccc1778db1534c0fe"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatPartition.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatPartition.h",
+      "sha256_at_import": "fb91c81beac2779a0d4b08e886a5fefdf8062b8ad422ccec4e178ae4e88b72e5"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatVolume.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatVolume.cpp",
+      "sha256_at_import": "20519f5f91ee57fdc127b03f72d8bb0532e47b4a39ebe2145f84c87d120a3b48"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FatLib/FatVolume.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FatLib/FatVolume.h",
+      "sha256_at_import": "2229bf54333e340d2af74921703cc49917adae6c64d67571606ef3e8b41dde9e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/fmt_src.bat",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/fmt_src.bat",
+      "sha256_at_import": "0cf5648bef8da57e3dc4d5e53d3e8df43309a1aab999158d7f60a7de2db91ec6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FreeStack.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FreeStack.cpp",
+      "sha256_at_import": "2fdb257306eb1e0b9f8f34375cfaddbe84f6c3ad54ca47d3459ee777ce345e01"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FreeStack.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FreeStack.h",
+      "sha256_at_import": "d47aa98f1099e51c70863463e01b5dba1a1afd08a417eb511238cf9b827e1a4a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsFile.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsFile.cpp",
+      "sha256_at_import": "bf8210f6542431730dc3397726b0f27d646bfac1efbf31297efbf0f424f95dbd"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsFile.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsFile.h",
+      "sha256_at_import": "a0ff003a47a3a4d7db5a186db20760e78398c2f839c88d8b8867d480574ab153"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsFormatter.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsFormatter.h",
+      "sha256_at_import": "0463947d87121daf99e3211664c3b67eb24f0dcfda9bffbeded085e729fbfc9d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsLib.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsLib.h",
+      "sha256_at_import": "65762fb27a95daa09f704baba3557865947eb5aad90f02ba0352d349a2548072"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsNew.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsNew.cpp",
+      "sha256_at_import": "c6b55ee8d0792b2d1571502115127f8206572f3f0b6e7a9eb185bbac7a9f310d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsNew.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsNew.h",
+      "sha256_at_import": "02b0039c81b46c164cfcc511a1c66dc103a759cfa99acff90c87756baf0a4b11"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsVolume.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsVolume.cpp",
+      "sha256_at_import": "cd4136d1e2ba7cfae528c0e82f7a00dc12a8aeb41df14b82e5f9c6365dc1ffba"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/FsLib/FsVolume.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/FsLib/FsVolume.h",
+      "sha256_at_import": "42e3c1190604325e06f49c6b5ba195a36ecb44810303bf515da47b4a26a5dfd1"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/ArduinoStream.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/ArduinoStream.h",
+      "sha256_at_import": "9ef8ef77a7a91ef9df166c7616cfa36d60c3261b5dbee7dbd5d254705a05dd4e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/bufstream.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/bufstream.h",
+      "sha256_at_import": "98d4f9e6a31aac9cc2187b788492ec11f991a4eb34fe627da683f4e33595f2f9"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/fstream.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/fstream.h",
+      "sha256_at_import": "5bdf74327249c9e31f632ffd96c07fd9ce94a51b858b7615ce919614557d13a6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/ios.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/ios.h",
+      "sha256_at_import": "c866247174b253823a2027802115e822b092767a07ee7adaac54441e506d96ad"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/iostream.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/iostream.h",
+      "sha256_at_import": "3fef0e49455bb59fbe10df062257d176207fc414f164e74e1bd3ae376bb0e9ed"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/istream.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/istream.cpp",
+      "sha256_at_import": "78caeb2dd7951c27716fde82fe45fb3b7802877f41e323a8d0795b07e237f385"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/istream.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/istream.h",
+      "sha256_at_import": "55c6ebd7f85511510040cae12983d1ea450c29d407966b58ac1aa1fdb9523d26"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/ostream.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/ostream.cpp",
+      "sha256_at_import": "f16d18229b7e14489daa576edc7ca046445cd4fc3866fdc1b89f6b90686f162c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/ostream.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/ostream.h",
+      "sha256_at_import": "10197d9b7663da78dc812317ba5106f98964cb8c66aebe95a55b1e64d3c9b1a8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/StdioStream.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/StdioStream.cpp",
+      "sha256_at_import": "76d00e9acb2ab7671f04484eedf3b9aca47df7a9d8526264b7758b2f5a6d9338"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/StdioStream.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/StdioStream.h",
+      "sha256_at_import": "672d6e2c8fefa49f100aa435132374e1aa8c3b0f94660aed563afdb071827ee7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/iostream/StreamBaseClass.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/iostream/StreamBaseClass.cpp",
+      "sha256_at_import": "26f179cf4cc3f56b525efb9dd31403b6002b1919a7758bfc17f80a1272a2306e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/MinimumSerial.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/MinimumSerial.cpp",
+      "sha256_at_import": "44c28378de418cd84c01c037657c660f7a32a517f34d5ead8806285fe507e006"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/MinimumSerial.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/MinimumSerial.h",
+      "sha256_at_import": "74e61c04604c386bcaa208bd4fc5fa2b8f2ee4028633f99f0680b692dc1f54e8"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/RingBuf.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/RingBuf.h",
+      "sha256_at_import": "27c740fc2f3dfd641f3db6a22dc3f279f80b26467547388f56cf726bbdb3e107"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/CPPLINT.cfg",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/CPPLINT.cfg",
+      "sha256_at_import": "130abd43417d222f9c24f293d8eb5ac03a462053bd59b6694f26b30591abb30d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/DbgLog.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/DbgLog.h",
+      "sha256_at_import": "1be8fdfc14cdc25d16807a63f05f05c22f1958d3a595cf8cbc772020d1656b59"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/pioasm.bat",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/pioasm.bat",
+      "sha256_at_import": "52aa495279d0fd14936da2c00d24856b6e63b1e4a51a066e54775d64ba67055f"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/pioasm_test.bat",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/pioasm_test.bat",
+      "sha256_at_import": "b40ff1c62d2619c515281b18820078c9ecdd7038e9009f029a7e1920331c7e08"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.cpp",
+      "sha256_at_import": "85c05fe77430efaa719e56dd37ec62b95c65b04f047e9702ee564043063d254b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.h",
+      "sha256_at_import": "3226556dbb304ab0d231de8b949e6bb48cc2f04a2ceee53f4e1b18168c44565a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.pio",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.pio",
+      "sha256_at_import": "928297bbab8f1de02710e472bf408bf2dcfaff4f7dddb65f999d8d7a99c83c48"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.pio.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/PioSdio/PioSdioCard.pio.h",
+      "sha256_at_import": "c34b059ec74fca99bb2add64bb10c8d7776e7c87ae2062990c483057222a8471"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCard.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCard.h",
+      "sha256_at_import": "2b5173805c067bd7d820b6f4faa177ff5ba49cbf2df6e9149a11db770a11d916"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCardInfo.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCardInfo.cpp",
+      "sha256_at_import": "e2d1986543670fcedf0e6bfb5daaaa642b2fa75d6a75e636a2de979caccc474c"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCardInfo.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCardInfo.h",
+      "sha256_at_import": "aa3370c494c2225edef2f7029741a9955a6ea3c49d5e0059a9c27572fcdb6b0e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCardInterface.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdCardInterface.h",
+      "sha256_at_import": "a491ab075e138b1307771d8e65407ed650851c21fcb8499401c9d47261020d41"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SdSpiCard.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SdSpiCard.cpp",
+      "sha256_at_import": "5dd2aecc22249eae072b4ddefec174a28dcfa8a580b7dd436779ea7e4a175168"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SdSpiCard.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SdSpiCard.h",
+      "sha256_at_import": "deacae04ca185aac5731873ae969b0809509e26cd72c60d15ed725e6219e77dd"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/AvrDevelopersGpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/AvrDevelopersGpioPinMap.h",
+      "sha256_at_import": "09c2bc0138c5e46db05a89c647f28bd5785181449955dd94e526838c619b248f"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/BobuinoGpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/BobuinoGpioPinMap.h",
+      "sha256_at_import": "97408e8fbb7706672d5c49f53ce174cc9dfc6e92b712978cfc30183cf7cb2e36"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/GpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/GpioPinMap.h",
+      "sha256_at_import": "e58caeea8974cb5a108e0c4ec2d78b457bbcd32ef597da4f767cd400222657d9"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/LeonardoGpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/LeonardoGpioPinMap.h",
+      "sha256_at_import": "af5bdc5473b97b903d3518a5b9a98b18b7e6f39dadc7cffd988b2ea7839a82a7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/MegaGpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/MegaGpioPinMap.h",
+      "sha256_at_import": "ed6e77ca05ce9d34c1cdc82a2d2e4ed11850baada90ac0d2df5f59f3226b29c0"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/SleepingBeautyGpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/SleepingBeautyGpioPinMap.h",
+      "sha256_at_import": "9f502ef86d2dafa396ace660ee3b5e6301ace92511d128f12fe2cf1b7d62be00"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/Standard1284GpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/Standard1284GpioPinMap.h",
+      "sha256_at_import": "97408e8fbb7706672d5c49f53ce174cc9dfc6e92b712978cfc30183cf7cb2e36"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/Teensy2GpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/Teensy2GpioPinMap.h",
+      "sha256_at_import": "0a8a196b4601e9d13309517d4f1199b297787b8f5c6b1ad49b3b6ecfb7e5930d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/Teensy2ppGpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/Teensy2ppGpioPinMap.h",
+      "sha256_at_import": "d5421a3507e19a8228655e6bf68195feaacd5bbc7727e3c3d0312d63b61419a7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/UnoGpioPinMap.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/boards/UnoGpioPinMap.h",
+      "sha256_at_import": "baeebec04dca5652d6e5955246ac6040fd47acae16ebded69b5b7cf9414c9862"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/DigitalPin.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/DigitalPin.h",
+      "sha256_at_import": "871cec861672e8740e89940ad9de42f8fb059d6c3a0230347cbb6cacf5b556ba"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/readme.txt",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/readme.txt",
+      "sha256_at_import": "bdd866767aec2217a3378f0caf32a10773ff634720d82b8e841a65b1830221d1"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/SoftSPI.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/DigitalIO/SoftSPI.h",
+      "sha256_at_import": "24c5a66c0f5f81eaecea52a3dd604cf018622c3eeb10a9b2b8de64db81990f28"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiArduinoDriver.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiArduinoDriver.h",
+      "sha256_at_import": "b97ea0026ea015f7d026824d676ac4e346f12afc3a2e783a14f4a9ba27add95f"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiAvr.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiAvr.h",
+      "sha256_at_import": "1e870f84386236a9627a280b764f51ff2897f8040e933e2bda800a0b91ad9951"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiBareUnoDriver.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiBareUnoDriver.h",
+      "sha256_at_import": "c08e86de692ac9bf026549e66c10cac64931fc48a55221dc2a0fa19634d834a2"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiBaseClass.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiBaseClass.h",
+      "sha256_at_import": "b5535976182f75b68918e73a5dd5b31f1644a1d4513fcc1de19bfe7b1f8bc3e0"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiChipSelect.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiChipSelect.cpp",
+      "sha256_at_import": "57996595eae10c9613e73f7abc96dd5db1c4d9926fa3887b532dfb9aae8f81e1"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiDriver.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiDriver.h",
+      "sha256_at_import": "984fd3cb658dcf924441db4845044e3b38ea76499d4ecf5dc81da016d02930fd"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiDue.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiDue.cpp",
+      "sha256_at_import": "5464a711bd73c83a90d3f9318ee01ade2d9d466d242cfe3f0defb6562a9d9b24"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiLibDriver.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiLibDriver.h",
+      "sha256_at_import": "aefb60bc213d01a355adc66af833a3271e326c919d67c437690f73ed45ec5e87"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiSoftDriver.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiSoftDriver.h",
+      "sha256_at_import": "2d7552707e55d7e1c64340dd9c2c6a67d840527deae1a0706705263c26331aa7"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiSTM32Core.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiSTM32Core.cpp",
+      "sha256_at_import": "3aa248a51137545765527f4379adaf18aea536a5c0e0b2b259c4efb9da28717a"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiTeensy3.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/SdSpiCard/SpiDriver/SdSpiTeensy3.cpp",
+      "sha256_at_import": "0e4d076e413b4f3bd3bb680554af8c6e35909dde64052acb37e4d502c09c2b8e"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/CPPLINT.cfg",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/CPPLINT.cfg",
+      "sha256_at_import": "dccf99132b359deac7ea303e0ea4bfc250fabd58603319941ca9ed061d12348b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/TeensySdio.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/TeensySdio.cpp",
+      "sha256_at_import": "fde257dbedc95d9e9f75f28ad15b2b3e22545af2d834d8120b0d7dd67a4ecd67"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/TeensySdioCard.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/TeensySdioCard.h",
+      "sha256_at_import": "83383b3cf02e16332bb96f8ae98eab1ee845cc387ec511e3ee5cb1f523eaa8ae"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/TeensySdioDefs.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdCard/TeensySdio/TeensySdioDefs.h",
+      "sha256_at_import": "78886f32690dd24cc7a91633bd6623deb804c4d50ade83fd63cce7872dffec40"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdFat.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdFat.h",
+      "sha256_at_import": "92121653d46fbc344a03f2dadfcb2aef17399e2dc8d1a162ba7e0b80f28e4a72"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/SdFatConfig.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/SdFatConfig.h",
+      "sha256_at_import": "e32ea659ead824ec2b12f61694b5b2049be1441d961f7042cbc1d8ccc6bc7344"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/src/SdFat/sdios.h",
+      "destination": "sketches/Jolteon_Feature_Verification/src/SdFat/sdios.h",
+      "sha256_at_import": "65c8beac4e89779c44cfb7e78b11eddee5a63f7b14b40dba8ebff759e4530945"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Telemetry.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/Telemetry.cpp",
+      "sha256_at_import": "dc28b10d5ad9f288232138880ca17b535346d5f3687daa76227438a5922d6fc3"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Telemetry.h",
+      "destination": "sketches/Jolteon_Feature_Verification/Telemetry.h",
+      "sha256_at_import": "06014a8eeb1fc93974843fad992fc0b25e5d2706007c97766aa93ed35412ba9b"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/tests/check_profiles.ps1",
+      "destination": "sketches/Jolteon_Feature_Verification/tests/check_profiles.ps1",
+      "sha256_at_import": "c3b6b97da79d9f77bef4dddb0952e532b89d07cd1d540896529a6e043daf3435"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/tests/host/Arduino.h",
+      "destination": "sketches/Jolteon_Feature_Verification/tests/host/Arduino.h",
+      "sha256_at_import": "649a6a260e4791b674984c4080a578435c6107a787cc7192b32577fd1a837667"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/tests/run_tests.bat",
+      "destination": "sketches/Jolteon_Feature_Verification/tests/run_tests.bat",
+      "sha256_at_import": "ed9aa368342ef71b69026b43ced15c15549b614be8021283eb395e06fe60024d"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/tests/test_logic.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/tests/test_logic.cpp",
+      "sha256_at_import": "5ace8d863251b122ad050494d6425027a866fd6c05acf4cb6db88d3f4f767cad"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/tests/test_sdi.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/tests/test_sdi.cpp",
+      "sha256_at_import": "7d72c8e6846375d1355fa7f7202924e8a0b35c87d8a78bc5edcf368610abc223"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/VALIDATION.md",
+      "destination": "sketches/Jolteon_Feature_Verification/VALIDATION.md",
+      "sha256_at_import": "f1f2ec5b5d61a42b0f3cb08188d6b3ecd2dfbcdbe5d97a91bffd6226f66ccca6"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Verification.cpp",
+      "destination": "sketches/Jolteon_Feature_Verification/Verification.cpp",
+      "sha256_at_import": "2aaf21b62f03f52439456c99abba2580be8f92a8c89fd956d7856b58abb01806"
+    },
+    {
+      "source": "SAMD workspace/Jolteon_Feature_Verification/Verification.h",
+      "destination": "sketches/Jolteon_Feature_Verification/Verification.h",
+      "sha256_at_import": "7e7220b8e3148993d529a1c9433047df2ec9db28250b75be1cc3a43d972f9b42"
+    },
+    {
+      "source": "SAMD workspace/Windows_J18_Tools/build_and_flash_j18.bat",
+      "destination": "tools/Windows_J18_Tools/build_and_flash_j18.bat",
+      "sha256_at_import": "bf41564a128f87569dad01bb8b5fd1bd8f4303d3816d1f9a8bc29753e5d4b2b2"
+    },
+    {
+      "source": "SAMD workspace/Windows_J18_Tools/build_and_flash_j18_separate_bootloader.bat",
+      "destination": "tools/Windows_J18_Tools/build_and_flash_j18_separate_bootloader.bat",
+      "sha256_at_import": "06f390f912ad8d7ef662c173cfa2361de4b256ad925016ce7b4416cbecc78b19"
+    },
+    {
+      "source": "SAMD workspace/Windows_J18_Tools/README_WINDOWS.md",
+      "destination": "tools/Windows_J18_Tools/README_WINDOWS.md",
+      "sha256_at_import": "8b5b5616ea2d3237177c0af4c5d3594631897bb17a105ec6a811a32dc8465c5a"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/build_and_flash_j18_rpi.sh",
+      "destination": "tools/RPi_J18_Tools/build_and_flash_j18_rpi.sh",
+      "sha256_at_import": "19ca535ba41afb640b9ebc3d3e7661902e4a044976225c45eacbf99f9a1e8122"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/build_and_flash_j18_separate_rpi.sh",
+      "destination": "tools/RPi_J18_Tools/build_and_flash_j18_separate_rpi.sh",
+      "sha256_at_import": "d7bebbdea1f11040167ff9e2fac16662926d18927a0588589e104a64c2096f37"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/Flash combined USB ST-LINK.desktop",
+      "destination": "tools/RPi_J18_Tools/Flash combined USB ST-LINK.desktop",
+      "sha256_at_import": "3050abfae937c8a091b24d6f3c77fc60358cbffcbf68e9c16c797b6674e11f07"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/Flash combined.desktop",
+      "destination": "tools/RPi_J18_Tools/Flash combined.desktop",
+      "sha256_at_import": "76251863a7df4c34612ccc118f37191a294adf513b03b424dfcdf3b60d70463b"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/Flash separate bootloader.desktop",
+      "destination": "tools/RPi_J18_Tools/Flash separate bootloader.desktop",
+      "sha256_at_import": "624285a80ce6280cacf9ce44879431b19e461149549cf685a04cdb27c3b14181"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/Flash separate USB ST-LINK.desktop",
+      "destination": "tools/RPi_J18_Tools/Flash separate USB ST-LINK.desktop",
+      "sha256_at_import": "84dbe42242908f44c008cd254aadc7fc78cad06e094376d58f891490dd229195"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/j18_rpi.py",
+      "destination": "tools/RPi_J18_Tools/j18_rpi.py",
+      "sha256_at_import": "d0c52a786d8f9ae7b0e50772ebbd9b7995a9804a92586fadd68c999bb9905720"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/README.md",
+      "destination": "tools/RPi_J18_Tools/README.md",
+      "sha256_at_import": "ab163189baef224cf6be286ab0379e62c70fa6c8df66a312d9cdc979f83ff3f5"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/samd21_sam_ba.bin",
+      "destination": "tools/RPi_J18_Tools/samd21_sam_ba.bin",
+      "sha256_at_import": "89b9255d2f0bfa90371772b4e2eff78aa6069c6e612eb35737e964074ad8512b"
+    },
+    {
+      "source": "SAMD workspace/RPi_J18_Tools/setup_launchers.sh",
+      "destination": "tools/RPi_J18_Tools/setup_launchers.sh",
+      "sha256_at_import": "8e7b2047ed9c09a8223d4e45331c85fe616538204cc9c0ee62ff47aa0229b112"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/build_and_flash_j18_mac.command",
+      "destination": "tools/Mac_J18_Tools/build_and_flash_j18_mac.command",
+      "sha256_at_import": "f3a268eb73084cf41d25997ec6c9454a989b30cf1212f218408712c6c5062b5b"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/build_and_flash_j18_separate_mac.command",
+      "destination": "tools/Mac_J18_Tools/build_and_flash_j18_separate_mac.command",
+      "sha256_at_import": "79166224840fddb8c153cdcd23ea2873d7fe7c7492cdcabf55fcb4ac6817c072"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/ensure_homebrew.sh",
+      "destination": "tools/Mac_J18_Tools/ensure_homebrew.sh",
+      "sha256_at_import": "f075008d18f3f09c3fc9bf10143bac4ce83dd40a68f6c1f18b3e3ef2f333d40e"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/j18_launch.sh",
+      "destination": "tools/Mac_J18_Tools/j18_launch.sh",
+      "sha256_at_import": "d168b4cad8333f8868704dceaa001e39204a3f9d3ca23df18c91a07866996063"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/j18_mac.py",
+      "destination": "tools/Mac_J18_Tools/j18_mac.py",
+      "sha256_at_import": "de1e995459e8cc5afeff8f5c0a7f43923256616a12ea1d14277fae441ae496d1"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/README.md",
+      "destination": "tools/Mac_J18_Tools/README.md",
+      "sha256_at_import": "5043feb8c45cdc700f4830151fcc188d6cc6ef98133f42c110a1df5c655cd5a8"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/samd21_sam_ba.bin",
+      "destination": "tools/Mac_J18_Tools/samd21_sam_ba.bin",
+      "sha256_at_import": "89b9255d2f0bfa90371772b4e2eff78aa6069c6e612eb35737e964074ad8512b"
+    },
+    {
+      "source": "SAMD workspace/Mac_J18_Tools/setup_launchers.sh",
+      "destination": "tools/Mac_J18_Tools/setup_launchers.sh",
+      "sha256_at_import": "5f723aab1b22ee52d5cc4d6a9645f42d6b3300fa32688804daae5b9ba3e77998"
+    },
+    {
+      "source": "WT02E40E_Bridge/.gitignore",
+      "destination": "bridge/.gitignore",
+      "sha256_at_import": "fe54d1fd9b0ea946a38c56b98ec8ad8dff0ce784bc926b25433e44d2703f6f0f"
+    },
+    {
+      "source": "WT02E40E_Bridge/app.overlay",
+      "destination": "bridge/app.overlay",
+      "sha256_at_import": "9035e2f3efa8b2e7726c10c0b057c19807592e6409900357e9553a6f5a27c628"
+    },
+    {
+      "source": "WT02E40E_Bridge/BLE_Webapp/index.html",
+      "destination": "bridge/BLE_Webapp/index.html",
+      "sha256_at_import": "537ee7c8b50ff83773da78a8ff07804db638eca39e70670d96668e7d40fe7b87"
+    },
+    {
+      "source": "WT02E40E_Bridge/BLE_Webapp/README.md",
+      "destination": "bridge/BLE_Webapp/README.md",
+      "sha256_at_import": "5875e171f7852ebb72a6d0296b5fa5fa9db0d2a5151808a9c905cb114e42e6ab"
+    },
+    {
+      "source": "WT02E40E_Bridge/BLE_Webapp/server.js",
+      "destination": "bridge/BLE_Webapp/server.js",
+      "sha256_at_import": "43a1b658f91b1b45f28266c074e4256642ac654f984fdbc834b42aed14b60799"
+    },
+    {
+      "source": "WT02E40E_Bridge/boards/jolteon_uart.overlay",
+      "destination": "bridge/boards/jolteon_uart.overlay",
+      "sha256_at_import": "4f053415c887fc0851cf7ee2185ba936d9b65c748b74b2e22ea529c4181f3f60"
+    },
+    {
+      "source": "WT02E40E_Bridge/build_jolteon.ps1",
+      "destination": "bridge/build_jolteon.ps1",
+      "sha256_at_import": "3e9a6e8bf7234d49237f9e53ad57f8f65f3fb4ed32866d92dd3e5e019a817d3a"
+    },
+    {
+      "source": "WT02E40E_Bridge/CMakeLists.txt",
+      "destination": "bridge/CMakeLists.txt",
+      "sha256_at_import": "e1905573986462c9c875fca395bdfe623160785aa8f41af4774ce89c81cc31f3"
+    },
+    {
+      "source": "WT02E40E_Bridge/JOLTEON_UPDATE.md",
+      "destination": "bridge/JOLTEON_UPDATE.md",
+      "sha256_at_import": "8e39141ed198fa20dfe2919803e1a5d96a067a45cac8615e3dce766388f57e55"
+    },
+    {
+      "source": "WT02E40E_Bridge/Kconfig",
+      "destination": "bridge/Kconfig",
+      "sha256_at_import": "fc2afeab1eb851be9b9b896aea9bf9c5319cd99fc83232a09ee6c6cb5e827f8f"
+    },
+    {
+      "source": "WT02E40E_Bridge/overlay-zperf.conf",
+      "destination": "bridge/overlay-zperf.conf",
+      "sha256_at_import": "cf2c8dd88d608d2a8ceaa0d00a910e27489caa6df9237a8e8d5d49491d34fd90"
+    },
+    {
+      "source": "WT02E40E_Bridge/prj.conf",
+      "destination": "bridge/prj.conf",
+      "sha256_at_import": "5d1f57208f536a742e2e4168f22c619d5256c3b041c9b3dab1f8c5119d1f26a6"
+    },
+    {
+      "source": "WT02E40E_Bridge/README.md",
+      "destination": "bridge/README.md",
+      "sha256_at_import": "64752b6d7a5afb57cd5cc36d8a9b626ee7c279c5cfc1ba40638764d8d3b50ebb"
+    },
+    {
+      "source": "WT02E40E_Bridge/README.rst",
+      "destination": "bridge/README.rst",
+      "sha256_at_import": "b3dbcc357d25c7e77ea2b18f53bf7f9386e443cd0a88d4d1da64daf92b2793f7"
+    },
+    {
+      "source": "WT02E40E_Bridge/sample.yaml",
+      "destination": "bridge/sample.yaml",
+      "sha256_at_import": "da9adcab62cbc3c04922e88a278697bfedc08d77daa1c09dbdcbdd1b9657d2a8"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/main.c",
+      "destination": "bridge/src/main.c",
+      "sha256_at_import": "9763bcf17c3bb6471ebc15b352f5ae1e67a2be760898ff1cf903aa5ab2875cbc"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_app.c",
+      "destination": "bridge/src/wt_app.c",
+      "sha256_at_import": "055e4808e9cbe4f047d5a69ea1e9bf41321d4e596f109b3886c9b4c071ca4d85"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_app.h",
+      "destination": "bridge/src/wt_app.h",
+      "sha256_at_import": "0dabe95b3880c0b9b849315a7c1f0112b4131ac9b86f5ed3f879ce94d2fc22e5"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_ble.c",
+      "destination": "bridge/src/wt_ble.c",
+      "sha256_at_import": "8b93d918659b50d01892d5ba5361ffed8293391a96b761f2c1430209f79c9844"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_ble.h",
+      "destination": "bridge/src/wt_ble.h",
+      "sha256_at_import": "da0cd5a993edafcec6566c7d25411b19b6cc435a4a91a6d71ac1546707420504"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_common.c",
+      "destination": "bridge/src/wt_common.c",
+      "sha256_at_import": "f1a18a621c22d5a783d6c1bd903a385fab278726bba509fcaf584c3aab775031"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_common.h",
+      "destination": "bridge/src/wt_common.h",
+      "sha256_at_import": "59cceafb1a3395853129e038a0118711c9c369c2b184f94391b4a5c7382b5bca"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_config.h",
+      "destination": "bridge/src/wt_config.h",
+      "sha256_at_import": "a9676b525fa3bac7da165156c3570958305d8e8f8d932eb83f3249cecb24b7d5"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_leds.c",
+      "destination": "bridge/src/wt_leds.c",
+      "sha256_at_import": "b1a338a60eb97ae003607233fe948946bbd8de0a59bbf9b3f75fadd3823a136e"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_leds.h",
+      "destination": "bridge/src/wt_leds.h",
+      "sha256_at_import": "84544d8031fcc6d67f812e9097212153fd25ed4599451796181c3a65e4d64471"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_radio.c",
+      "destination": "bridge/src/wt_radio.c",
+      "sha256_at_import": "df456e604be5e11e765276b05f7c42ed711a02474e2d2037663829b26b06453b"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_radio.h",
+      "destination": "bridge/src/wt_radio.h",
+      "sha256_at_import": "9c73c866ea1f397ba10e4202d90bc47778acdb66c509da36c78303f9c57e0f28"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_shell.c",
+      "destination": "bridge/src/wt_shell.c",
+      "sha256_at_import": "66ccfd3ff13d94b30f03b47cda1788ed4c4bb607883478458fa68eeb7cdb14bf"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_stream.c",
+      "destination": "bridge/src/wt_stream.c",
+      "sha256_at_import": "8acc13f9ccab7c0b5d1467e9eb68982e0927e948476db0afc05f81c156744033"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_stream.h",
+      "destination": "bridge/src/wt_stream.h",
+      "sha256_at_import": "1592a0885a3e0c03140ea455d67753b344d9e262c2744f4b93173f318d78fa30"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_tx_route.c",
+      "destination": "bridge/src/wt_tx_route.c",
+      "sha256_at_import": "108de15fadfe8728c3532c5736a7fd56040918fad01b833d56ca2e5ab5bd1f03"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_tx_route.h",
+      "destination": "bridge/src/wt_tx_route.h",
+      "sha256_at_import": "5c1db2463d1bba0c3c6633ccd354120e2ce56ce39776e97e3f8809f348560e22"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_wifi.c",
+      "destination": "bridge/src/wt_wifi.c",
+      "sha256_at_import": "da58975fdb588078dfc471e7e4bc1165da7787b08b8ee6a8da978760b355fd4f"
+    },
+    {
+      "source": "WT02E40E_Bridge/src/wt_wifi.h",
+      "destination": "bridge/src/wt_wifi.h",
+      "sha256_at_import": "2aad21bb5faf6b795829445b82c16576e1365219f0a0481ebe5cfb43da5a1323"
+    },
+    {
+      "source": "WT02E40E_Bridge/sysbuild.conf",
+      "destination": "bridge/sysbuild.conf",
+      "sha256_at_import": "f4029e6e8b51882209e123d2445eff1bf82773bc01e9c2497fc14cc8ee0625c1"
+    },
+    {
+      "source": "WT02E40E_Bridge/tests/run_route_tests.bat",
+      "destination": "bridge/tests/run_route_tests.bat",
+      "sha256_at_import": "cc9bf883d1fa7ce9bd99099e4c6f4f33bf6cdb497f3acb445bdb5132c0447bb1"
+    },
+    {
+      "source": "WT02E40E_Bridge/tests/test_tx_route.c",
+      "destination": "bridge/tests/test_tx_route.c",
+      "sha256_at_import": "c1a338b6e03c8d273d12a7691433ae00fc9e0af8f3da76219356588578f4cdbe"
+    },
+    {
+      "source": "WT02E40E_Bridge/WT02E40E_COMMANDS.md",
+      "destination": "bridge/WT02E40E_COMMANDS.md",
+      "sha256_at_import": "b266b8d5b85d6f6573724a993506853a616a48398679224d1fa6cd4c429dfd2f"
+    },
+    {
+      "source": "WT02E40E_Bridge/wt02e40e_openocd_stlink/flash_wt02e40e_stlink_openocd.bat",
+      "destination": "bridge/wt02e40e_openocd_stlink/flash_wt02e40e_stlink_openocd.bat",
+      "sha256_at_import": "3f5c6a5c2c8add207d32ff210b75a1a3549025aa790652ee8a5f33e0f437bbc9"
+    },
+    {
+      "source": "WT02E40E_Bridge/wt02e40e_openocd_stlink/flash_wt02e40e_stlink_openocd_legacy_hla.bat",
+      "destination": "bridge/wt02e40e_openocd_stlink/flash_wt02e40e_stlink_openocd_legacy_hla.bat",
+      "sha256_at_import": "0532fcc11ac691b0c880306a3ee2adfcc2ba0e08e19b653224edfeef6c2bb85a"
+    },
+    {
+      "source": "WT02E40E_Bridge/wt02e40e_openocd_stlink/make_wt02e40e_merged_hex.bat",
+      "destination": "bridge/wt02e40e_openocd_stlink/make_wt02e40e_merged_hex.bat",
+      "sha256_at_import": "afe32525d28a7de534a0afa9a3ccdd483f760047ae1d75c6d87c2d1d956d1fa7"
+    },
+    {
+      "source": "WT02E40E_Bridge/wt02e40e_openocd_stlink/README_OPENOCD_STLINK.md",
+      "destination": "bridge/wt02e40e_openocd_stlink/README_OPENOCD_STLINK.md",
+      "sha256_at_import": "8f86531acb70265906e915e7687d81c268774d9584f8f69a467a6b77b8822e58"
+    },
+    {
+      "source": "WT02E40E_Bridge/wt02e40e_openocd_stlink/wt02e40e_nrf5340_stlink_dap.cfg",
+      "destination": "bridge/wt02e40e_openocd_stlink/wt02e40e_nrf5340_stlink_dap.cfg",
+      "sha256_at_import": "b18e568b905b06431ae25a2e96c829c887a0ab87c121747cd59cd6df173f7f47"
+    },
+    {
+      "source": "WT02E40E_Bridge/wt02e40e_openocd_stlink/wt02e40e_nrf5340_stlink_legacy_hla.cfg",
+      "destination": "bridge/wt02e40e_openocd_stlink/wt02e40e_nrf5340_stlink_legacy_hla.cfg",
+      "sha256_at_import": "ca9952a9475886ff3a89b80028340f549e3d71818869ff4eb850e616adee9099"
+    },
+    {
+      "source": "SAMD workspace/original blinky",
+      "destination": "legacy/SAMD21J18_Blinky/SAMD21J18_Blinky.ino",
+      "sha256_at_import": "b164efd9de9b9824988e30c4b0bcdb0dcc489fcfab4da99d2ff53633e830f60f"
+    },
+    {
+      "source": "SAMD workspace/hardware issues",
+      "destination": "docs/HARDWARE_ISSUES.md",
+      "sha256_at_import": "e45c8c8f8e08a928b502e223f67912a43baa7dc78cd5b5c04d37f2065421f58c"
+    },
+    {
+      "source": "Previous bootloader release/JolteonBootloaderIdentity.h",
+      "destination": "releases/baseline/bootloader/JolteonBootloaderIdentity.h",
+      "sha256_at_import": "8c2c4f33b630d671c5c10a83ec922df709cc065f136262fb87e5e369135e8d2b"
+    },
+    {
+      "source": "Previous bootloader release/manifest.json",
+      "destination": "releases/baseline/bootloader/manifest.json",
+      "sha256_at_import": "860dcb128b0cd0fdae94dd7e32b0014f57d553e2944c669a42185e3decb7634d"
+    },
+    {
+      "source": "Previous bootloader release/samd21_sam_ba.bin",
+      "destination": "releases/baseline/bootloader/samd21_sam_ba.bin",
+      "sha256_at_import": "b1329aee68cc06e2ad7fceefd0ba190963249feee76300760c8724cf0d3426f5"
+    },
+    {
+      "source": "Previous bootloader release/samd21_sam_ba.elf",
+      "destination": "releases/baseline/bootloader/samd21_sam_ba.elf",
+      "sha256_at_import": "0eab88d51bc4b87ee2ccab0494f62cfcaae5433177ca0eaa317709e88eb1eca3"
+    },
+    {
+      "source": "Previous bootloader release/samd21_sam_ba.hex",
+      "destination": "releases/baseline/bootloader/samd21_sam_ba.hex",
+      "sha256_at_import": "7fd90c55b5453f6709d15469eb028da1f8c64718134d777c35625fb6420445dd"
+    },
+    {
+      "source": "Previous bootloader release/samd21_sam_ba.map",
+      "destination": "releases/baseline/bootloader/samd21_sam_ba.map",
+      "sha256_at_import": "bcb43418d3a820f4d2015b73c3b0df44cabd9e734a33329eaa417d378a030ba7"
+    },
+    {
+      "source": "Previous bootloader release/samd21_sam_ba.symbols.txt",
+      "destination": "releases/baseline/bootloader/samd21_sam_ba.symbols.txt",
+      "sha256_at_import": "1610f1c7274496b42a7fd9d680e7249a00e7c558851f2823edf8c5b2cada44ec"
+    },
+    {
+      "source": "Previous bootloader release/verification/BUILD_MANIFEST.json",
+      "destination": "releases/baseline/bootloader/verification/BUILD_MANIFEST.json",
+      "sha256_at_import": "b2847318226b100e07df080b9e01cc4b53519bd4faf3519bd77ff19b972468ff"
+    },
+    {
+      "source": "Previous bootloader release/verification/Jolteon_Feature_Verification.ino.bin",
+      "destination": "releases/baseline/bootloader/verification/Jolteon_Feature_Verification.ino.bin",
+      "sha256_at_import": "720c598c47033127d10a45766e33d1f40ca5b33b486933997e9bbe4578f9af28"
+    },
+    {
+      "source": "Previous bootloader release/verification/Jolteon_Feature_Verification.ino.elf",
+      "destination": "releases/baseline/bootloader/verification/Jolteon_Feature_Verification.ino.elf",
+      "sha256_at_import": "aace93d2471e7ff2bd171a64dd41269e2b119f812e5eec67dd5fed8a501bb13b"
+    },
+    {
+      "source": "Previous bootloader release/verification/Jolteon_Feature_Verification.ino.hex",
+      "destination": "releases/baseline/bootloader/verification/Jolteon_Feature_Verification.ino.hex",
+      "sha256_at_import": "8cc82ed721d6d76d6ebeccbd4228ea526e33ac9c97f904ea11de76856828ed46"
+    },
+    {
+      "source": "Previous bootloader release/verification/Jolteon_Feature_Verification.ino.map",
+      "destination": "releases/baseline/bootloader/verification/Jolteon_Feature_Verification.ino.map",
+      "sha256_at_import": "a568fc4daa18f9c083dc07693b0fd35e919dba8c6017b9c51e82aa7949869f7d"
+    },
+    {
+      "source": "Previous bootloader release/verification/Jolteon_Feature_Verification.ino.with_bootloader.bin",
+      "destination": "releases/baseline/bootloader/verification/Jolteon_Feature_Verification.ino.with_bootloader.bin",
+      "sha256_at_import": "943413a5724cd3dcf5efb786d98a8ee573dc1ef778b6c903ecc3345d8949ead6"
+    },
+    {
+      "source": "Previous bootloader release/verification/README.md",
+      "destination": "releases/baseline/bootloader/verification/README.md",
+      "sha256_at_import": "d756ff023165a9435df28a344cf9075e6977f0c1127f3480e337e0e2b492508e"
+    },
+    {
+      "source": "Previous official-bootloader verification release/BUILD_MANIFEST.json",
+      "destination": "releases/baseline/verification-zero/BUILD_MANIFEST.json",
+      "sha256_at_import": "52c654d17364d5bdc8168fa83883b983d812ec39c5afc2afebc8976213bcfff8"
+    },
+    {
+      "source": "Previous official-bootloader verification release/firmware.sketch.bin",
+      "destination": "releases/baseline/verification-zero/firmware.sketch.bin",
+      "sha256_at_import": "f6347f8bfea2bd6ce250fd16832ad840487895c911cfb156c8c22b8220cd356f"
+    },
+    {
+      "source": "Previous official-bootloader verification release/firmware.with_bootloader.bin",
+      "destination": "releases/baseline/verification-zero/firmware.with_bootloader.bin",
+      "sha256_at_import": "0d64c655eeb97b871752de5c1368e3ec821b5aba0056d1ae81403f0b9c81e1be"
+    },
+    {
+      "source": "Previous official-bootloader verification release/flash_combined.cfg",
+      "destination": "releases/baseline/verification-zero/flash_combined.cfg",
+      "sha256_at_import": "d712c206a2d9cb8d0cafd0e0840164af26bd35d6713d6fe4efdb08cf046433f4"
+    },
+    {
+      "source": "Previous official-bootloader verification release/Jolteon_Feature_Verification.ino.bin",
+      "destination": "releases/baseline/verification-zero/Jolteon_Feature_Verification.ino.bin",
+      "sha256_at_import": "f6347f8bfea2bd6ce250fd16832ad840487895c911cfb156c8c22b8220cd356f"
+    },
+    {
+      "source": "Previous official-bootloader verification release/Jolteon_Feature_Verification.ino.elf",
+      "destination": "releases/baseline/verification-zero/Jolteon_Feature_Verification.ino.elf",
+      "sha256_at_import": "188205acb62997e5fc75080af9f272961a7ffc8c3472157e969a4e4008e38267"
+    },
+    {
+      "source": "Previous official-bootloader verification release/Jolteon_Feature_Verification.ino.hex",
+      "destination": "releases/baseline/verification-zero/Jolteon_Feature_Verification.ino.hex",
+      "sha256_at_import": "a2ae9aaa27ecfe75f0511c20d8e28a4c68763b3479613de9f91cf0c261c63a18"
+    },
+    {
+      "source": "Previous official-bootloader verification release/Jolteon_Feature_Verification.ino.map",
+      "destination": "releases/baseline/verification-zero/Jolteon_Feature_Verification.ino.map",
+      "sha256_at_import": "d02ebfd456a05a57cce312b8bd97520c15b9cae3a8dd708ae0a6778b169d5ba8"
+    },
+    {
+      "source": "Previous official-bootloader verification release/Jolteon_Feature_Verification.ino.with_bootloader.bin",
+      "destination": "releases/baseline/verification-zero/Jolteon_Feature_Verification.ino.with_bootloader.bin",
+      "sha256_at_import": "0d64c655eeb97b871752de5c1368e3ec821b5aba0056d1ae81403f0b9c81e1be"
+    },
+    {
+      "source": "Previous official-bootloader verification release/Jolteon_Feature_Verification.ino.with_bootloader.hex",
+      "destination": "releases/baseline/verification-zero/Jolteon_Feature_Verification.ino.with_bootloader.hex",
+      "sha256_at_import": "72568d3b78f3c4ab071c7f6ef7270fdb9226cbfca479acc7eb824debed80d1eb"
+    },
+    {
+      "source": "Previous official-bootloader verification release/README.md",
+      "destination": "releases/baseline/verification-zero/README.md",
+      "sha256_at_import": "a36bbe848a9ee3d0cd6b0a9fc87758b12b0fec6d77319f7acc3195b5c85d46f5"
+    },
+    {
+      "source": "Previous official-bootloader verification release/samd21_sam_ba.bin",
+      "destination": "releases/baseline/verification-zero/samd21_sam_ba.bin",
+      "sha256_at_import": "89b9255d2f0bfa90371772b4e2eff78aa6069c6e612eb35737e964074ad8512b"
+    },
+    {
+      "source": "Previous official-bootloader verification release/SHA256SUMS.txt",
+      "destination": "releases/baseline/verification-zero/SHA256SUMS.txt",
+      "sha256_at_import": "90dbc94a8b3ee6bd0296d42d0b87d8467f5514fd0891c06a7d122b5477757081"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/application.bin",
+      "destination": "releases/bridge/jolteon-0.4.0/application.bin",
+      "sha256_at_import": "c415292c60f12ad566267617ccb675f81606053b47eef575a820db75fb9fa787"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/application.hex",
+      "destination": "releases/bridge/jolteon-0.4.0/application.hex",
+      "sha256_at_import": "550c3e39c3f7f691a9dc669aa2a9b22683e09fb9d7dd701d39ffa33f456239f7"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/BUILD_MANIFEST.json",
+      "destination": "releases/bridge/jolteon-0.4.0/BUILD_MANIFEST.json",
+      "sha256_at_import": "51e7dfbb19fba40b5c63bed904312cf94b0e3554466b3ba8dccfb6291ac5e844"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/merged.hex",
+      "destination": "releases/bridge/jolteon-0.4.0/merged.hex",
+      "sha256_at_import": "f26e1e67f177c697f5aaa1efd532ae44f9b74e05e2cbb478d9e84e0253fa5be1"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/network_core.bin",
+      "destination": "releases/bridge/jolteon-0.4.0/network_core.bin",
+      "sha256_at_import": "a1c008b0f2b870ccdecaa459415f6d891f15c6c96acde92428a71a00bf237eae"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/network_core.hex",
+      "destination": "releases/bridge/jolteon-0.4.0/network_core.hex",
+      "sha256_at_import": "67bc3545d944938b486394cde4446b80919fac15c545fb34d728ca47c1758a77"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/README.md",
+      "destination": "releases/bridge/jolteon-0.4.0/README.md",
+      "sha256_at_import": "0f0f66f74f7a99d32c16f9a056cb83249824210492e8fb26e7fabec5ff2ab9e2"
+    },
+    {
+      "source": "Current bridge release/jolteon-0.4.0/SHA256SUMS.txt",
+      "destination": "releases/bridge/jolteon-0.4.0/SHA256SUMS.txt",
+      "sha256_at_import": "e64aea9b5538f28a5484e89dc80aae1c255ec5b31fda1a1e84be18b67e5c808e"
+    },
+    {
+      "source": "User-supplied reference/OPEnS_Jolteon_WT02E40E_Hardware_Reference (1).docx",
+      "destination": "docs/reference/OPEnS_Jolteon_WT02E40E_Hardware_Reference (1).docx",
+      "sha256_at_import": "a42163189a66f9589b0c5779f58ee5c4b23667aa22c8ea0b24e24a01f1efca99"
+    },
+    {
+      "source": "User-supplied reference/Jolteon_Nordic_Schematic.pdf",
+      "destination": "docs/reference/Jolteon_Nordic_Schematic.pdf",
+      "sha256_at_import": "79426a1837c7ef915e0656ae7afb5de16b72d23c3ab2e71aba024c8cf39358d9"
+    },
+    {
+      "source": "User-supplied reference/Atmel-42181-SAM-D21_Datasheet.pdf",
+      "destination": "docs/reference/Atmel-42181-SAM-D21_Datasheet.pdf",
+      "sha256_at_import": "f37d9c3461da07917dc706c0f6a336bb219e0ebcc285295c651e256a7bc89132"
+    },
+    {
+      "source": "User-supplied reference/OPEnS  Jolteon WT02E40E BOM.xlsx",
+      "destination": "docs/reference/OPEnS  Jolteon WT02E40E BOM.xlsx",
+      "sha256_at_import": "b27f16fd70525ca834f3f5f5a3c059b227330b3bd5fff5c7365e93de20963b66"
+    },
+    {
+      "source": "User-supplied reference/Jolteon Hardware Bring-up.pdf",
+      "destination": "docs/reference/Jolteon Hardware Bring-up.pdf",
+      "sha256_at_import": "839fbb288c6e84db599625df0ae7198ec5df59fc97cfb8723f05c09f147b3480"
+    }
+  ]
+}

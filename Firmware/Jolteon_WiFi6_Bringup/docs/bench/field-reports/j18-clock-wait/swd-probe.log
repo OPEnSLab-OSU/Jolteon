@@ -1,0 +1,149 @@
+Open On-Chip Debugger 0.12.0 (2026-03-02) [https://github.com/sysprogs/openocd]
+Licensed under GNU GPL v2
+libusb1 d52e355daa09f17ce64819122cb067b8a2ee0d4b
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+1. Connecting and halting CPU; flash is not erased or programmed.
+Info : STLINK V2J29S7 (API v2) VID:PID 0483:3748
+Info : Target voltage: 3.266622
+Info : clock speed 100 kHz
+Info : SWD DPIDR 0x0bc11477
+Info : [at91samd21j18.cpu] Cortex-M0+ r0p1 processor detected
+Info : [at91samd21j18.cpu] target has 4 breakpoints, 2 watchpoints
+Info : [at91samd21j18.cpu] Examination succeed
+Info : [at91samd21j18.cpu] gdb port disabled
+Warn : [at91samd21j18.cpu] target was in unknown state when halt was requested
+J18_RESULT|connection|PASS|Debug port connected and CPU halted.
+J18_VALUE|CPUID|0x410cc601
+J18_VALUE|DSU_DID|0x10010300
+J18_RESULT|cpu_identity|PASS|Cortex-M0+ CPU identification.
+J18_RESULT|chip_identity|PASS|SAMD21J18A device identification.
+Info : SAMD MCU: SAMD21J18A (256KB Flash, 32KB RAM)
+--- CPU snapshot: attached ---
+J18_VALUE|attached.pc|0x0000401a
+J18_VALUE|attached.msp|0x20007fd8
+J18_VALUE|attached.xpsr|0x61000000
+J18_VALUE|attached.active_exception|0
+J18_VALUE|attached.vtor|0x00002000
+J18_VALUE|attached.reset_cause|0x40
+J18_VALUE|attached.PORTA.DIR|0x08002020
+J18_VALUE|attached.PORTA.OUT|0x00000000
+J18_VALUE|attached.PORTA.IN|0x80000000
+J18_VALUE|attached.PORTB.DIR|0xc0006000
+J18_VALUE|attached.PORTB.OUT|0x00006000
+J18_VALUE|attached.PORTB.IN|0x00000000
+J18_VALUE|attached.pin.LED|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.NRF_EN|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.NRF_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.NRF_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.NRF_TX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.NRF_RX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.LTE_TX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.LTE_RX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.LTE_PWR|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.LTE_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SDA|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SCL|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.MUX_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.RTC_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.RADIO_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.RADIO_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.RADIO_CS|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SD_CS|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SDI|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.BATTERY|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SPI0_SCK|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SPI0_MISO|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SPI0_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SPI1_SCK|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SPI1_MISO|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.pin.SPI1_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|attached.APBAMASK|0x0000007f
+J18_VALUE|attached.APBBMASK|0x0000007f
+J18_VALUE|attached.APBCMASK|0x00010000
+J18_VALUE|attached.SERCOM0|APB clock disabled; register reads skipped.
+J18_VALUE|attached.SERCOM1|APB clock disabled; register reads skipped.
+J18_VALUE|attached.SERCOM2|APB clock disabled; register reads skipped.
+J18_VALUE|attached.SERCOM3|APB clock disabled; register reads skipped.
+J18_VALUE|attached.SERCOM4|APB clock disabled; register reads skipped.
+J18_VALUE|attached.SERCOM5|APB clock disabled; register reads skipped.
+J18_VALUE|attached.stack_words|0x20000090 0x4df0 0x410044cc 0x3e8b 0x0 0x7ff7 0x410044cc 0x9ff 0x8fd9e289 0x0
+2. Reading vectors, boot protection and saved-image comparisons.
+J18_VALUE|boot.sp|0x20007c00
+J18_VALUE|boot.reset|0x00000859
+J18_RESULT|boot.vectors|PASS|Stack and Thumb reset address are in range.
+J18_VALUE|app.sp|0x20007ff8
+J18_VALUE|app.reset|0x00003e7d
+J18_RESULT|app.vectors|PASS|Stack and Thumb reset address are in range.
+J18_VALUE|BOOTPROT|2
+J18_RESULT|boot_protection|PASS|BOOTPROT encodes the expected 8 KB protected region.
+J18_RESULT|boot.flash|PASS|Installed flash matches the saved image.
+J18_RESULT|app.flash|PASS|Installed flash matches the saved image.
+3. One software reset, then hardware breakpoints through startup.
+[at91samd21j18.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x61000000 pc: 0x00000858 msp: 0x20007c00
+J18_RESULT|software_reset|PASS|SYSRESETREQ reset and halt succeeded without a reset wire.
+[at91samd21j18.cpu] halted due to breakpoint, current mode: Thread 
+xPSR: 0x61000000 pc: 0x00003e7c msp: 0x20007ff8
+J18_RESULT|app_entry|PASS|Reached hardware breakpoint at 0x00003e7c.
+Error: timed out while waiting for target halted
+[at91samd21j18.cpu] halted due to debug-request, current mode: Thread 
+xPSR: 0x61000000 pc: 0x0000401a msp: 0x20007fd8
+J18_RESULT|setup|FAIL|Did not reach checkpoint within 12000 ms; PC=0x0000401a. Could be a wait, fault, reset, or bootloader mode.
+--- CPU snapshot: setup ---
+J18_VALUE|setup.pc|0x0000401a
+J18_VALUE|setup.msp|0x20007fd8
+J18_VALUE|setup.xpsr|0x61000000
+J18_VALUE|setup.active_exception|0
+J18_VALUE|setup.vtor|0x00002000
+J18_VALUE|setup.reset_cause|0x40
+J18_VALUE|setup.PORTA.DIR|0x08002020
+J18_VALUE|setup.PORTA.OUT|0x00000000
+J18_VALUE|setup.PORTA.IN|0x80000000
+J18_VALUE|setup.PORTB.DIR|0xc0006000
+J18_VALUE|setup.PORTB.OUT|0x00006000
+J18_VALUE|setup.PORTB.IN|0x00000000
+J18_VALUE|setup.pin.LED|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.NRF_EN|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.NRF_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.NRF_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.NRF_TX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.NRF_RX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.LTE_TX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.LTE_RX|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.LTE_PWR|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.LTE_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SDA|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SCL|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.MUX_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.RTC_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.RADIO_RST|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.RADIO_IRQ|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.RADIO_CS|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SD_CS|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SDI|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.BATTERY|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SPI0_SCK|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SPI0_MISO|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SPI0_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SPI1_SCK|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SPI1_MISO|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.pin.SPI1_MOSI|PINCFG=0x00 PMUX=0 enabled=0
+J18_VALUE|setup.APBAMASK|0x0000007f
+J18_VALUE|setup.APBBMASK|0x0000007f
+J18_VALUE|setup.APBCMASK|0x00010000
+J18_VALUE|setup.SERCOM0|APB clock disabled; register reads skipped.
+J18_VALUE|setup.SERCOM1|APB clock disabled; register reads skipped.
+J18_VALUE|setup.SERCOM2|APB clock disabled; register reads skipped.
+J18_VALUE|setup.SERCOM3|APB clock disabled; register reads skipped.
+J18_VALUE|setup.SERCOM4|APB clock disabled; register reads skipped.
+J18_VALUE|setup.SERCOM5|APB clock disabled; register reads skipped.
+J18_VALUE|setup.stack_words|0x20000090 0x4df0 0x410044cc 0x3e8b 0x0 0x7ff7 0x410044cc 0x9ff 0x8fd9e289 0x0
+J18_RESULT|loop|SKIP|Earlier startup checkpoint was not reached.
+J18_RESULT|loop_again|SKIP|Earlier startup checkpoint was not reached.
+J18_RESULT|cleanup|PASS|Probe breakpoints removed and CPU resumed without another reset.
+shutdown command invoked
+C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/tools/swd_probe_body.cfg:183: Error: 
+Traceback (most recent call last):
+  File "C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/tools/swd_probe_body.cfg", line 183, in script
+    shutdown error

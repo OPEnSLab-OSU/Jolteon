@@ -1,0 +1,32 @@
+{
+  "mode": "startup",
+  "hardware_access_attempted": true,
+  "flash_programmed": false,
+  "sketch": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\sketches\\SAMD21J18_Blinky",
+  "results": [
+    {
+      "check": "connection",
+      "status": "FAIL",
+      "description": "init mode failed (unable to connect to the target)"
+    }
+  ],
+  "values": {},
+  "compare_local_images": true,
+  "app_offset": 8192,
+  "samd21_sam_ba.bin_sha256": "acc7108b159e9043fabe0c70c95f68322cc91566b09c547168e8d8667917afe0",
+  "firmware.sketch.bin_sha256": "d223e51ba2be04fa0e793e9ed71cfa4081a60a57971b69e827688694189b5d78",
+  "elf": "C:\\Users\\brews\\Documents\\Arduino\\SAMD21J18_Blinky\\Jolteon_Bringup\\sketches\\SAMD21J18_Blinky\\.j18-build\\firmware\\firmware.sketch.elf",
+  "symbols_note": "ELF flash load image exactly matches the saved application.",
+  "saved_board_profile": "opens:samd:jolteon_j18",
+  "requested_board_map": "jolteon",
+  "pin_map_source": "saved sketch configuration",
+  "openocd_errors": [
+    "init mode failed (unable to connect to the target)"
+  ],
+  "adapter_target_voltage_v": 3.276216,
+  "diagnosis": [
+    "ST-LINK reported target voltage 3.276 V, but OpenOCD could not connect to the target debug port. CPU, installed flash and oscillator state were not inspected.",
+    "Close other probe sessions; power-cycle the target and reconnect ST-LINK, then try D -> 3. Check SWDIO PA31, SWCLK PA30, common ground and stable target power. If it persists, a RESET/NRST wire with connect-under-reset can help recovery; the current configuration has no reset wire."
+  ],
+  "status": "FAIL"
+}

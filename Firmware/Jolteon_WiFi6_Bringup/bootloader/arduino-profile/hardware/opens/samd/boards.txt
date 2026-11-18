@@ -1,0 +1,32 @@
+# Generated from board.json. Core recipes inherited from arduino:samd.
+jolteon_j18.name=OPEnS Jolteon SAMD21J18 (Native USB)
+jolteon_j18.build.core=arduino:arduino
+jolteon_j18.build.variant=jolteon_j18
+jolteon_j18.build.board=SAMD_JOLTEON_J18
+jolteon_j18.build.mcu=cortex-m0plus
+jolteon_j18.build.f_cpu=48000000L
+jolteon_j18.build.extra_flags=-D__SAMD21J18A__ -DJ18_REVISED_SPI0=0 -DJ18_REVISED_SPI1=0 {build.usb_flags} -DCRYSTALLESS
+jolteon_j18.build.ldscript=flash_with_bootloader.ld
+jolteon_j18.build.variant_system_lib=
+jolteon_j18.build.vid=0x2341
+jolteon_j18.build.pid=0x804d
+jolteon_j18.build.usb_product="Jolteon SAMD21"
+jolteon_j18.build.usb_manufacturer="OPEnS"
+jolteon_j18.upload.tool=arduino:bossac
+jolteon_j18.upload.tool.default=arduino:bossac
+jolteon_j18.upload.protocol=sam-ba
+jolteon_j18.upload.maximum_size=253952
+jolteon_j18.upload.maximum_data_size=32760
+jolteon_j18.upload.use_1200bps_touch=true
+jolteon_j18.upload.wait_for_upload_port=true
+jolteon_j18.upload.native_usb=true
+jolteon_j18.bootloader.file=jolteon/samd21_sam_ba.bin
+jolteon_j18.bootloader.size=0x2000
+jolteon_j18.vid.0=0x2341
+jolteon_j18.pid.0=0x804d
+jolteon_j18.upload_port.0.vid=0x2341
+jolteon_j18.upload_port.0.pid=0x804d
+jolteon_j18.vid.1=0x2341
+jolteon_j18.pid.1=0x4d
+jolteon_j18.upload_port.1.vid=0x2341
+jolteon_j18.upload_port.1.pid=0x4d

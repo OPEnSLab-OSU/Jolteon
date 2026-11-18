@@ -1,0 +1,100 @@
+{
+  "fqbn": "opens:samd:jolteon_j18",
+  "bootloader": "configured Jolteon crystal-less",
+  "bootloader_sha256": "8212f5205a7b779eb8a363fd8e21506fbd92530ef3274369d02ec11719a2b173",
+  "hardware_tested": true,
+  "hardware_validation": "User D1 full SWD startup PASS, 2026-10-14. See docs/BENCH_ACCEPTANCE.md; peripheral acceptance remains open.",
+  "board_config": {
+    "revision": "jolteon-current-2026-10",
+    "version": "0.1.1",
+    "mcu": "__SAMD21J18A__",
+    "crystalless": true,
+    "usb": {
+      "manufacturer": "OPEnS",
+      "product": "Jolteon SAMD21",
+      "vid": 9025,
+      "boot_pid": 77,
+      "app_pid": 32845
+    },
+    "boot_indicator": false,
+    "pins": {
+      "LED": "PA05",
+      "NRF_EN": "PA13",
+      "NRF_RST": "PA14",
+      "NRF_IRQ": "PA15",
+      "NRF_TX": "PA22",
+      "NRF_RX": "PA23",
+      "LTE_TX": "PA16",
+      "LTE_RX": "PA17",
+      "LTE_PWR": "PB30",
+      "LTE_RST": "PB31",
+      "SDA": "PA08",
+      "SCL": "PA09",
+      "MUX_RST": "PB23",
+      "RTC_IRQ": "PA19",
+      "RADIO_RST": "PA27",
+      "RADIO_IRQ": "PA28",
+      "RADIO_CS": "PB13",
+      "SD_CS": "PB14",
+      "SDI": "PB15",
+      "BATTERY": "PB07",
+      "SPI0_SCK": "PB10",
+      "SPI0_MISO": "PB11",
+      "SPI0_MOSI": "PB12",
+      "SPI1_SCK": "PB16",
+      "SPI1_MISO": "PB17",
+      "SPI1_MOSI": "PB22"
+    },
+    "safe_outputs": {
+      "NRF_EN": 0,
+      "LTE_PWR": 0,
+      "LTE_RST": 0,
+      "RADIO_RST": 0,
+      "SD_CS": 0,
+      "RADIO_CS": 0
+    },
+    "high_impedance": [
+      "NRF_RST",
+      "NRF_TX",
+      "NRF_RX",
+      "NRF_IRQ",
+      "LTE_TX",
+      "LTE_RX",
+      "MUX_RST",
+      "RTC_IRQ",
+      "RADIO_IRQ",
+      "SDI",
+      "BATTERY",
+      "SDA",
+      "SCL",
+      "SPI0_SCK",
+      "SPI0_MISO",
+      "SPI0_MOSI",
+      "SPI1_SCK",
+      "SPI1_MISO",
+      "SPI1_MOSI"
+    ]
+  },
+  "profile_signature": "eb8afb6df9870be3879f5dfe2bbfb9a7903950350d05ebcd88fe16bd9e79e2ca",
+  "source_sha256": {
+    "SAMD21J18_Blinky.ino": "8deb1a2c57ef644f9d13997289f524a1b4efc5632f802416b22120ba11f45526",
+    "J18BuildOverrides.h": "bad0424e0ecb4b76ea1f7f1771e99bb2b3089d038a8feb7ce70f5333a18b3af9"
+  },
+  "images": {
+    "firmware.sketch.bin": {
+      "sha256": "523fcf848c3258bcf70e39a6ab8bef060d2e013e038522a12cf5f23ab8c96314",
+      "bytes": 11956,
+      "flash_offset": 8192
+    },
+    "firmware.with_bootloader.bin": {
+      "sha256": "4b3f19466a7dd109b51f828bb28d2d57b4f08c7513ed6d7b6c7660ce425198e0",
+      "bytes": 20148,
+      "flash_offset": 0
+    },
+    "samd21_sam_ba.bin": {
+      "sha256": "8212f5205a7b779eb8a363fd8e21506fbd92530ef3274369d02ec11719a2b173",
+      "bytes": 5348,
+      "flash_offset": 0
+    }
+  }
+}

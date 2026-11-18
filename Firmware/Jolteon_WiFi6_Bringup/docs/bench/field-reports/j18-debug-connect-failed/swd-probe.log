@@ -1,0 +1,15 @@
+Open On-Chip Debugger 0.12.0 (2026-03-02) [https://github.com/sysprogs/openocd]
+Licensed under GNU GPL v2
+libusb1 d52e355daa09f17ce64819122cb067b8a2ee0d4b
+For bug reports, read
+	http://openocd.org/doc/doxygen/bugs.html
+1. Connecting and halting CPU; flash is not erased or programmed.
+Info : STLINK V2J29S7 (API v2) VID:PID 0483:3748
+Info : Target voltage: 3.276216
+Error: init mode failed (unable to connect to the target)
+J18_RESULT|connection|FAIL|OpenOCD target initialization/CPU halt failed; see the preceding adapter error.
+shutdown command invoked
+C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/tools/swd_probe_body.cfg:290: Error: 
+Traceback (most recent call last):
+  File "C:/Users/brews/Documents/Arduino/SAMD21J18_Blinky/Jolteon_Bringup/tools/swd_probe_body.cfg", line 290, in script
+    shutdown error

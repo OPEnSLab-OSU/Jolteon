@@ -1,0 +1,14 @@
+{
+  "auto_profile_smoke.ps1": ".build/auto_profile_smoke.ps1",
+  "auto_profile_unix_smoke.py": ".build/auto_profile_unix_smoke.py",
+  "check-reset-recovery.ps1": ".build/check-reset-recovery.ps1",
+  "combined_profile_smoke.ps1": ".build/combined_profile_smoke.ps1",
+  "config-menu-final.py": ".build/config-menu-final.py",
+  "config-menu-smoke.ps1": ".build/config-menu-smoke.ps1",
+  "config-menu-smoke.py": ".build/config-menu-smoke.py",
+  "cross_platform_menu_smoke.py": ".build/cross_platform_menu_smoke.py",
+  "profile_menu_smoke.ps1": ".build/profile_menu_smoke.ps1",
+  "run_cache_smoke.ps1": ".build/run_cache_smoke.ps1",
+  "run_menu_smoke.ps1": ".build/run_menu_smoke.ps1",
+  "test-default-menu-action.py": ".build/test-default-menu-action.py"
+}

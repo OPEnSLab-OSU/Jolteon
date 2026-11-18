@@ -1,0 +1,114 @@
+{
+  "sdk_root": "C:\\ncs\\v3.3.1",
+  "sdk_version_file": "3.3.1",
+  "toolchain_root": "C:\\ncs\\toolchains\\936afb6332",
+  "compiler": "arm-zephyr-eabi-gcc.exe (Zephyr SDK 0.17.0) 12.2.0",
+  "board": "nrf7002dk/nrf5340/cpuapp",
+  "sysbuild": true,
+  "hardware_tested": false,
+  "imported_bridge_commit": "d04599003575f9e2c5acb4400d0b186a87c38e84",
+  "core_vector_bases": {
+    "application": 0,
+    "network": 16777216
+  },
+  "merged_hex_roundtrip_verified": true,
+  "both_core_vectors_verified": true,
+  "source_sha256": {
+    "app.overlay": "9035e2f3efa8b2e7726c10c0b057c19807592e6409900357e9553a6f5a27c628",
+    "boards/jolteon_uart.overlay": "4f053415c887fc0851cf7ee2185ba936d9b65c748b74b2e22ea529c4181f3f60",
+    "CMakeLists.txt": "e1905573986462c9c875fca395bdfe623160785aa8f41af4774ce89c81cc31f3",
+    "Kconfig": "fc2afeab1eb851be9b9b896aea9bf9c5319cd99fc83232a09ee6c6cb5e827f8f",
+    "overlay-zperf.conf": "cf2c8dd88d608d2a8ceaa0d00a910e27489caa6df9237a8e8d5d49491d34fd90",
+    "prj.conf": "5d1f57208f536a742e2e4168f22c619d5256c3b041c9b3dab1f8c5119d1f26a6",
+    "sample.yaml": "da9adcab62cbc3c04922e88a278697bfedc08d77daa1c09dbdcbdd1b9657d2a8",
+    "src/main.c": "9763bcf17c3bb6471ebc15b352f5ae1e67a2be760898ff1cf903aa5ab2875cbc",
+    "src/wt_app.c": "055e4808e9cbe4f047d5a69ea1e9bf41321d4e596f109b3886c9b4c071ca4d85",
+    "src/wt_app.h": "0dabe95b3880c0b9b849315a7c1f0112b4131ac9b86f5ed3f879ce94d2fc22e5",
+    "src/wt_ble.c": "8b93d918659b50d01892d5ba5361ffed8293391a96b761f2c1430209f79c9844",
+    "src/wt_ble.h": "da0cd5a993edafcec6566c7d25411b19b6cc435a4a91a6d71ac1546707420504",
+    "src/wt_common.c": "f1a18a621c22d5a783d6c1bd903a385fab278726bba509fcaf584c3aab775031",
+    "src/wt_common.h": "59cceafb1a3395853129e038a0118711c9c369c2b184f94391b4a5c7382b5bca",
+    "src/wt_config.h": "a9676b525fa3bac7da165156c3570958305d8e8f8d932eb83f3249cecb24b7d5",
+    "src/wt_leds.c": "b1a338a60eb97ae003607233fe948946bbd8de0a59bbf9b3f75fadd3823a136e",
+    "src/wt_leds.h": "84544d8031fcc6d67f812e9097212153fd25ed4599451796181c3a65e4d64471",
+    "src/wt_radio.c": "df456e604be5e11e765276b05f7c42ed711a02474e2d2037663829b26b06453b",
+    "src/wt_radio.h": "9c73c866ea1f397ba10e4202d90bc47778acdb66c509da36c78303f9c57e0f28",
+    "src/wt_shell.c": "66ccfd3ff13d94b30f03b47cda1788ed4c4bb607883478458fa68eeb7cdb14bf",
+    "src/wt_stream.c": "8acc13f9ccab7c0b5d1467e9eb68982e0927e948476db0afc05f81c156744033",
+    "src/wt_stream.h": "1592a0885a3e0c03140ea455d67753b344d9e262c2744f4b93173f318d78fa30",
+    "src/wt_tx_route.c": "108de15fadfe8728c3532c5736a7fd56040918fad01b833d56ca2e5ab5bd1f03",
+    "src/wt_tx_route.h": "5c1db2463d1bba0c3c6633ccd354120e2ce56ce39776e97e3f8809f348560e22",
+    "src/wt_wifi.c": "da58975fdb588078dfc471e7e4bc1165da7787b08b8ee6a8da978760b355fd4f",
+    "src/wt_wifi.h": "2aad21bb5faf6b795829445b82c16576e1365219f0a0481ebe5cfb43da5a1323",
+    "sysbuild.conf": "f4029e6e8b51882209e123d2445eff1bf82773bc01e9c2497fc14cc8ee0625c1"
+  },
+  "build_helper_sha256": "44bdda4bcec36be314564cd91fc75a078ad59d2eeca0888a875d5873599fb39a",
+  "build_receipt": {
+    "build_succeeded": true,
+    "source_sha256": {
+      "app.overlay": "9035e2f3efa8b2e7726c10c0b057c19807592e6409900357e9553a6f5a27c628",
+      "boards/jolteon_uart.overlay": "4f053415c887fc0851cf7ee2185ba936d9b65c748b74b2e22ea529c4181f3f60",
+      "CMakeLists.txt": "e1905573986462c9c875fca395bdfe623160785aa8f41af4774ce89c81cc31f3",
+      "Kconfig": "fc2afeab1eb851be9b9b896aea9bf9c5319cd99fc83232a09ee6c6cb5e827f8f",
+      "overlay-zperf.conf": "cf2c8dd88d608d2a8ceaa0d00a910e27489caa6df9237a8e8d5d49491d34fd90",
+      "prj.conf": "5d1f57208f536a742e2e4168f22c619d5256c3b041c9b3dab1f8c5119d1f26a6",
+      "sample.yaml": "da9adcab62cbc3c04922e88a278697bfedc08d77daa1c09dbdcbdd1b9657d2a8",
+      "src/main.c": "9763bcf17c3bb6471ebc15b352f5ae1e67a2be760898ff1cf903aa5ab2875cbc",
+      "src/wt_app.c": "055e4808e9cbe4f047d5a69ea1e9bf41321d4e596f109b3886c9b4c071ca4d85",
+      "src/wt_app.h": "0dabe95b3880c0b9b849315a7c1f0112b4131ac9b86f5ed3f879ce94d2fc22e5",
+      "src/wt_ble.c": "8b93d918659b50d01892d5ba5361ffed8293391a96b761f2c1430209f79c9844",
+      "src/wt_ble.h": "da0cd5a993edafcec6566c7d25411b19b6cc435a4a91a6d71ac1546707420504",
+      "src/wt_common.c": "f1a18a621c22d5a783d6c1bd903a385fab278726bba509fcaf584c3aab775031",
+      "src/wt_common.h": "59cceafb1a3395853129e038a0118711c9c369c2b184f94391b4a5c7382b5bca",
+      "src/wt_config.h": "a9676b525fa3bac7da165156c3570958305d8e8f8d932eb83f3249cecb24b7d5",
+      "src/wt_leds.c": "b1a338a60eb97ae003607233fe948946bbd8de0a59bbf9b3f75fadd3823a136e",
+      "src/wt_leds.h": "84544d8031fcc6d67f812e9097212153fd25ed4599451796181c3a65e4d64471",
+      "src/wt_radio.c": "df456e604be5e11e765276b05f7c42ed711a02474e2d2037663829b26b06453b",
+      "src/wt_radio.h": "9c73c866ea1f397ba10e4202d90bc47778acdb66c509da36c78303f9c57e0f28",
+      "src/wt_shell.c": "66ccfd3ff13d94b30f03b47cda1788ed4c4bb607883478458fa68eeb7cdb14bf",
+      "src/wt_stream.c": "8acc13f9ccab7c0b5d1467e9eb68982e0927e948476db0afc05f81c156744033",
+      "src/wt_stream.h": "1592a0885a3e0c03140ea455d67753b344d9e262c2744f4b93173f318d78fa30",
+      "src/wt_tx_route.c": "108de15fadfe8728c3532c5736a7fd56040918fad01b833d56ca2e5ab5bd1f03",
+      "src/wt_tx_route.h": "5c1db2463d1bba0c3c6633ccd354120e2ce56ce39776e97e3f8809f348560e22",
+      "src/wt_wifi.c": "da58975fdb588078dfc471e7e4bc1165da7787b08b8ee6a8da978760b355fd4f",
+      "src/wt_wifi.h": "2aad21bb5faf6b795829445b82c16576e1365219f0a0481ebe5cfb43da5a1323",
+      "sysbuild.conf": "f4029e6e8b51882209e123d2445eff1bf82773bc01e9c2497fc14cc8ee0625c1"
+    },
+    "build_helper_sha256": "44bdda4bcec36be314564cd91fc75a078ad59d2eeca0888a875d5873599fb39a",
+    "receipt_tool_sha256": "b6568ba879b6a624980663f0e4228df25e0dc38ce18a237e1d772cbc0b75ea30",
+    "sdk_root": "C:\\ncs\\v3.3.1",
+    "toolchain_root": "C:\\ncs\\toolchains\\936afb6332",
+    "sdk_version_file": "3.3.1",
+    "board": "nrf7002dk/nrf5340/cpuapp",
+    "extra_overlay": "boards/jolteon_uart.overlay",
+    "images_sha256": {
+      "application.hex": "031b893cc45d35f65914c4406ef18872baf5b4b2cb253a772eac5eb9cfde360e",
+      "network_core.hex": "67bc3545d944938b486394cde4446b80919fac15c545fb34d728ca47c1758a77",
+      "application.bin": "063a6452af97def1a71e162c9076d7ea5c938ac42e6493815335e1f6587a940e",
+      "network_core.bin": "a1c008b0f2b870ccdecaa459415f6d891f15c6c96acde92428a71a00bf237eae"
+    },
+    "compiler": "arm-zephyr-eabi-gcc.exe (Zephyr SDK 0.17.0) 12.2.0"
+  },
+  "images": {
+    "application.bin": {
+      "sha256": "063a6452af97def1a71e162c9076d7ea5c938ac42e6493815335e1f6587a940e",
+      "bytes": 711584
+    },
+    "application.hex": {
+      "sha256": "031b893cc45d35f65914c4406ef18872baf5b4b2cb253a772eac5eb9cfde360e",
+      "bytes": 2001495
+    },
+    "full_dual_core.hex": {
+      "sha256": "e611df6bd25f6e5b1aa485858e963a150ba051cd26f2de558b8ff78c7728ef9a",
+      "bytes": 2351088
+    },
+    "network_core.bin": {
+      "sha256": "a1c008b0f2b870ccdecaa459415f6d891f15c6c96acde92428a71a00bf237eae",
+      "bytes": 143292
+    },
+    "network_core.hex": {
+      "sha256": "67bc3545d944938b486394cde4446b80919fac15c545fb34d728ca47c1758a77",
+      "bytes": 403052
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "profiles": {
+    "jolteon": {
+      "name": "OPEnS Jolteon SAMD21J18 (Native USB)",
+      "source": "bootloader/arduino-profile",
+      "required_cores": ["arduino:samd@1.8.14"],
+      "integrity": {
+        "manifest": "bootloader/firmware/manifest.json",
+        "field": "profile_sha256",
+        "platform": "opens/samd",
+        "manifest_copies": ["bootloaders/jolteon/manifest.json"]
+      }
+    }
+  }
+}

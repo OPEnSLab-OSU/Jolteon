@@ -1,0 +1,34 @@
+{
+  "fqbn": "opens:samd:jolteon_j18",
+  "bootloader": "jolteon",
+  "bootloader_sha256": "8212f5205a7b779eb8a363fd8e21506fbd92530ef3274369d02ec11719a2b173",
+  "bootloader_crc32": "bc04d938",
+  "hardware_tested": false,
+  "source_sha256": {
+    "J18BuildOverrides.h": "bad0424e0ecb4b76ea1f7f1771e99bb2b3089d038a8feb7ce70f5333a18b3af9",
+    "Jolteon_Blinky.ino": "e3f0eb988d1d962f2ededd9f4a9dcfd9e2aae4b87dbeeb859f07abc1d13937b7"
+  },
+  "build_selection_header": "#pragma once\n#include <Arduino.h>\n#undef PIN_LED_TXL\n#undef PIN_LED_RXL\n#define J18_CORE_USB_LEDS_DISABLED 1\n#undef J18_CUSTOM_BOOTLOADER_BYTES\n#undef J18_CUSTOM_BOOTLOADER_CRC32\n#define J18_CUSTOM_BOOTLOADER_BYTES 5348u\n#define J18_CUSTOM_BOOTLOADER_CRC32 0xbc04d938ul\n",
+  "images": {
+    "firmware.sketch.bin": {
+      "sha256": "9346d305b0a63c2785ed98bf261742a74027874cc75db72c9f48f9c868e01e03",
+      "bytes": 11916,
+      "flash_offset": 8192
+    },
+    "firmware.with_bootloader.bin": {
+      "sha256": "d3a8538b79f017e925c69b3efc11f98c2755c5dc87f2e44671282a1e3ce87337",
+      "bytes": 20108,
+      "flash_offset": 0
+    },
+    "Jolteon_Blinky.ino.bin": {
+      "sha256": "9346d305b0a63c2785ed98bf261742a74027874cc75db72c9f48f9c868e01e03",
+      "bytes": 11916,
+      "flash_offset": 8192
+    },
+    "samd21_sam_ba.bin": {
+      "sha256": "8212f5205a7b779eb8a363fd8e21506fbd92530ef3274369d02ec11719a2b173",
+      "bytes": 5348,
+      "flash_offset": 0
+    }
+  }
+}
