@@ -7,4 +7,8 @@ if not exist build\route-tests mkdir build\route-tests
 cl /nologo /W4 /WX /std:c11 /Isrc tests\test_tx_route.c src\wt_tx_route.c /Febuild\route-tests\test_tx_route.exe /Fobuild\route-tests\
 if errorlevel 1 exit /b 1
 build\route-tests\test_tx_route.exe
+if errorlevel 1 exit /b 1
+cl /nologo /W4 /WX /std:c11 /Isrc tests\test_winc_wire.c src\wt_winc_wire.c /Febuild\route-tests\test_winc_wire.exe /Fobuild\route-tests\
+if errorlevel 1 exit /b 1
+build\route-tests\test_winc_wire.exe
 exit /b %errorlevel%

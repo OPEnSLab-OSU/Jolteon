@@ -40,10 +40,11 @@ Equivalent build from an initialized Nordic SDK terminal:
 west build --sysbuild -b nrf7002dk/nrf5340/cpuapp -d build/jolteon-routing . -- -DEXTRA_DTC_OVERLAY_FILE=boards/jolteon_uart.overlay
 ```
 
-`build/jolteon-routing/merged.hex` contains both cores. The staged copy is
-`firmware/jolteon-0.4.0/merged.hex`; consult its build manifest and SHA256SUMS.
-Use the merged HEX with the existing nRF5340 flashing instructions. The separate
-application `.bin` has no address metadata and does not include the network core.
+The application image is `build/jolteon-routing/merged.hex`. Program the matching
+network image `build/jolteon-routing/merged_CPUNET.hex` as well, or use `west flash
+-d build/jolteon-routing` from the Nordic SDK terminal for both cores. The older
+`firmware/jolteon-0.4.0/` package contains `application.hex` and `network_core.hex`
+as separate files. Its file named `merged.hex` is an application image.
 The SAMD21 flashing batch/configuration is for the SAMD21, not this module.
 
 ## SAMD21 verification fallback

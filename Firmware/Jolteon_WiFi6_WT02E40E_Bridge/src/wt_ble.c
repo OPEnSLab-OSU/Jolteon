@@ -33,6 +33,7 @@ LOG_MODULE_REGISTER(wt_ble, CONFIG_LOG_DEFAULT_LEVEL);
 static bool ble_requested;
 static bool ble_ready;
 static bool ble_advertising;
+static bool ble_adv_requested;
 static bool ble_connected_state;
 static struct bt_conn *ble_conn;
 
@@ -1476,7 +1477,7 @@ static int wt_ble_advertising_start(void)
 
 static void wt_ble_schedule_advertising_restart(void)
 {
-	if (ble_requested && ble_ready && !ble_connected_state) {
+	if (ble_requested && ble_ready && ble_adv_requested && !ble_connected_state) {
 		k_work_schedule(&ble_adv_restart_work,
 				K_MSEC(WT_BLE_ADV_RESTART_DELAY_MS));
 	}
@@ -1486,7 +1487,7 @@ static void wt_ble_adv_restart_work_handler(struct k_work *work)
 {
 	ARG_UNUSED(work);
 
-	if (!ble_requested || !ble_ready || ble_connected_state || ble_advertising) {
+	if (!ble_requested || !ble_ready || !ble_adv_requested || ble_connected_state || ble_advertising) {
 		return;
 	}
 
@@ -1560,7 +1561,7 @@ void wt_ble_init(void)
 	atomic_clear(&ble_cmd_work_busy);
 }
 
-int wt_ble_service_start(void)
+int wt_ble_peripheral_enable(void)
 {
 	int ret;
 
@@ -1582,12 +1583,57 @@ int wt_ble_service_start(void)
 		LOG_INF("Bluetooth initialized");
 	}
 
-	if (ble_connected_state || ble_advertising) {
-		LOG_INF("BLE already active");
-		return 0;
+	return 0;
+}
+
+int wt_ble_advertise_set(bool enable)
+{
+	int ret;
+
+	if (!ble_requested || !ble_ready) {
+		return -ENODEV;
 	}
 
-	return wt_ble_advertising_start();
+	ble_adv_requested = enable;
+	if (enable) {
+		ret = wt_ble_advertising_start();
+		if (ret) {
+			ble_adv_requested = false;
+		}
+		return ret;
+	}
+
+	(void)k_work_cancel_delayable(&ble_adv_restart_work);
+	if (!ble_advertising) {
+		return 0;
+	}
+	ret = bt_le_adv_stop();
+	if (!ret) {
+		ble_advertising = false;
+	}
+	return ret;
+}
+
+int wt_ble_service_start(void)
+{
+	int ret = wt_ble_peripheral_enable();
+
+	return ret ? ret : wt_ble_advertise_set(true);
+}
+
+int wt_ble_address_get(char *buf, size_t size)
+{
+	bt_addr_le_t address;
+	size_t count = 1;
+
+	if (!ble_ready) {
+		return -ENODEV;
+	}
+	bt_id_get(&address, &count);
+	if (!count || address.type != BT_ADDR_LE_PUBLIC) {
+		return -ENOTSUP;
+	}
+	return bt_addr_to_str(&address.a, buf, size) == 17 ? 0 : -EINVAL;
 }
 
 int wt_ble_service_stop(void)
@@ -1595,6 +1641,8 @@ int wt_ble_service_stop(void)
 	int ret = 0;
 
 	ble_requested = false;
+	ble_adv_requested = false;
+	(void)k_work_cancel_delayable(&ble_adv_restart_work);
 
 	if (ble_advertising) {
 		ret = bt_le_adv_stop();
@@ -1707,6 +1755,24 @@ int wt_ble_service_start(void)
 int wt_ble_service_stop(void)
 {
 	return 0;
+}
+
+int wt_ble_peripheral_enable(void)
+{
+	return -ENOTSUP;
+}
+
+int wt_ble_advertise_set(bool enable)
+{
+	ARG_UNUSED(enable);
+	return -ENOTSUP;
+}
+
+int wt_ble_address_get(char *buf, size_t size)
+{
+	ARG_UNUSED(buf);
+	ARG_UNUSED(size);
+	return -ENOTSUP;
 }
 
 int wt_ble_transmit_payload(const uint8_t *data, size_t len)

@@ -12,6 +12,7 @@
 LOG_MODULE_REGISTER(wt_wifi, CONFIG_LOG_DEFAULT_LEVEL);
 
 #include <zephyr/net/ethernet_mgmt.h>
+#include <zephyr/net/dhcpv4.h>
 #include <zephyr/net/net_event.h>
 #include <zephyr/net/net_if.h>
 #include <zephyr/net/socket.h>
@@ -66,6 +67,7 @@ static int64_t wifi_requested_since_ms;
 static volatile bool wifi_connect_requested;
 static volatile bool wifi_scan_auto_power;
 static K_MUTEX_DEFINE(wifi_prepare_lock);
+static K_MUTEX_DEFINE(wifi_connect_lock);
 static volatile bool wifi_cmd_enabled;
 static volatile uint16_t wifi_cmd_port_current = WT_WIFI_CMD_UDP_PORT;
 static volatile bool wifi_discovery_enabled;
@@ -93,6 +95,9 @@ static struct {
 } wifi_context;
 
 static char wifi_ipv4_text[sizeof("255.255.255.255")] = "0.0.0.0";
+static struct net_in_addr wifi_dns_option;
+static struct net_dhcpv4_option_callback wifi_dns_cb;
+static atomic_t wifi_dns_address;
 
 
 struct wt_wifi_scan_entry {
@@ -143,6 +148,29 @@ int wt_wifi_ipv4_get(char *buf, size_t size)
 	}
 
 	snprintk(buf, size, "%s", wifi_context.ipv4_bound ? wifi_ipv4_text : "0.0.0.0");
+	return 0;
+}
+
+int wt_wifi_ipv4_config_get(struct wt_wifi_ipv4_config *config)
+{
+	struct net_if *iface = net_if_get_first_wifi();
+	struct net_in_addr ip, subnet, gateway;
+	struct net_in_addr dns = { 0 };
+	uint32_t dns_value = (uint32_t)atomic_get(&wifi_dns_address);
+
+	if (!iface || !wt_wifi_has_ipv4()) {
+		return -ENOTCONN;
+	}
+	wt_wifi_ipv4_get(config->ip, sizeof(config->ip));
+	if (net_addr_pton(AF_INET, config->ip, &ip)) {
+		return -EIO;
+	}
+	subnet = net_if_ipv4_get_netmask_by_addr(iface, &ip);
+	gateway = net_if_ipv4_get_gw(iface);
+	memcpy(&dns, &dns_value, sizeof(dns_value));
+	net_addr_ntop(AF_INET, &subnet, config->subnet, sizeof(config->subnet));
+	net_addr_ntop(AF_INET, &gateway, config->gateway, sizeof(config->gateway));
+	net_addr_ntop(AF_INET, &dns, config->dns, sizeof(config->dns));
 	return 0;
 }
 
@@ -425,7 +453,7 @@ static int wt_wifi_scan_request_once(struct net_if *iface,
 	return ret;
 }
 
-static int wt_wifi_scan_start(void)
+static int wifi_scan_start(bool bridge_services, unsigned int channel)
 {
 	struct net_if *iface;
 	struct wifi_scan_params params = { 0 };
@@ -440,7 +468,11 @@ static int wt_wifi_scan_start(void)
 	}
 
 	wifi_scan_requested = true;
-	wt_wifi_scan_enable_support_services();
+	if (bridge_services) {
+		wt_wifi_scan_enable_support_services();
+	} else if (!wifi_requested) {
+		wt_wifi_service_set(true);
+	}
 
 	iface = net_if_get_first_wifi();
 	if (!iface) {
@@ -467,6 +499,11 @@ static int wt_wifi_scan_start(void)
 	params.dwell_time_active = 80;
 	params.dwell_time_passive = 120;
 	params.max_bss_cnt = WT_WIFI_SCAN_MAX_RESULTS;
+	if (channel) {
+		params.bands = BIT(WIFI_FREQ_BAND_2_4_GHZ);
+		params.band_chan[0].band = WIFI_FREQ_BAND_2_4_GHZ;
+		params.band_chan[0].channel = channel;
+	}
 
 	for (int attempt = 0; attempt <= WT_WIFI_SCAN_BUSY_RETRY_COUNT; attempt++) {
 		ret = wt_wifi_scan_request_once(iface, &params);
@@ -484,6 +521,51 @@ static int wt_wifi_scan_start(void)
 	}
 
 	return ret;
+}
+
+static int wt_wifi_scan_start(void)
+{
+	return wifi_scan_start(true, 0);
+}
+
+int wt_wifi_scan_visit(unsigned int channel, wt_wifi_scan_visit_fn visit, void *user)
+{
+	struct wt_wifi_scan_entry results[WT_WIFI_SCAN_MAX_RESULTS];
+	int ret = wifi_scan_start(false, channel);
+	int count;
+	int64_t deadline = k_uptime_get() + WT_WIFI_SCAN_TIMEOUT_MS;
+
+	if (ret && (ret != -EALREADY || channel)) {
+		return ret;
+	}
+	for (;;) {
+		k_mutex_lock(&wifi_scan_lock, K_FOREVER);
+		if (!wifi_scan_requested && !wifi_scan_running) {
+			ret = wifi_scan_valid ? wifi_scan_last_status : -EIO;
+			count = wifi_scan_result_count;
+			memcpy(results, wifi_scan_results, sizeof(results));
+			k_mutex_unlock(&wifi_scan_lock);
+			break;
+		}
+		k_mutex_unlock(&wifi_scan_lock);
+		if (k_uptime_get() >= deadline) {
+			return -ETIMEDOUT;
+		}
+		k_sleep(K_MSEC(50));
+	}
+	if (ret) {
+		return ret;
+	}
+	for (int i = 0; i < count; ++i) {
+		const struct wt_wifi_scan_entry *entry = &results[i];
+		if (channel && (entry->channel != channel || entry->band != WIFI_FREQ_BAND_2_4_GHZ)) {
+			continue;
+		}
+
+		visit(entry->ssid, entry->rssi, entry->channel, entry->security,
+		      entry->mac_len == WIFI_MAC_ADDR_LEN ? entry->mac : NULL, user);
+	}
+	return 0;
 }
 
 static int wt_wifi_scan_format_len(char *buf, size_t size, int len)
@@ -1251,6 +1333,131 @@ int wt_wifi_reconnect_if_requested(void)
 	return 0;
 }
 
+int wt_wifi_station_status(struct wifi_iface_status *status)
+{
+	struct net_if *iface = net_if_get_first_wifi();
+
+	return iface ? net_mgmt(NET_REQUEST_WIFI_IFACE_STATUS, iface, status,
+				sizeof(*status)) : -ENODEV;
+}
+
+/* Caller owns wifi_connect_lock. Stop the stored-credential worker before
+ * disconnecting, so a manual station join cannot select a different AP.
+ */
+static int station_leave(void)
+{
+	struct wifi_iface_status status = { 0 };
+	int64_t deadline;
+	int ret;
+
+	wifi_connect_requested = false;
+	if (!wifi_requested) {
+		return 0;
+	}
+	if (!wifi_context.connected) {
+		ret = wt_wifi_station_status(&status);
+		if (ret || status.state <= WIFI_STATE_INACTIVE) {
+			return ret;
+		}
+	}
+	ret = wifi_disconnect();
+	if (ret) {
+		return ret;
+	}
+	deadline = k_uptime_get() + 5000;
+	for (;;) {
+		ret = wt_wifi_station_status(&status);
+		if (ret || (!wifi_context.disconnect_requested && status.state <= WIFI_STATE_INACTIVE)) {
+			return ret;
+		}
+		if (k_uptime_get() >= deadline) {
+			return -ETIMEDOUT;
+		}
+		k_sleep(K_MSEC(50));
+	}
+}
+
+int wt_wifi_station_leave(void)
+{
+	int ret;
+
+	k_mutex_lock(&wifi_connect_lock, K_FOREVER);
+	ret = station_leave();
+	k_mutex_unlock(&wifi_connect_lock);
+	return ret;
+}
+
+int wt_wifi_station_join_channel(const char *ssid, const char *password, unsigned int channel)
+{
+	size_t ssid_len = strlen(ssid);
+	size_t password_len = strlen(password);
+	struct net_if *iface = net_if_get_first_wifi();
+	struct wifi_connect_req_params params = {
+		.ssid = (const uint8_t *)ssid,
+		.psk = (const uint8_t *)password,
+		.band = channel ? WIFI_FREQ_BAND_2_4_GHZ : WIFI_FREQ_BAND_UNKNOWN,
+		.channel = channel ? channel : WIFI_CHANNEL_ANY,
+		.security = password_len ? WIFI_SECURITY_TYPE_PSK : WIFI_SECURITY_TYPE_NONE,
+		.mfp = password_len ? WIFI_MFP_OPTIONAL : WIFI_MFP_DISABLE,
+		.timeout = 15,
+	};
+	int64_t deadline;
+	int ret;
+
+	if (ssid_len == 0 || ssid_len > WIFI_SSID_MAX_LEN || channel > 14 ||
+	    (password_len && (password_len < 8 || password_len > 64)) ||
+	    (password_len == 64 && strspn(password, "0123456789abcdefABCDEF") != 64)) {
+		return -EINVAL;
+	}
+	if (!iface) {
+		return -ENODEV;
+	}
+	params.ssid_length = ssid_len;
+	params.psk_length = password_len;
+	k_mutex_lock(&wifi_connect_lock, K_FOREVER);
+	if (wifi_scan_requested || wifi_scan_running) {
+		ret = -EBUSY;
+		goto out;
+	}
+	ret = station_leave();
+	if (ret) {
+		goto out;
+	}
+	wifi_scan_auto_power = false;
+	wt_wifi_service_set(true);
+	ret = wifi_prepare_once();
+	if (ret) {
+		goto out;
+	}
+	wifi_context.connect_result = false;
+	wifi_context.ipv4_bound = false;
+	ret = net_mgmt(NET_REQUEST_WIFI_CONNECT, iface, &params, sizeof(params));
+	if (ret) {
+		goto out;
+	}
+	deadline = k_uptime_get() + 15000;
+	while (wifi_requested && k_uptime_get() < deadline) {
+		if (wifi_context.connect_result && !wifi_context.connected) {
+			ret = -ENOTCONN;
+			goto out;
+		}
+		if (wifi_context.connected && wifi_context.ipv4_bound) {
+			goto out;
+		}
+		k_sleep(K_MSEC(50));
+	}
+	(void)station_leave();
+	ret = -ETIMEDOUT;
+out:
+	k_mutex_unlock(&wifi_connect_lock);
+	return ret;
+}
+
+int wt_wifi_station_join(const char *ssid, const char *password)
+{
+	return wt_wifi_station_join_channel(ssid, password, 0);
+}
+
 int wt_wifi_status_log(void)
 {
 	struct net_if *iface = net_if_get_first_wifi();
@@ -1335,6 +1542,7 @@ static void handle_wifi_disconnect_result(struct net_mgmt_event_callback *cb)
 	wifi_context.ipv4_bound = false;
 	snprintk(wifi_ipv4_text, sizeof(wifi_ipv4_text), "0.0.0.0");
 	wifi_context.connect_result = true;
+	atomic_clear(&wifi_dns_address);
 
 	wt_wifi_status_log();
 }
@@ -1400,6 +1608,17 @@ static void wifi_mgmt_event_handler(struct net_mgmt_event_callback *cb,
 		break;
 	default:
 		break;
+	}
+}
+
+static void wifi_dhcp_dns(struct net_dhcpv4_option_callback *cb, size_t length,
+			  enum net_dhcpv4_msg_type type, struct net_if *iface)
+{
+	if (iface == net_if_get_first_wifi() && type == NET_DHCPV4_MSG_TYPE_ACK &&
+	    length >= sizeof(wifi_dns_option)) {
+		uint32_t value;
+		memcpy(&value, cb->data, sizeof(value));
+		atomic_set(&wifi_dns_address, (atomic_val_t)value);
 	}
 }
 
@@ -1635,7 +1854,13 @@ static int wifi_worker_loop(void)
 			continue;
 		}
 
+		k_mutex_lock(&wifi_connect_lock, K_FOREVER);
+		if (!wifi_requested || wifi_context.connected || !wifi_connect_requested) {
+			k_mutex_unlock(&wifi_connect_lock);
+			continue;
+		}
 		ret = wifi_connect();
+		k_mutex_unlock(&wifi_connect_lock);
 		if (ret) {
 			k_sleep(K_SECONDS(2));
 			continue;
@@ -2723,6 +2948,10 @@ int wt_wifi_init(void)
 	net_mgmt_init_event_callback(&net_mgmt_cb, net_mgmt_event_handler,
 				     NET_EVENT_IPV4_DHCP_BOUND);
 	net_mgmt_add_event_callback(&net_mgmt_cb);
+	/* DHCP option 6 is the list of IPv4 DNS servers. Keep its first address. */
+	net_dhcpv4_init_option_callback(&wifi_dns_cb, wifi_dhcp_dns, 6,
+				      &wifi_dns_option, sizeof(wifi_dns_option));
+	net_dhcpv4_add_option_callback(&wifi_dns_cb);
 
 	LOG_INF("Wi-Fi management callbacks registered");
 	return 0;

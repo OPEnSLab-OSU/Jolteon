@@ -18,6 +18,9 @@ int wt_ble_name_set(const char *name);
 void wt_ble_init(void);
 int wt_ble_service_start(void);
 int wt_ble_service_stop(void);
+int wt_ble_peripheral_enable(void);
+int wt_ble_advertise_set(bool enable);
+int wt_ble_address_get(char *buf, size_t size);
 int wt_ble_transmit_payload(const uint8_t *data, size_t len);
 int wt_ble_status_format(char *buf, size_t size);
 

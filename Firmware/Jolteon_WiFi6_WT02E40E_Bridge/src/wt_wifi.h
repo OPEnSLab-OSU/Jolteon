@@ -7,18 +7,30 @@
 #include <stdint.h>
 
 #include <zephyr/shell/shell.h>
+#include <zephyr/net/wifi_mgmt.h>
 
 typedef int (*wt_wifi_stream_emit_fn)(const char *data, size_t len, void *user);
+typedef void (*wt_wifi_scan_visit_fn)(const char *ssid, int rssi, unsigned int channel,
+				     enum wifi_security_type security, const uint8_t *bssid,
+				     void *user);
 
 bool wt_wifi_is_requested(void);
 bool wt_wifi_is_associated(void);
 bool wt_wifi_has_ipv4(void);
 int wt_wifi_ipv4_get(char *buf, size_t size);
+struct wt_wifi_ipv4_config {
+	char ip[16], subnet[16], gateway[16], dns[16];
+};
+int wt_wifi_ipv4_config_get(struct wt_wifi_ipv4_config *config);
 int wt_wifi_mac_get(char *buf, size_t size);
 
 int wt_wifi_init(void);
 int wt_wifi_service_set(bool enable);
 int wt_wifi_status_log(void);
+int wt_wifi_station_status(struct wifi_iface_status *status);
+int wt_wifi_station_join(const char *ssid, const char *password);
+int wt_wifi_station_join_channel(const char *ssid, const char *password, unsigned int channel);
+int wt_wifi_station_leave(void);
 int wt_wifi_credentials_print_list(const struct shell *sh);
 int wt_wifi_credentials_format_list(char *buf, size_t buf_len);
 int wt_wifi_credentials_set(const char *ssid, const char *password, const char *security_text, bool replace_all);
@@ -43,6 +55,7 @@ int wt_wifi_scan_format_results(char *buf, size_t size, bool json);
 int wt_wifi_scan_stream_json(wt_wifi_stream_emit_fn emit, void *user);
 bool wt_wifi_scan_is_running(void);
 int wt_wifi_scan_count(void);
+int wt_wifi_scan_visit(unsigned int channel, wt_wifi_scan_visit_fn visit, void *user);
 
 #ifdef CONFIG_WIFI_READY_LIB
 int wt_wifi_register_ready_callback(void);
